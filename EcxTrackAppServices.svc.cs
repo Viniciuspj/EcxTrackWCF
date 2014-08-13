@@ -20,7 +20,6 @@ namespace EcxTrackWCF
                 using (DbEcxTrackEntities entidades = new DbEcxTrackEntities())
                 {
                     TB_Usuario Usuario_Encontrado = entidades.TB_Usuario
-                                                    .Include("TB_Perfil.TB_Permissao")
                                                     .Include("TB_Perfil.TB_TipoPerfil")
                                                     .Where(u => u.Senha == Senha &&
                                                     (u.NomeUsuario == NomeUsuario || u.Email == NomeUsuario)).FirstOrDefault();
@@ -35,7 +34,7 @@ namespace EcxTrackWCF
                         Usuario.Email = Usuario_Encontrado.Email;
                         Usuario.Senha = Usuario_Encontrado.Senha;
                         Usuario.DataValidade = Usuario_Encontrado.DataValidade;
-                        Usuario.CodPerfil = Usuario_Encontrado.TB_Perfil.CodPerfil;
+                        Usuario.Perfil = new Perfil(Usuario_Encontrado.TB_Perfil);
 
                         if (VerificarValidadeUsuario(Usuario_Encontrado))
                         {
@@ -55,7 +54,7 @@ namespace EcxTrackWCF
                         }
                         else
                         {
-                            Usuario.Status = "Invalid";
+                            Usuario.Status = "Invalido";
                             return Usuario;
                         }
                     }
@@ -77,6 +76,17 @@ namespace EcxTrackWCF
                 return tbUser.DataValidade >= DateTime.Now ? true : false;
             else
                 return true;
+        }
+
+
+        public Ponto UltimaLocalizacaoVeiculo(int CodVeiculo)
+        {
+            //select top 1 Latitude, Longitude, Hodometro from TBS_Evento where Equipamento = (select CodEquipamento from TB_VeiculosEquipamentos where CodVeiculo = 12) order by DataEvento desc
+
+
+
+
+            return new Ponto();
         }
 
     }

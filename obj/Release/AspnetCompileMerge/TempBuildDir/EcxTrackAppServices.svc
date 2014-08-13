@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="EcxTrackWCF.EcxTrackAppServices" CodeBehind="EcxTrackAppServices.svc.cs" %>

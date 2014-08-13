@@ -1,0 +1,9 @@
+C:\Users\Vinicius.gontijo\Documents\Visual Studio 2013\Projects\EcxTrackWCF\EcxTrackWCF\bin\EcxTrackWCF.dll.config
+C:\Users\Vinicius.gontijo\Documents\Visual Studio 2013\Projects\EcxTrackWCF\EcxTrackWCF\bin\EcxTrackWCF.dll
+C:\Users\Vinicius.gontijo\Documents\Visual Studio 2013\Projects\EcxTrackWCF\EcxTrackWCF\bin\EcxTrackWCF.pdb
+C:\Users\Vinicius.gontijo\Documents\Visual Studio 2013\Projects\EcxTrackWCF\EcxTrackWCF\bin\EntityFramework.dll
+C:\Users\Vinicius.gontijo\Documents\Visual Studio 2013\Projects\EcxTrackWCF\EcxTrackWCF\bin\EntityFramework.SqlServer.dll
+C:\Users\Vinicius.gontijo\Documents\Visual Studio 2013\Projects\EcxTrackWCF\EcxTrackWCF\bin\EntityFramework.xml
+C:\Users\Vinicius.gontijo\Documents\Visual Studio 2013\Projects\EcxTrackWCF\EcxTrackWCF\bin\EntityFramework.SqlServer.xml
+C:\Users\Vinicius.gontijo\Documents\Visual Studio 2013\Projects\EcxTrackWCF\EcxTrackWCF\obj\Release\EcxTrackWCF.dll
+C:\Users\Vinicius.gontijo\Documents\Visual Studio 2013\Projects\EcxTrackWCF\EcxTrackWCF\obj\Release\EcxTrackWCF.pdb
