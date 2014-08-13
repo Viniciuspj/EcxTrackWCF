@@ -83,11 +83,49 @@ namespace EcxTrackWCF
         {
             //select top 1 Latitude, Longitude, Hodometro from TBS_Evento where Equipamento = (select CodEquipamento from TB_VeiculosEquipamentos where CodVeiculo = 12) order by DataEvento desc
 
+            try
+            {
+                using (DbEcxTrackEntities entidades = new DbEcxTrackEntities())
+                {
+                    var ultimaLocalizacao = (from cv in entidades.TB_VeiculosEquipamentos
+                                             join ev in entidades.TBS_Evento on cv.CodEquipamento equals ev.Equipamento
+                                             where cv.CodVeiculo == CodVeiculo && cv.Ativo == "A" && ev.Latitude != 0 && ev.Longitude != 0
+                                             select new 
+                                             {
+                                                 DataEvento = ev.DataEvento,
+                                                 CodVeiculo = cv.CodVeiculo,
+                                                 CodEvento = ev.Id,
+                                                 CodEquipamento = cv.CodEquipamento,
+                                                 Latitude = ev.Latitude,
+                                                 Longitude = ev.Longitude,
+                                                 Hodometro = ev.Hodometro,
+                                                 CodCliente = entidades.TB_VeiculosClientes.Where(v => v.CodVeiculo == cv.CodVeiculo && v.TipoCliente == "T" && v.Status == "A").FirstOrDefault().TB_Cliente.CodCliente
 
+                                             }).OrderByDescending(ev => ev.DataEvento).FirstOrDefault();
 
+                    if (ultimaLocalizacao != null)
+                    {
+                        Ponto PontoEncontrado = new Ponto();
+                        PontoEncontrado.CodCliente = ultimaLocalizacao.CodCliente;
+                        PontoEncontrado.CodEquipamento = ultimaLocalizacao.CodEquipamento;
+                        PontoEncontrado.CodEvento = ultimaLocalizacao.CodEvento;
+                        PontoEncontrado.CodVeiculo = ultimaLocalizacao.CodVeiculo;
+                        PontoEncontrado.Latitude = ultimaLocalizacao.Latitude;
+                        PontoEncontrado.Longitude = ultimaLocalizacao.Longitude;
+                        PontoEncontrado.Hodometro = ultimaLocalizacao.Hodometro;
 
-            return new Ponto();
+                        return PontoEncontrado;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+            catch
+            {
+                return null;
+            }
         }
-
     }
 }

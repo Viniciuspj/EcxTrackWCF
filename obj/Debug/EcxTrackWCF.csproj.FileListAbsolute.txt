@@ -8,3 +8,13 @@ c:\users\vinicius.gontijo\documents\visual studio 2013\Projects\EcxTrackWCF\EcxT
 c:\users\vinicius.gontijo\documents\visual studio 2013\Projects\EcxTrackWCF\EcxTrackWCF\obj\Debug\EcxTrackWCF.csprojResolveAssemblyReference.cache
 c:\users\vinicius.gontijo\documents\visual studio 2013\Projects\EcxTrackWCF\EcxTrackWCF\obj\Debug\EcxTrackWCF.dll
 c:\users\vinicius.gontijo\documents\visual studio 2013\Projects\EcxTrackWCF\EcxTrackWCF\obj\Debug\EcxTrackWCF.pdb
+D:\Projeto EcxTrack\EcxTrackWCF\EcxTrackWCF\bin\EcxTrackWCF.dll.config
+D:\Projeto EcxTrack\EcxTrackWCF\EcxTrackWCF\bin\EcxTrackWCF.dll
+D:\Projeto EcxTrack\EcxTrackWCF\EcxTrackWCF\bin\EcxTrackWCF.pdb
+D:\Projeto EcxTrack\EcxTrackWCF\EcxTrackWCF\bin\EntityFramework.dll
+D:\Projeto EcxTrack\EcxTrackWCF\EcxTrackWCF\bin\EntityFramework.SqlServer.dll
+D:\Projeto EcxTrack\EcxTrackWCF\EcxTrackWCF\bin\EntityFramework.xml
+D:\Projeto EcxTrack\EcxTrackWCF\EcxTrackWCF\bin\EntityFramework.SqlServer.xml
+D:\Projeto EcxTrack\EcxTrackWCF\EcxTrackWCF\obj\Debug\EcxTrackWCF.csprojResolveAssemblyReference.cache
+D:\Projeto EcxTrack\EcxTrackWCF\EcxTrackWCF\obj\Debug\EcxTrackWCF.dll
+D:\Projeto EcxTrack\EcxTrackWCF\EcxTrackWCF\obj\Debug\EcxTrackWCF.pdb
