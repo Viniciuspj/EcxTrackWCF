@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4b6c296901b04ed784ee6cf9238f65a5" Name="Diagram1" ZoomLevel="13">
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_Acesso" Width="1.5" PointX="9.75" PointY="69.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_AlertaEventos" Width="1.5" PointX="13.5" PointY="36.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_Banco" Width="1.5" PointX="8.25" PointY="60.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_Cerca" Width="1.5" PointX="7.5" PointY="91.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_CercasVeiculos" Width="1.5" PointX="9.75" PointY="91.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_ChipEquipamento" Width="1.5" PointX="15.75" PointY="70" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_Cidade" Width="1.5" PointX="3" PointY="47.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_Cliente" Width="1.5" PointX="5.25" PointY="43.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_ComandosAlertas" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_Complemento" Width="1.5" PointX="7.5" PointY="94.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_Contrato" Width="1.5" PointX="7.5" PointY="97.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_EmailNotificacao" Width="1.5" PointX="12" PointY="25.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_EnderecoPrefCampanha" Width="1.5" PointX="10.5" PointY="52.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_EnderecosEventos" Width="1.5" PointX="18" PointY="64" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_EntradasEquipamento" Width="1.5" PointX="21" PointY="42.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_Equipamento" Width="1.5" PointX="13.5" PointY="63.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_Estado" Width="1.5" PointX="0.75" PointY="48.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_EventoVerificacao" Width="1.5" PointX="5.25" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_Financeiro" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_FusoHorario" Width="1.5" PointX="5.25" PointY="34.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_GoogleCache" Width="1.5" PointX="15.75" PointY="81.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_HorarioOcorrencia" Width="1.5" PointX="3" PointY="24.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_ImagemPontos" Width="1.5" PointX="11.25" PointY="36.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_IntervaloJornada" Width="1.5" PointX="9.75" PointY="103" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_Jornada" Width="1.5" PointX="9.75" PointY="73.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_LogSistema" Width="1.5" PointX="15.75" PointY="48" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_Manutencao" Width="1.5" PointX="12.75" PointY="31.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_Marca" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_Mensagens" Width="1.5" PointX="9.75" PointY="39.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_ModeloEquipamento" Width="1.5" PointX="11.25" PointY="63.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_ModeloVeiculo" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_Motorista" Width="1.5" PointX="7.5" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_NotificaoVeiculo" Width="1.5" PointX="9.75" PointY="26.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_Ocorrencia" Width="1.5" PointX="7.5" PointY="53.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_Operadora" Width="1.5" PointX="11.25" PointY="66.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_OrdemServico" Width="1.5" PointX="13.5" PointY="53.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_Pagina" Width="1.5" PointX="13.5" PointY="60.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_Perfil" Width="1.5" PointX="5.25" PointY="40" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_PerfilRestricao" Width="1.5" PointX="7.5" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_Permissao" Width="1.5" PointX="20.75" PointY="50" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_PessoaProcedimento" Width="1.5" PointX="9.75" PointY="31.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_Pontos" Width="1.5" PointX="13.5" PointY="41.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_PontosCerca" Width="1.5" PointX="9.75" PointY="95.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_PontosRota" Width="1.5" PointX="15.75" PointY="74" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_ReferenciaBancaria" Width="1.5" PointX="10.5" PointY="44.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_RegraJornada" Width="1.5" PointX="7.5" PointY="102.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_Representante" Width="1.5" PointX="13.5" PointY="46.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_RevisaoFuncionamento" Width="1.5" PointX="11.25" PointY="76.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_Rota" Width="1.5" PointX="7.5" PointY="106.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_RotasVeiculos" Width="1.5" PointX="9.75" PointY="106.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_SaidasEquipamento" Width="1.5" PointX="21" PointY="45.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_Servico" Width="1.5" PointX="10.5" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_SmsNotificacao" Width="1.5" PointX="12" PointY="28.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_TipoOcorrencia" Width="1.5" PointX="5.25" PointY="56.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_TipoPerfil" Width="1.5" PointX="3" PointY="40.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_TipoVeiculo" Width="1.5" PointX="5.25" PointY="31.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_TipoVerificacao" Width="1.5" PointX="0.75" PointY="29" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_TratamentoAlerta" Width="1.5" PointX="15.75" PointY="44" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_Usuario" Width="1.5" PointX="7.5" PointY="46" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_Veiculo" Width="1.5" PointX="7.5" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_VeiculosClientes" Width="1.5" PointX="10.5" PointY="47.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_VeiculosEquipamentos" Width="1.5" PointX="18.75" PointY="43.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_Verificacao" Width="1.5" PointX="3" PointY="28.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TBS_Evento" Width="1.5" PointX="15.75" PointY="61.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TBS_Requisicao" Width="1.5" PointX="15.75" PointY="51.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TBS_RequisicaoApn" Width="1.5" PointX="18" PointY="47.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TBS_RequisicaoHodometro" Width="1.5" PointX="18" PointY="50.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TBS_RequisicaoServer" Width="1.5" PointX="18" PointY="53" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TBS_RequisicaoSleepConfig" Width="1.5" PointX="18" PointY="56.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TBS_RequisicaoTempoTransmissao" Width="1.5" PointX="18" PointY="58.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TBS_StatusRequisicao" Width="1.5" PointX="13.5" PointY="71.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TBS_TipoEvento" Width="1.5" PointX="13.5" PointY="74.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TBS_TipoRequisicao" Width="1.5" PointX="13.5" PointY="69.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TB_JornadaMaxima" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEcxTrackModel.TBS_ImeiSimCard" Width="1.5" PointX="15.75" PointY="78" IsExpanded="true" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Acesso_TB_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_AlertaEventos_TB_EventoVerificacao" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_AlertaEventos_TB_Veiculo" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_TratamentoAlerta_TB_AlertaEventos" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_ReferenciaBancaria_TB_Banco" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Cerca_TB_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_CercasVeiculos_TB_Cerca" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_PontosCerca_TB_Cerca" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_CercasVeiculos_TB_Veiculo" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_ChipEquipamento_TB_Equipamento" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Cidade_TB_Estado" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Cliente_TB_Cidade" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Cliente_TB_CidadeCobranca" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Cliente_TB_CidadeCobranca1" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_EnderecoPrefCampanha_TB_Cidade" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Motorista_TB_Cidade" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Ocorrencia_TB_Cidade" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Ocorrencia_TB_Cidade1" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Ocorrencia_TB_Cidade2" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Representante_TB_Cidade" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Usuario_TB_Cidade" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_HistoricoVeiculoCliente_TB_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Cliente_TB_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Complemento_TB_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Contrato_TB_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_EnderecoPrefCampanha_TB_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Motorista_TB_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Ocorrencia_TB_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_OrdemServico_TB_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Pontos_TB_Cliente1" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_ReferenciaBancaria_TB_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_RegraJornada_TB_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Representante_TB_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Rota_TB_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Usuario_TB_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_EmailNotificacao_TB_NotificaoVeiculo" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_EnderecosEventos_TB_GoogleCache" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_EnderecosEventos_TBS_Evento" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_EntradasEquipamento_TB_VeiculosEquipamentos" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_EventoEquipamento" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Equipamento_TB_ModeloEquipamento" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Equipamento_TB_Operadora" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_VeiculosEquipamentos_TB_Equipamento" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TBS_ImeiSimCard_TB_Equipamento" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TBS_Requisicao_TB_Equipamento" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_EventoVerificacao_TB_HorarioOcorrencia" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_EventoVerificacao_TB_Verificacao" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_EventoVerificacao_TB_Verificacao1" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_EventoVerificacao_TB_Verificacao2" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Usuario_TB_FusoHorario" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Veiculo_TB_FusoHorario" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Pontos_TB_ImagemPontos" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_IntervaloJornada_TB_RegraJornada" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Jornada_TB_Motorista" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Jornada_TB_RegraJornada" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Jornada_TB_Veiculo" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_LogSistema_TB_Pagina" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_LogSistema_TB_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Manutencao_TB_Manutencao" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Manutencao_TB_Servico" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_ModeloVeiculo_TB_Marca" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Mensagens_TB_Motorista" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Mensagens_TB_Veiculo" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_NotificaoVeiculo_TB_Veiculo" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_SmsNotificacao_TB_NotificaoVeiculo" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Ocorrencia_TB_TipoOcorrencia" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Ocorrencia_TB_Veiculo" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_OrdemServico_TB_RevisaoFuncionamento" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_OrdemServico_TB_Veiculo" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Permissao_TB_Pagina" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Perfil_TB_TipoPerfil" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_PerfilRestricao_TB_Perfil" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Permissao_TB_Perfil" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Usuario_TB_Perfil" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_PessoasEmergencia_TB_Veiculo" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_PontosRota_TB_Pontos" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_PontosRota_TB_Rota" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_RotasVeiculos_TB_Rota" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_RotasVeiculos_TB_Veiculo" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_SaidasEquipamento_TB_VeiculosEquipamentos" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_TipoOcorrencia_TB_TipoOcorrencia" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Veiculo_TB_TipoVeiculo" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_Verificacao_TB_TipoVerificacao" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_TratamentoAlerta_TB_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TBS_Requisicao_TB_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_HistoricoVeiculoCliente_TB_Veiculo" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TB_VeiculosEquipamentos_TB_Veiculo" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_EventoTipoEvenvo" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TBS_Requisicao_TBS_StatusRequisicao" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TBS_Requisicao_TBS_TipoRequisicao" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TBS_RequisicaoApn_TBS_Requisicao" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TBS_RequisicaoHodometro_TBS_Requisicao" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TBS_RequisicaoServer_TBS_Requisicao" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TBS_RequisicaoSleepConfig_TBS_Requisicao" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.FK_TBS_RequisicaoTempoTransmissao_TBS_Requisicao" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEcxTrackModel.TB_VeiculoEvento" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

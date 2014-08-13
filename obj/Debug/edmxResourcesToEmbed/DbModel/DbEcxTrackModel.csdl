@@ -1,0 +1,2989 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DbEcxTrackModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="TB_Acesso">
+    <Key>
+      <PropertyRef Name="CodAcesso" />
+    </Key>
+    <Property Name="CodAcesso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Data" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EnderecoIP" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TipoAcesso" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CodUsuario" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TB_Usuario" Relationship="Self.FK_TB_Acesso_TB_Usuario" FromRole="TB_Acesso" ToRole="TB_Usuario" />
+  </EntityType>
+  <EntityType Name="TB_AlertaEventos">
+    <Key>
+      <PropertyRef Name="CodAlerta" />
+    </Key>
+    <Property Name="CodAlerta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodEvento" Type="Int64" />
+    <Property Name="CodCerca" Type="Int32" />
+    <Property Name="CodVeiculo" Type="Int32" />
+    <Property Name="CodRota" Type="Int32" />
+    <Property Name="Status" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="DataInicio" Type="DateTime" Precision="3" />
+    <Property Name="DataFim" Type="DateTime" Precision="3" />
+    <Property Name="TipoEvento" Type="Int32" Nullable="false" />
+    <Property Name="ChaveAlerta" Type="Int32" />
+    <Property Name="Personalizado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CodEventoVerificacao" Type="Int32" />
+    <NavigationProperty Name="TB_EventoVerificacao" Relationship="Self.FK_TB_AlertaEventos_TB_EventoVerificacao" FromRole="TB_AlertaEventos" ToRole="TB_EventoVerificacao" />
+    <NavigationProperty Name="TB_Veiculo" Relationship="Self.FK_TB_AlertaEventos_TB_Veiculo" FromRole="TB_AlertaEventos" ToRole="TB_Veiculo" />
+    <NavigationProperty Name="TB_TratamentoAlerta" Relationship="Self.FK_TB_TratamentoAlerta_TB_AlertaEventos" FromRole="TB_AlertaEventos" ToRole="TB_TratamentoAlerta" />
+  </EntityType>
+  <EntityType Name="TB_Banco">
+    <Key>
+      <PropertyRef Name="CodBanco" />
+    </Key>
+    <Property Name="CodBanco" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CodigoPadrao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TB_ReferenciaBancaria" Relationship="Self.FK_TB_ReferenciaBancaria_TB_Banco" FromRole="TB_Banco" ToRole="TB_ReferenciaBancaria" />
+  </EntityType>
+  <EntityType Name="TB_Cerca">
+    <Key>
+      <PropertyRef Name="CodCerca" />
+    </Key>
+    <Property Name="CodCerca" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NomeCerca" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CodCliente" Type="Int32" Nullable="false" />
+    <Property Name="Raio" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TipoCerca" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TB_Cliente" Relationship="Self.FK_TB_Cerca_TB_Cliente" FromRole="TB_Cerca" ToRole="TB_Cliente" />
+    <NavigationProperty Name="TB_CercasVeiculos" Relationship="Self.FK_TB_CercasVeiculos_TB_Cerca" FromRole="TB_Cerca" ToRole="TB_CercasVeiculos" />
+    <NavigationProperty Name="TB_PontosCerca" Relationship="Self.FK_TB_PontosCerca_TB_Cerca" FromRole="TB_Cerca" ToRole="TB_PontosCerca" />
+  </EntityType>
+  <EntityType Name="TB_CercasVeiculos">
+    <Key>
+      <PropertyRef Name="CodVinculacao" />
+    </Key>
+    <Property Name="CodVinculacao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodCerca" Type="Int32" Nullable="false" />
+    <Property Name="CodVeiculo" Type="Int32" Nullable="false" />
+    <Property Name="AlertaSonoro" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AlertarQuando" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="GerarAlerta" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TB_Cerca" Relationship="Self.FK_TB_CercasVeiculos_TB_Cerca" FromRole="TB_CercasVeiculos" ToRole="TB_Cerca" />
+    <NavigationProperty Name="TB_Veiculo" Relationship="Self.FK_TB_CercasVeiculos_TB_Veiculo" FromRole="TB_CercasVeiculos" ToRole="TB_Veiculo" />
+  </EntityType>
+  <EntityType Name="TB_ChipEquipamento">
+    <Key>
+      <PropertyRef Name="CodChipEquipamento" />
+    </Key>
+    <Property Name="CodChipEquipamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodEquipamento" Type="Int32" Nullable="false" />
+    <Property Name="NumeroChip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Ativo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Data" Type="DateTime" Precision="3" />
+    <Property Name="Telefone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TB_Equipamento" Relationship="Self.FK_TB_ChipEquipamento_TB_Equipamento" FromRole="TB_ChipEquipamento" ToRole="TB_Equipamento" />
+  </EntityType>
+  <EntityType Name="TB_Cidade">
+    <Key>
+      <PropertyRef Name="CodCidade" />
+    </Key>
+    <Property Name="CodCidade" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="550" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CodEstado" Type="Int32" />
+    <NavigationProperty Name="TB_Estado" Relationship="Self.FK_TB_Cidade_TB_Estado" FromRole="TB_Cidade" ToRole="TB_Estado" />
+    <NavigationProperty Name="TB_Cliente" Relationship="Self.FK_TB_Cliente_TB_Cidade" FromRole="TB_Cidade" ToRole="TB_Cliente" />
+    <NavigationProperty Name="TB_Cliente1" Relationship="Self.FK_TB_Cliente_TB_CidadeCobranca" FromRole="TB_Cidade" ToRole="TB_Cliente" />
+    <NavigationProperty Name="TB_Cliente2" Relationship="Self.FK_TB_Cliente_TB_CidadeCobranca1" FromRole="TB_Cidade" ToRole="TB_Cliente" />
+    <NavigationProperty Name="TB_EnderecoPrefCampanha" Relationship="Self.FK_TB_EnderecoPrefCampanha_TB_Cidade" FromRole="TB_Cidade" ToRole="TB_EnderecoPrefCampanha" />
+    <NavigationProperty Name="TB_Motorista" Relationship="Self.FK_TB_Motorista_TB_Cidade" FromRole="TB_Cidade" ToRole="TB_Motorista" />
+    <NavigationProperty Name="TB_Ocorrencia" Relationship="Self.FK_TB_Ocorrencia_TB_Cidade" FromRole="TB_Cidade" ToRole="TB_Ocorrencia" />
+    <NavigationProperty Name="TB_Ocorrencia1" Relationship="Self.FK_TB_Ocorrencia_TB_Cidade1" FromRole="TB_Cidade" ToRole="TB_Ocorrencia" />
+    <NavigationProperty Name="TB_Ocorrencia2" Relationship="Self.FK_TB_Ocorrencia_TB_Cidade2" FromRole="TB_Cidade" ToRole="TB_Ocorrencia" />
+    <NavigationProperty Name="TB_Representante" Relationship="Self.FK_TB_Representante_TB_Cidade" FromRole="TB_Cidade" ToRole="TB_Representante" />
+    <NavigationProperty Name="TB_Usuario" Relationship="Self.FK_TB_Usuario_TB_Cidade" FromRole="TB_Cidade" ToRole="TB_Usuario" />
+  </EntityType>
+  <EntityType Name="TB_Cliente">
+    <Key>
+      <PropertyRef Name="CodCliente" />
+    </Key>
+    <Property Name="CodCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NomeCliente" Type="String" MaxLength="550" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RazaoSocial" Type="String" MaxLength="550" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CNPJ_CPF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Endereco" Type="String" MaxLength="550" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Numero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Bairro" Type="String" MaxLength="550" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Complemento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CodCidade" Type="Int32" Nullable="false" />
+    <Property Name="CEP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Telefone" Type="String" MaxLength="550" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Celular" Type="String" MaxLength="550" FixedLength="false" Unicode="false" />
+    <Property Name="Fax" Type="String" MaxLength="550" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="550" FixedLength="false" Unicode="false" />
+    <Property Name="Email2" Type="String" MaxLength="550" FixedLength="false" Unicode="false" />
+    <Property Name="Observacoes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DataCadastro" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CodUsuario" Type="Int32" Nullable="false" />
+    <Property Name="CodUsuarioVendas1" Type="Int32" />
+    <Property Name="CodUsuarioVendas2" Type="Int32" />
+    <Property Name="EnderecoCobranca" Type="String" MaxLength="550" FixedLength="false" Unicode="false" />
+    <Property Name="NumeroCobranca" Type="String" MaxLength="550" FixedLength="false" Unicode="false" />
+    <Property Name="BairroCobranca" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="ComplementoCobranca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CEPCobranca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CodCidadeCobranca" Type="Int32" />
+    <Property Name="TelefoneCobranca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DataModificacao" Type="DateTime" Precision="3" />
+    <Property Name="InscricaoMunicipal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="InscricaoEstadual" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Ativo" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="GerenciadorRiscos" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TB_Cerca" Relationship="Self.FK_TB_Cerca_TB_Cliente" FromRole="TB_Cliente" ToRole="TB_Cerca" />
+    <NavigationProperty Name="TB_Cidade" Relationship="Self.FK_TB_Cliente_TB_Cidade" FromRole="TB_Cliente" ToRole="TB_Cidade" />
+    <NavigationProperty Name="TB_Cidade1" Relationship="Self.FK_TB_Cliente_TB_CidadeCobranca" FromRole="TB_Cliente" ToRole="TB_Cidade" />
+    <NavigationProperty Name="TB_Cidade2" Relationship="Self.FK_TB_Cliente_TB_CidadeCobranca1" FromRole="TB_Cliente" ToRole="TB_Cidade" />
+    <NavigationProperty Name="TB_VeiculosClientes" Relationship="Self.FK_HistoricoVeiculoCliente_TB_Cliente" FromRole="TB_Cliente" ToRole="TB_VeiculosClientes" />
+    <NavigationProperty Name="TB_Cliente1" Relationship="Self.FK_TB_Cliente_TB_Usuario" FromRole="TB_Cliente" ToRole="TB_Cliente1" />
+    <NavigationProperty Name="TB_Cliente2" Relationship="Self.FK_TB_Cliente_TB_Usuario" FromRole="TB_Cliente1" ToRole="TB_Cliente" />
+    <NavigationProperty Name="TB_Complemento" Relationship="Self.FK_TB_Complemento_TB_Cliente" FromRole="TB_Cliente" ToRole="TB_Complemento" />
+    <NavigationProperty Name="TB_Contrato" Relationship="Self.FK_TB_Contrato_TB_Cliente" FromRole="TB_Cliente" ToRole="TB_Contrato" />
+    <NavigationProperty Name="TB_EnderecoPrefCampanha" Relationship="Self.FK_TB_EnderecoPrefCampanha_TB_Cliente" FromRole="TB_Cliente" ToRole="TB_EnderecoPrefCampanha" />
+    <NavigationProperty Name="TB_Motorista" Relationship="Self.FK_TB_Motorista_TB_Cliente" FromRole="TB_Cliente" ToRole="TB_Motorista" />
+    <NavigationProperty Name="TB_Ocorrencia" Relationship="Self.FK_TB_Ocorrencia_TB_Cliente" FromRole="TB_Cliente" ToRole="TB_Ocorrencia" />
+    <NavigationProperty Name="TB_OrdemServico" Relationship="Self.FK_TB_OrdemServico_TB_Cliente" FromRole="TB_Cliente" ToRole="TB_OrdemServico" />
+    <NavigationProperty Name="TB_Pontos" Relationship="Self.FK_TB_Pontos_TB_Cliente1" FromRole="TB_Cliente" ToRole="TB_Pontos" />
+    <NavigationProperty Name="TB_ReferenciaBancaria" Relationship="Self.FK_TB_ReferenciaBancaria_TB_Cliente" FromRole="TB_Cliente" ToRole="TB_ReferenciaBancaria" />
+    <NavigationProperty Name="TB_RegraJornada" Relationship="Self.FK_TB_RegraJornada_TB_Cliente" FromRole="TB_Cliente" ToRole="TB_RegraJornada" />
+    <NavigationProperty Name="TB_Representante" Relationship="Self.FK_TB_Representante_TB_Cliente" FromRole="TB_Cliente" ToRole="TB_Representante" />
+    <NavigationProperty Name="TB_Rota" Relationship="Self.FK_TB_Rota_TB_Cliente" FromRole="TB_Cliente" ToRole="TB_Rota" />
+    <NavigationProperty Name="TB_Usuario" Relationship="Self.FK_TB_Usuario_TB_Cliente" FromRole="TB_Cliente" ToRole="TB_Usuario" />
+  </EntityType>
+  <EntityType Name="TB_ComandosAlertas">
+    <Key>
+      <PropertyRef Name="CodComandosAlertas" />
+    </Key>
+    <Property Name="CodComandosAlertas" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodChaveAlerta" Type="Int32" />
+    <Property Name="DescricaoComando" Type="String" MaxLength="180" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DataEnvio" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="TB_Complemento">
+    <Key>
+      <PropertyRef Name="CodComplemento" />
+    </Key>
+    <Property Name="CodComplemento" Type="Int32" Nullable="false" />
+    <Property Name="LimiteMesesRelatorios" Type="Int32" />
+    <Property Name="AvisoVenctoBoleto" Type="Int32" />
+    <Property Name="PaginaInicial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CodCliente" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TB_Cliente" Relationship="Self.FK_TB_Complemento_TB_Cliente" FromRole="TB_Complemento" ToRole="TB_Cliente" />
+  </EntityType>
+  <EntityType Name="TB_Contrato">
+    <Key>
+      <PropertyRef Name="CodContrato" />
+    </Key>
+    <Property Name="CodContrato" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodCliente" Type="Int32" Nullable="false" />
+    <Property Name="MensalidadePorVeiculo" Type="Double" />
+    <Property Name="ValorContratoVeiculo" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="TaxaInstalacao" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="ExcedentePorMegabyte" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="TaxaRenovacaoContratual" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="TaxaVisitaImprodutiva" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="TaxaRemocaoReinstalacao" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="TaxaInformacaoLocalizacaoVeiculo" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="TaxaFalsoPanico" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="ContemplacaoInstalacao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PrazoDeValidade" Type="Int32" />
+    <Property Name="DataPagamento" Type="Int32" />
+    <Property Name="DataCorte" Type="Int32" />
+    <Property Name="Status" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TB_Cliente" Relationship="Self.FK_TB_Contrato_TB_Cliente" FromRole="TB_Contrato" ToRole="TB_Cliente" />
+  </EntityType>
+  <EntityType Name="TB_EmailNotificacao">
+    <Key>
+      <PropertyRef Name="CodEmailNotificacao" />
+    </Key>
+    <Property Name="CodEmailNotificacao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodNotificacaoVeiculo" Type="Int32" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TB_NotificaoVeiculo" Relationship="Self.FK_TB_EmailNotificacao_TB_NotificaoVeiculo" FromRole="TB_EmailNotificacao" ToRole="TB_NotificaoVeiculo" />
+  </EntityType>
+  <EntityType Name="TB_EnderecoPrefCampanha">
+    <Key>
+      <PropertyRef Name="CodCliente" />
+    </Key>
+    <Property Name="CodCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RazaoSocial" Type="String" MaxLength="550" FixedLength="false" Unicode="false" />
+    <Property Name="ContaContabil" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CEP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Endereco" Type="String" MaxLength="550" FixedLength="false" Unicode="false" />
+    <Property Name="Numero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Complemento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Bairro" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="CodCidade" Type="Int32" />
+    <Property Name="EmailCampanha" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="EmailNotificacao" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Contato" Type="String" MaxLength="550" FixedLength="false" Unicode="false" />
+    <Property Name="Telefone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CodClienteEnd" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TB_Cidade" Relationship="Self.FK_TB_EnderecoPrefCampanha_TB_Cidade" FromRole="TB_EnderecoPrefCampanha" ToRole="TB_Cidade" />
+    <NavigationProperty Name="TB_Cliente" Relationship="Self.FK_TB_EnderecoPrefCampanha_TB_Cliente" FromRole="TB_EnderecoPrefCampanha" ToRole="TB_Cliente" />
+  </EntityType>
+  <EntityType Name="TB_EnderecosEventos">
+    <Key>
+      <PropertyRef Name="CodEnderecoEvento" />
+    </Key>
+    <Property Name="CodEnderecoEvento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdEvento" Type="Int64" Nullable="false" />
+    <Property Name="IdGoogleCache" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TB_GoogleCache" Relationship="Self.FK_TB_EnderecosEventos_TB_GoogleCache" FromRole="TB_EnderecosEventos" ToRole="TB_GoogleCache" />
+    <NavigationProperty Name="TBS_Evento" Relationship="Self.FK_TB_EnderecosEventos_TBS_Evento" FromRole="TB_EnderecosEventos" ToRole="TBS_Evento" />
+  </EntityType>
+  <EntityType Name="TB_EntradasEquipamento">
+    <Key>
+      <PropertyRef Name="CodEntradasEquipamento" />
+    </Key>
+    <Property Name="CodEntradasEquipamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodVeiculoEquipamento" Type="Int32" Nullable="false" />
+    <Property Name="Entrada" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Ativo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TB_VeiculosEquipamentos" Relationship="Self.FK_TB_EntradasEquipamento_TB_VeiculosEquipamentos" FromRole="TB_EntradasEquipamento" ToRole="TB_VeiculosEquipamentos" />
+  </EntityType>
+  <EntityType Name="TB_Equipamento">
+    <Key>
+      <PropertyRef Name="CodEquipamento" />
+    </Key>
+    <Property Name="CodEquipamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NumeroEquipamento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NumeroSerie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Apn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NumeroChip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NumeroTelefone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CodModelo" Type="Int32" Nullable="false" />
+    <Property Name="CodOperadora" Type="Int32" Nullable="false" />
+    <Property Name="Ativo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NumeroSerie2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TB_ChipEquipamento" Relationship="Self.FK_TB_ChipEquipamento_TB_Equipamento" FromRole="TB_Equipamento" ToRole="TB_ChipEquipamento" />
+    <NavigationProperty Name="TBS_Evento" Relationship="Self.FK_EventoEquipamento" FromRole="TB_Equipamento" ToRole="TBS_Evento" />
+    <NavigationProperty Name="TB_ModeloEquipamento" Relationship="Self.FK_TB_Equipamento_TB_ModeloEquipamento" FromRole="TB_Equipamento" ToRole="TB_ModeloEquipamento" />
+    <NavigationProperty Name="TB_Operadora" Relationship="Self.FK_TB_Equipamento_TB_Operadora" FromRole="TB_Equipamento" ToRole="TB_Operadora" />
+    <NavigationProperty Name="TB_VeiculosEquipamentos" Relationship="Self.FK_TB_VeiculosEquipamentos_TB_Equipamento" FromRole="TB_Equipamento" ToRole="TB_VeiculosEquipamentos" />
+    <NavigationProperty Name="TBS_ImeiSimCard" Relationship="Self.FK_TBS_ImeiSimCard_TB_Equipamento" FromRole="TB_Equipamento" ToRole="TBS_ImeiSimCard" />
+    <NavigationProperty Name="TBS_Requisicao" Relationship="Self.FK_TBS_Requisicao_TB_Equipamento" FromRole="TB_Equipamento" ToRole="TBS_Requisicao" />
+  </EntityType>
+  <EntityType Name="TB_Estado">
+    <Key>
+      <PropertyRef Name="CodEstado" />
+    </Key>
+    <Property Name="CodEstado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="550" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TB_Cidade" Relationship="Self.FK_TB_Cidade_TB_Estado" FromRole="TB_Estado" ToRole="TB_Cidade" />
+  </EntityType>
+  <EntityType Name="TB_EventoVerificacao">
+    <Key>
+      <PropertyRef Name="CodEventoVerificacao" />
+    </Key>
+    <Property Name="CodEventoVerificacao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodVerificacao1" Type="Int32" />
+    <Property Name="CodVerificacao2" Type="Int32" />
+    <Property Name="CodVerificacao3" Type="Int32" />
+    <Property Name="CodHorarioOcorrencia" Type="Int32" Nullable="false" />
+    <Property Name="AlertaSonoro" Type="Boolean" Nullable="false" />
+    <Property Name="NomeEvento" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Ativo" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CodComando" Type="Int32" />
+    <NavigationProperty Name="TB_AlertaEventos" Relationship="Self.FK_TB_AlertaEventos_TB_EventoVerificacao" FromRole="TB_EventoVerificacao" ToRole="TB_AlertaEventos" />
+    <NavigationProperty Name="TB_HorarioOcorrencia" Relationship="Self.FK_TB_EventoVerificacao_TB_HorarioOcorrencia" FromRole="TB_EventoVerificacao" ToRole="TB_HorarioOcorrencia" />
+    <NavigationProperty Name="TB_Verificacao" Relationship="Self.FK_TB_EventoVerificacao_TB_Verificacao" FromRole="TB_EventoVerificacao" ToRole="TB_Verificacao" />
+    <NavigationProperty Name="TB_Verificacao1" Relationship="Self.FK_TB_EventoVerificacao_TB_Verificacao1" FromRole="TB_EventoVerificacao" ToRole="TB_Verificacao" />
+    <NavigationProperty Name="TB_Verificacao2" Relationship="Self.FK_TB_EventoVerificacao_TB_Verificacao2" FromRole="TB_EventoVerificacao" ToRole="TB_Verificacao" />
+    <NavigationProperty Name="TB_Veiculo" Relationship="Self.TB_VeiculoEvento" FromRole="TB_EventoVerificacao" ToRole="TB_Veiculo" />
+  </EntityType>
+  <EntityType Name="TB_Financeiro">
+    <Key>
+      <PropertyRef Name="CodCliente" />
+    </Key>
+    <Property Name="CodCliente" Type="Int32" Nullable="false" />
+    <Property Name="RetencaoISS" Type="Boolean" />
+    <Property Name="DataInicioRetencao" Type="DateTime" Precision="3" />
+    <Property Name="QtdeEquipamento" Type="Int32" />
+    <Property Name="ValorAluguel" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="DiaFaturamento" Type="Int32" />
+    <Property Name="DiaVencimento" Type="Int32" />
+    <Property Name="PrazoProtesto" Type="Int32" />
+    <Property Name="DataUltimoFaturamento" Type="DateTime" Precision="3" />
+    <Property Name="JurosMora" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Multa" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="TB_FusoHorario">
+    <Key>
+      <PropertyRef Name="CodFusoHorario" />
+    </Key>
+    <Property Name="CodFusoHorario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TB_Usuario" Relationship="Self.FK_TB_Usuario_TB_FusoHorario" FromRole="TB_FusoHorario" ToRole="TB_Usuario" />
+    <NavigationProperty Name="TB_Veiculo" Relationship="Self.FK_TB_Veiculo_TB_FusoHorario" FromRole="TB_FusoHorario" ToRole="TB_Veiculo" />
+  </EntityType>
+  <EntityType Name="TB_GoogleCache">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Posicao" Type="Geography" Nullable="false" />
+    <Property Name="Endereco" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DataInsert" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Cidade" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Estado" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CEP" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TB_EnderecosEventos" Relationship="Self.FK_TB_EnderecosEventos_TB_GoogleCache" FromRole="TB_GoogleCache" ToRole="TB_EnderecosEventos" />
+  </EntityType>
+  <EntityType Name="TB_HorarioOcorrencia">
+    <Key>
+      <PropertyRef Name="CodHorarioOcorrencia" />
+    </Key>
+    <Property Name="CodHorarioOcorrencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Domingo" Type="Boolean" />
+    <Property Name="Segunda" Type="Boolean" />
+    <Property Name="Terca" Type="Boolean" />
+    <Property Name="Quarta" Type="Boolean" />
+    <Property Name="Quinta" Type="Boolean" />
+    <Property Name="Sexta" Type="Boolean" />
+    <Property Name="Sabado" Type="Boolean" />
+    <Property Name="Diariamente" Type="Boolean" />
+    <Property Name="HorarioInicial" Type="Time" Precision="7" />
+    <Property Name="HorarioFinal" Type="Time" Precision="7" />
+    <Property Name="TempoCorrido" Type="Boolean" />
+    <NavigationProperty Name="TB_EventoVerificacao" Relationship="Self.FK_TB_EventoVerificacao_TB_HorarioOcorrencia" FromRole="TB_HorarioOcorrencia" ToRole="TB_EventoVerificacao" />
+  </EntityType>
+  <EntityType Name="TB_ImagemPontos">
+    <Key>
+      <PropertyRef Name="CodIcone" />
+    </Key>
+    <Property Name="CodIcone" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NomeImagem" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TB_Pontos" Relationship="Self.FK_TB_Pontos_TB_ImagemPontos" FromRole="TB_ImagemPontos" ToRole="TB_Pontos" />
+  </EntityType>
+  <EntityType Name="TB_IntervaloJornada">
+    <Key>
+      <PropertyRef Name="CodIntervaloJornada" />
+    </Key>
+    <Property Name="CodIntervaloJornada" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IntraJornada" Type="Boolean" Nullable="false" />
+    <Property Name="Descricao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TempoIntervalo" Type="Int32" Nullable="false" />
+    <Property Name="CodRegraJornada" Type="Int32" />
+    <NavigationProperty Name="TB_RegraJornada" Relationship="Self.FK_TB_IntervaloJornada_TB_RegraJornada" FromRole="TB_IntervaloJornada" ToRole="TB_RegraJornada" />
+  </EntityType>
+  <EntityType Name="TB_Jornada">
+    <Key>
+      <PropertyRef Name="CodJornada" />
+    </Key>
+    <Property Name="CodJornada" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodVeiculo" Type="Int32" Nullable="false" />
+    <Property Name="CodMotorista" Type="Int32" Nullable="false" />
+    <Property Name="DataAbertura" Type="DateTime" Precision="3" />
+    <Property Name="DataFechamento" Type="DateTime" Precision="3" />
+    <Property Name="UltimaComunicacao" Type="DateTime" Precision="3" />
+    <Property Name="CodRegraJornada" Type="Int32" />
+    <NavigationProperty Name="TB_Motorista" Relationship="Self.FK_TB_Jornada_TB_Motorista" FromRole="TB_Jornada" ToRole="TB_Motorista" />
+    <NavigationProperty Name="TB_RegraJornada" Relationship="Self.FK_TB_Jornada_TB_RegraJornada" FromRole="TB_Jornada" ToRole="TB_RegraJornada" />
+    <NavigationProperty Name="TB_Veiculo" Relationship="Self.FK_TB_Jornada_TB_Veiculo" FromRole="TB_Jornada" ToRole="TB_Veiculo" />
+  </EntityType>
+  <EntityType Name="TB_LogSistema">
+    <Key>
+      <PropertyRef Name="CodLog" />
+    </Key>
+    <Property Name="CodLog" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodUsuario" Type="Int32" Nullable="false" />
+    <Property Name="DataHora" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CodRegistroAlterado" Type="Int32" />
+    <Property Name="CodPagina" Type="Int32" Nullable="false" />
+    <Property Name="Acao" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RegistroModificado" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TB_Pagina" Relationship="Self.FK_TB_LogSistema_TB_Pagina" FromRole="TB_LogSistema" ToRole="TB_Pagina" />
+    <NavigationProperty Name="TB_Usuario" Relationship="Self.FK_TB_LogSistema_TB_Usuario" FromRole="TB_LogSistema" ToRole="TB_Usuario" />
+  </EntityType>
+  <EntityType Name="TB_Manutencao">
+    <Key>
+      <PropertyRef Name="CodManutencao" />
+    </Key>
+    <Property Name="CodManutencao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodServico" Type="Int32" Nullable="false" />
+    <Property Name="CodVeiculo" Type="Int32" Nullable="false" />
+    <Property Name="DataUltimaRevisao" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="HodometroUltimaRevisao" Type="Int32" Nullable="false" />
+    <Property Name="Valor" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Descricao" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="TipoManutencao" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="DataProximaRevisao" Type="DateTime" Precision="3" />
+    <Property Name="HodometroProximaRevisao" Type="Int32" />
+    <NavigationProperty Name="TB_Veiculo" Relationship="Self.FK_TB_Manutencao_TB_Manutencao" FromRole="TB_Manutencao" ToRole="TB_Veiculo" />
+    <NavigationProperty Name="TB_Servico" Relationship="Self.FK_TB_Manutencao_TB_Servico" FromRole="TB_Manutencao" ToRole="TB_Servico" />
+  </EntityType>
+  <EntityType Name="TB_Marca">
+    <Key>
+      <PropertyRef Name="CodMarca" />
+    </Key>
+    <Property Name="CodMarca" Type="Int32" Nullable="false" />
+    <Property Name="NomeMarca" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TB_ModeloVeiculo" Relationship="Self.FK_TB_ModeloVeiculo_TB_Marca" FromRole="TB_Marca" ToRole="TB_ModeloVeiculo" />
+  </EntityType>
+  <EntityType Name="TB_Mensagens">
+    <Key>
+      <PropertyRef Name="CodMensagem" />
+    </Key>
+    <Property Name="CodMensagem" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TipoMensagem" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DataEnvio" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Descricao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CodVeiculo" Type="Int32" />
+    <Property Name="CodEvento" Type="Int64" />
+    <Property Name="QuantidadeEnviada" Type="Int32" />
+    <Property Name="CodManutencao" Type="Int32" />
+    <Property Name="TipoEventoMensagem" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="CodCliente" Type="Int32" />
+    <Property Name="CodMotorista" Type="Int32" />
+    <Property Name="DataVenctoCNH" Type="DateTime" Precision="3" />
+    <Property Name="HodometroManutencao" Type="Int32" />
+    <NavigationProperty Name="TB_Motorista" Relationship="Self.FK_TB_Mensagens_TB_Motorista" FromRole="TB_Mensagens" ToRole="TB_Motorista" />
+    <NavigationProperty Name="TB_Veiculo" Relationship="Self.FK_TB_Mensagens_TB_Veiculo" FromRole="TB_Mensagens" ToRole="TB_Veiculo" />
+  </EntityType>
+  <EntityType Name="TB_ModeloEquipamento">
+    <Key>
+      <PropertyRef Name="CodModeloEquip" />
+    </Key>
+    <Property Name="CodModeloEquip" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CodModeloBin" Type="Int32" />
+    <NavigationProperty Name="TB_Equipamento" Relationship="Self.FK_TB_Equipamento_TB_ModeloEquipamento" FromRole="TB_ModeloEquipamento" ToRole="TB_Equipamento" />
+  </EntityType>
+  <EntityType Name="TB_ModeloVeiculo">
+    <Key>
+      <PropertyRef Name="CodModeloVeic" />
+    </Key>
+    <Property Name="CodModeloVeic" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CodModeloFipe" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CodMarca" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TB_Marca" Relationship="Self.FK_TB_ModeloVeiculo_TB_Marca" FromRole="TB_ModeloVeiculo" ToRole="TB_Marca" />
+  </EntityType>
+  <EntityType Name="TB_Motorista">
+    <Key>
+      <PropertyRef Name="CodMotorista" />
+    </Key>
+    <Property Name="CodMotorista" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PossuiDispositivo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Dispositivo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TempoLimite" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nome" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CPF" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CNH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VencimentoCNH" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Telefone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="RG" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CategoriaCNH" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PisPasep" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DataNascimento" Type="DateTime" Precision="3" />
+    <Property Name="NomePai" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="NomeMae" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Celular" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="TelefoneRefPessoal" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="TelefoneRefComercial" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="TipoSanguineo" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Endereco" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Numero" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Bairro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Complemento" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="CEP" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CodCidade" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="CodCliente" Type="Int32" />
+    <NavigationProperty Name="TB_Cidade" Relationship="Self.FK_TB_Motorista_TB_Cidade" FromRole="TB_Motorista" ToRole="TB_Cidade" />
+    <NavigationProperty Name="TB_Cliente" Relationship="Self.FK_TB_Motorista_TB_Cliente" FromRole="TB_Motorista" ToRole="TB_Cliente" />
+    <NavigationProperty Name="TB_Jornada" Relationship="Self.FK_TB_Jornada_TB_Motorista" FromRole="TB_Motorista" ToRole="TB_Jornada" />
+    <NavigationProperty Name="TB_Mensagens" Relationship="Self.FK_TB_Mensagens_TB_Motorista" FromRole="TB_Motorista" ToRole="TB_Mensagens" />
+  </EntityType>
+  <EntityType Name="TB_NotificaoVeiculo">
+    <Key>
+      <PropertyRef Name="CodNotificacaoVeiculo" />
+    </Key>
+    <Property Name="CodNotificacaoVeiculo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodVeiculo" Type="Int32" Nullable="false" />
+    <Property Name="MensagemSistema" Type="Boolean" />
+    <Property Name="AlertaSMS" Type="Boolean" />
+    <Property Name="AlertaEmail" Type="Boolean" />
+    <Property Name="Notificacao" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TB_EmailNotificacao" Relationship="Self.FK_TB_EmailNotificacao_TB_NotificaoVeiculo" FromRole="TB_NotificaoVeiculo" ToRole="TB_EmailNotificacao" />
+    <NavigationProperty Name="TB_Veiculo" Relationship="Self.FK_TB_NotificaoVeiculo_TB_Veiculo" FromRole="TB_NotificaoVeiculo" ToRole="TB_Veiculo" />
+    <NavigationProperty Name="TB_SmsNotificacao" Relationship="Self.FK_TB_SmsNotificacao_TB_NotificaoVeiculo" FromRole="TB_NotificaoVeiculo" ToRole="TB_SmsNotificacao" />
+  </EntityType>
+  <EntityType Name="TB_Ocorrencia">
+    <Key>
+      <PropertyRef Name="CodOcorrencia" />
+    </Key>
+    <Property Name="CodOcorrencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodCliente" Type="Int32" Nullable="false" />
+    <Property Name="CodVeiculo" Type="Int32" Nullable="false" />
+    <Property Name="Motorista" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Placa2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Placa3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Placa4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CodCidadeOrigem" Type="Int32" />
+    <Property Name="CodCidadeDestino" Type="Int32" />
+    <Property Name="CodCidadeOcorrencia" Type="Int32" />
+    <Property Name="Carga" Type="String" MaxLength="550" FixedLength="false" Unicode="false" />
+    <Property Name="Ocorrencia" Type="String" MaxLength="550" FixedLength="false" Unicode="false" />
+    <Property Name="Data" Type="DateTime" Precision="3" />
+    <Property Name="Horario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Endereco" Type="String" MaxLength="550" FixedLength="false" Unicode="false" />
+    <Property Name="Atendente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DescricaoFato" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ProvidenciasTomadas" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CodTipoOcorrencia" Type="Int32" />
+    <NavigationProperty Name="TB_Cidade" Relationship="Self.FK_TB_Ocorrencia_TB_Cidade" FromRole="TB_Ocorrencia" ToRole="TB_Cidade" />
+    <NavigationProperty Name="TB_Cidade1" Relationship="Self.FK_TB_Ocorrencia_TB_Cidade1" FromRole="TB_Ocorrencia" ToRole="TB_Cidade" />
+    <NavigationProperty Name="TB_Cidade2" Relationship="Self.FK_TB_Ocorrencia_TB_Cidade2" FromRole="TB_Ocorrencia" ToRole="TB_Cidade" />
+    <NavigationProperty Name="TB_Cliente" Relationship="Self.FK_TB_Ocorrencia_TB_Cliente" FromRole="TB_Ocorrencia" ToRole="TB_Cliente" />
+    <NavigationProperty Name="TB_TipoOcorrencia" Relationship="Self.FK_TB_Ocorrencia_TB_TipoOcorrencia" FromRole="TB_Ocorrencia" ToRole="TB_TipoOcorrencia" />
+    <NavigationProperty Name="TB_Veiculo" Relationship="Self.FK_TB_Ocorrencia_TB_Veiculo" FromRole="TB_Ocorrencia" ToRole="TB_Veiculo" />
+  </EntityType>
+  <EntityType Name="TB_Operadora">
+    <Key>
+      <PropertyRef Name="CodOperadora" />
+    </Key>
+    <Property Name="CodOperadora" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nomeOperadora" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Apn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Usuario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Senha" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TB_Equipamento" Relationship="Self.FK_TB_Equipamento_TB_Operadora" FromRole="TB_Operadora" ToRole="TB_Equipamento" />
+  </EntityType>
+  <EntityType Name="TB_OrdemServico">
+    <Key>
+      <PropertyRef Name="CodOrdemServico" />
+    </Key>
+    <Property Name="CodOrdemServico" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Operacao" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CodCliente" Type="Int32" Nullable="false" />
+    <Property Name="CodVeiculo" Type="Int32" Nullable="false" />
+    <Property Name="CodRevisaoFuncionamento" Type="Int32" Nullable="false" />
+    <Property Name="VeiculoKM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RastreadorInstalado" Type="Boolean" Nullable="false" />
+    <Property Name="BloqueadorInstalado" Type="Boolean" Nullable="false" />
+    <Property Name="PanicoInstalado" Type="Boolean" Nullable="false" />
+    <Property Name="OutroInstalado" Type="String" MaxLength="550" FixedLength="false" Unicode="false" />
+    <Property Name="Combustivel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pneus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BateriaSemCarga" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BateriaMarchaLenta" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BateriaSobCarga" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SituacaoBateria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Solicitacoes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="HoraInicio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HoraFim" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DataOperacao" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CPFInstalador" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CPFProprietario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TB_Cliente" Relationship="Self.FK_TB_OrdemServico_TB_Cliente" FromRole="TB_OrdemServico" ToRole="TB_Cliente" />
+    <NavigationProperty Name="TB_RevisaoFuncionamento" Relationship="Self.FK_TB_OrdemServico_TB_RevisaoFuncionamento" FromRole="TB_OrdemServico" ToRole="TB_RevisaoFuncionamento" />
+    <NavigationProperty Name="TB_Veiculo" Relationship="Self.FK_TB_OrdemServico_TB_Veiculo" FromRole="TB_OrdemServico" ToRole="TB_Veiculo" />
+  </EntityType>
+  <EntityType Name="TB_Pagina">
+    <Key>
+      <PropertyRef Name="CodPagina" />
+    </Key>
+    <Property Name="CodPagina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TB_LogSistema" Relationship="Self.FK_TB_LogSistema_TB_Pagina" FromRole="TB_Pagina" ToRole="TB_LogSistema" />
+    <NavigationProperty Name="TB_Permissao" Relationship="Self.FK_TB_Permissao_TB_Pagina" FromRole="TB_Pagina" ToRole="TB_Permissao" />
+  </EntityType>
+  <EntityType Name="TB_Perfil">
+    <Key>
+      <PropertyRef Name="CodPerfil" />
+    </Key>
+    <Property Name="CodPerfil" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Personalizado" Type="Int32" />
+    <Property Name="CodTipoPerfil" Type="Int32" />
+    <NavigationProperty Name="TB_TipoPerfil" Relationship="Self.FK_TB_Perfil_TB_TipoPerfil" FromRole="TB_Perfil" ToRole="TB_TipoPerfil" />
+    <NavigationProperty Name="TB_PerfilRestricao" Relationship="Self.FK_TB_PerfilRestricao_TB_Perfil" FromRole="TB_Perfil" ToRole="TB_PerfilRestricao" />
+    <NavigationProperty Name="TB_Permissao" Relationship="Self.FK_TB_Permissao_TB_Perfil" FromRole="TB_Perfil" ToRole="TB_Permissao" />
+    <NavigationProperty Name="TB_Usuario" Relationship="Self.FK_TB_Usuario_TB_Perfil" FromRole="TB_Perfil" ToRole="TB_Usuario" />
+  </EntityType>
+  <EntityType Name="TB_PerfilRestricao">
+    <Key>
+      <PropertyRef Name="CodPerfilRestricao" />
+    </Key>
+    <Property Name="CodPerfilRestricao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codPerfil" Type="Int32" Nullable="false" />
+    <Property Name="Permissao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TB_Perfil" Relationship="Self.FK_TB_PerfilRestricao_TB_Perfil" FromRole="TB_PerfilRestricao" ToRole="TB_Perfil" />
+  </EntityType>
+  <EntityType Name="TB_Permissao">
+    <Key>
+      <PropertyRef Name="CodPermissao" />
+    </Key>
+    <Property Name="CodPermissao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodPerfil" Type="Int32" Nullable="false" />
+    <Property Name="CodPagina" Type="Int32" Nullable="false" />
+    <Property Name="Permissao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TB_Pagina" Relationship="Self.FK_TB_Permissao_TB_Pagina" FromRole="TB_Permissao" ToRole="TB_Pagina" />
+    <NavigationProperty Name="TB_Perfil" Relationship="Self.FK_TB_Permissao_TB_Perfil" FromRole="TB_Permissao" ToRole="TB_Perfil" />
+  </EntityType>
+  <EntityType Name="TB_PessoaProcedimento">
+    <Key>
+      <PropertyRef Name="CodPessoaProcedimento" />
+    </Key>
+    <Property Name="CodPessoaProcedimento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodVeiculo" Type="Int32" Nullable="false" />
+    <Property Name="Nome" Type="String" MaxLength="550" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CPF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="550" FixedLength="false" Unicode="false" />
+    <Property Name="Celular" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Telefone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Senha" Type="String" MaxLength="550" FixedLength="false" Unicode="false" />
+    <Property Name="ContraSenha" Type="String" MaxLength="550" FixedLength="false" Unicode="false" />
+    <Property Name="Informacoes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TipoPessoa" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PosicaoPonto" Type="Int32" />
+    <Property Name="Status" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TB_Veiculo" Relationship="Self.FK_TB_PessoasEmergencia_TB_Veiculo" FromRole="TB_PessoaProcedimento" ToRole="TB_Veiculo" />
+  </EntityType>
+  <EntityType Name="TB_Pontos">
+    <Key>
+      <PropertyRef Name="CodPonto" />
+    </Key>
+    <Property Name="CodPonto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Latitude" Type="Decimal" Precision="18" Scale="7" Nullable="false" />
+    <Property Name="Longitude" Type="Decimal" Precision="18" Scale="7" Nullable="false" />
+    <Property Name="NomePonto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CodIcone" Type="Int32" Nullable="false" />
+    <Property Name="CodCliente" Type="Int32" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Cidade" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TB_Cliente" Relationship="Self.FK_TB_Pontos_TB_Cliente1" FromRole="TB_Pontos" ToRole="TB_Cliente" />
+    <NavigationProperty Name="TB_ImagemPontos" Relationship="Self.FK_TB_Pontos_TB_ImagemPontos" FromRole="TB_Pontos" ToRole="TB_ImagemPontos" />
+    <NavigationProperty Name="TB_PontosRota" Relationship="Self.FK_TB_PontosRota_TB_Pontos" FromRole="TB_Pontos" ToRole="TB_PontosRota" />
+  </EntityType>
+  <EntityType Name="TB_PontosCerca">
+    <Key>
+      <PropertyRef Name="CodPontoCerca" />
+    </Key>
+    <Property Name="CodPontoCerca" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodCerca" Type="Int32" Nullable="false" />
+    <Property Name="Latitude" Type="Decimal" Precision="18" Scale="7" Nullable="false" />
+    <Property Name="Longitude" Type="Decimal" Precision="18" Scale="7" Nullable="false" />
+    <NavigationProperty Name="TB_Cerca" Relationship="Self.FK_TB_PontosCerca_TB_Cerca" FromRole="TB_PontosCerca" ToRole="TB_Cerca" />
+  </EntityType>
+  <EntityType Name="TB_PontosRota">
+    <Key>
+      <PropertyRef Name="CodPontosRota" />
+    </Key>
+    <Property Name="CodPontosRota" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodPonto" Type="Int32" Nullable="false" />
+    <Property Name="PosicaoPonto" Type="Int32" Nullable="false" />
+    <Property Name="CodRota" Type="Int32" Nullable="false" />
+    <Property Name="Tolerancia" Type="Int32" />
+    <Property Name="ToleranciaTempo" Type="Time" Precision="7" />
+    <NavigationProperty Name="TB_Pontos" Relationship="Self.FK_TB_PontosRota_TB_Pontos" FromRole="TB_PontosRota" ToRole="TB_Pontos" />
+    <NavigationProperty Name="TB_Rota" Relationship="Self.FK_TB_PontosRota_TB_Rota" FromRole="TB_PontosRota" ToRole="TB_Rota" />
+  </EntityType>
+  <EntityType Name="TB_ReferenciaBancaria">
+    <Key>
+      <PropertyRef Name="CodReferencia" />
+    </Key>
+    <Property Name="CodReferencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodCliente" Type="Int32" Nullable="false" />
+    <Property Name="CodBanco" Type="Int32" />
+    <Property Name="Agencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Conta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TB_Banco" Relationship="Self.FK_TB_ReferenciaBancaria_TB_Banco" FromRole="TB_ReferenciaBancaria" ToRole="TB_Banco" />
+    <NavigationProperty Name="TB_Cliente" Relationship="Self.FK_TB_ReferenciaBancaria_TB_Cliente" FromRole="TB_ReferenciaBancaria" ToRole="TB_Cliente" />
+  </EntityType>
+  <EntityType Name="TB_RegraJornada">
+    <Key>
+      <PropertyRef Name="CodRegraJornada" />
+    </Key>
+    <Property Name="CodRegraJornada" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PeriodoMaximo" Type="Int32" />
+    <Property Name="HoraFicta" Type="Boolean" />
+    <Property Name="CodCliente" Type="Int32" />
+    <NavigationProperty Name="TB_Cliente" Relationship="Self.FK_TB_RegraJornada_TB_Cliente" FromRole="TB_RegraJornada" ToRole="TB_Cliente" />
+    <NavigationProperty Name="TB_IntervaloJornada" Relationship="Self.FK_TB_IntervaloJornada_TB_RegraJornada" FromRole="TB_RegraJornada" ToRole="TB_IntervaloJornada" />
+    <NavigationProperty Name="TB_Jornada" Relationship="Self.FK_TB_Jornada_TB_RegraJornada" FromRole="TB_RegraJornada" ToRole="TB_Jornada" />
+  </EntityType>
+  <EntityType Name="TB_Representante">
+    <Key>
+      <PropertyRef Name="CodRepresentante" />
+    </Key>
+    <Property Name="CodRepresentante" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodCliente" Type="Int32" Nullable="false" />
+    <Property Name="CPF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nome" Type="String" MaxLength="550" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="550" FixedLength="false" Unicode="false" />
+    <Property Name="Telefone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Ramal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ParticipacaoSocietaria" Type="String" MaxLength="550" FixedLength="false" Unicode="false" />
+    <Property Name="DataNascimento" Type="DateTime" Precision="3" />
+    <Property Name="TipoDocumentoId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NumeroDocumentoId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OrgaoEmissor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EstadoCivil" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Naturalidade" Type="String" MaxLength="550" FixedLength="false" Unicode="false" />
+    <Property Name="Nacionalidade" Type="String" MaxLength="550" FixedLength="false" Unicode="false" />
+    <Property Name="CEP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Endereco" Type="String" MaxLength="550" FixedLength="false" Unicode="false" />
+    <Property Name="Numero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Complemento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Bairro" Type="String" MaxLength="550" FixedLength="false" Unicode="false" />
+    <Property Name="CodCidade" Type="Int32" />
+    <NavigationProperty Name="TB_Cidade" Relationship="Self.FK_TB_Representante_TB_Cidade" FromRole="TB_Representante" ToRole="TB_Cidade" />
+    <NavigationProperty Name="TB_Cliente" Relationship="Self.FK_TB_Representante_TB_Cliente" FromRole="TB_Representante" ToRole="TB_Cliente" />
+  </EntityType>
+  <EntityType Name="TB_RevisaoFuncionamento">
+    <Key>
+      <PropertyRef Name="CodRevisaoFuncionamento" />
+    </Key>
+    <Property Name="CodRevisaoFuncionamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PainelDeInstrumentos" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Buzina" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Esquicho" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="LimpadorParabrisaDiant" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="LimpadorParabrisaTras" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="VentilacaoForcada" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ArCondicionado" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Radio" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="AcendedorCigarros" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="VidroEletrico" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="VidroPortaDiantDir" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="VidroPortaDiantEsq" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="VidroPortaTrasDir" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="VidroPortaTrasEsq" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="VidroDianteiro" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="VidroTraseiro" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="RetrovisorEletrico" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="RetrovisorEsquerdo" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="RetrovidorDireito" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="RetrovisorInterno" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="TravaEletrica" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="LuzTeto" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Cinzeiro" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Tapetes" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="CintoSeguranca" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ForroPorta" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ForroTeto" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="QuebraSol" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="BancosDianteiros" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="BancosTraseiros" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Tabelie" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Volante" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="FarolLE" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="FarolLD" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="FarolAuxiliarLD" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="FarolAuxiliarLE" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="LanternaTraseiraLD" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="LanternaTraseiraLE" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Seta" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Freio" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Re" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Alarme" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ExtintorIncendio" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Calotas" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Estepe" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Macaco" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Triangulo" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ParaChoqueDiant" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ParaChoqueTras" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Placas" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TB_OrdemServico" Relationship="Self.FK_TB_OrdemServico_TB_RevisaoFuncionamento" FromRole="TB_RevisaoFuncionamento" ToRole="TB_OrdemServico" />
+  </EntityType>
+  <EntityType Name="TB_Rota">
+    <Key>
+      <PropertyRef Name="CodRota" />
+    </Key>
+    <Property Name="CodRota" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ToleranciaRaio" Type="Int32" Nullable="false" />
+    <Property Name="ToleranciaTempo" Type="Time" Precision="7" />
+    <Property Name="NomeRota" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CodCliente" Type="Int32" />
+    <Property Name="Status" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TB_Cliente" Relationship="Self.FK_TB_Rota_TB_Cliente" FromRole="TB_Rota" ToRole="TB_Cliente" />
+    <NavigationProperty Name="TB_PontosRota" Relationship="Self.FK_TB_PontosRota_TB_Rota" FromRole="TB_Rota" ToRole="TB_PontosRota" />
+    <NavigationProperty Name="TB_RotasVeiculos" Relationship="Self.FK_TB_RotasVeiculos_TB_Rota" FromRole="TB_Rota" ToRole="TB_RotasVeiculos" />
+  </EntityType>
+  <EntityType Name="TB_RotasVeiculos">
+    <Key>
+      <PropertyRef Name="CodRotaVeiculo" />
+    </Key>
+    <Property Name="CodRotaVeiculo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodRota" Type="Int32" Nullable="false" />
+    <Property Name="CodVeiculo" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DataVinculacao" Type="DateTime" Precision="3" />
+    <Property Name="DataFinalizacao" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="TB_Rota" Relationship="Self.FK_TB_RotasVeiculos_TB_Rota" FromRole="TB_RotasVeiculos" ToRole="TB_Rota" />
+    <NavigationProperty Name="TB_Veiculo" Relationship="Self.FK_TB_RotasVeiculos_TB_Veiculo" FromRole="TB_RotasVeiculos" ToRole="TB_Veiculo" />
+  </EntityType>
+  <EntityType Name="TB_SaidasEquipamento">
+    <Key>
+      <PropertyRef Name="CodSaidaEquipamento" />
+    </Key>
+    <Property Name="CodSaidaEquipamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodVeiculoEquipamento" Type="Int32" Nullable="false" />
+    <Property Name="Saida" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TB_VeiculosEquipamentos" Relationship="Self.FK_TB_SaidasEquipamento_TB_VeiculosEquipamentos" FromRole="TB_SaidasEquipamento" ToRole="TB_VeiculosEquipamentos" />
+  </EntityType>
+  <EntityType Name="TB_Servico">
+    <Key>
+      <PropertyRef Name="CodServico" />
+    </Key>
+    <Property Name="CodServico" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Hodometro" Type="Int32" Nullable="false" />
+    <Property Name="Meses" Type="Int32" Nullable="false" />
+    <Property Name="Ativo" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TB_Manutencao" Relationship="Self.FK_TB_Manutencao_TB_Servico" FromRole="TB_Servico" ToRole="TB_Manutencao" />
+  </EntityType>
+  <EntityType Name="TB_SmsNotificacao">
+    <Key>
+      <PropertyRef Name="CodSmsNotificacao" />
+    </Key>
+    <Property Name="CodSmsNotificacao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodNotificacaoVeiculo" Type="Int32" Nullable="false" />
+    <Property Name="SMS" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TB_NotificaoVeiculo" Relationship="Self.FK_TB_SmsNotificacao_TB_NotificaoVeiculo" FromRole="TB_SmsNotificacao" ToRole="TB_NotificaoVeiculo" />
+  </EntityType>
+  <EntityType Name="TB_TipoOcorrencia">
+    <Key>
+      <PropertyRef Name="CodTipoOcorrencia" />
+    </Key>
+    <Property Name="CodTipoOcorrencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TipoOcorrencia" Type="String" MaxLength="550" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TB_Ocorrencia" Relationship="Self.FK_TB_Ocorrencia_TB_TipoOcorrencia" FromRole="TB_TipoOcorrencia" ToRole="TB_Ocorrencia" />
+    <NavigationProperty Name="TB_TipoOcorrencia1" Relationship="Self.FK_TB_TipoOcorrencia_TB_TipoOcorrencia" FromRole="TB_TipoOcorrencia" ToRole="TB_TipoOcorrencia1" />
+    <NavigationProperty Name="TB_TipoOcorrencia2" Relationship="Self.FK_TB_TipoOcorrencia_TB_TipoOcorrencia" FromRole="TB_TipoOcorrencia1" ToRole="TB_TipoOcorrencia" />
+  </EntityType>
+  <EntityType Name="TB_TipoPerfil">
+    <Key>
+      <PropertyRef Name="CodTipo" />
+    </Key>
+    <Property Name="CodTipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TB_Perfil" Relationship="Self.FK_TB_Perfil_TB_TipoPerfil" FromRole="TB_TipoPerfil" ToRole="TB_Perfil" />
+  </EntityType>
+  <EntityType Name="TB_TipoVeiculo">
+    <Key>
+      <PropertyRef Name="CodTipoVeiculo" />
+    </Key>
+    <Property Name="CodTipoVeiculo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NomeTipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NomeImagem" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ImagemInativo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TB_Veiculo" Relationship="Self.FK_TB_Veiculo_TB_TipoVeiculo" FromRole="TB_TipoVeiculo" ToRole="TB_Veiculo" />
+  </EntityType>
+  <EntityType Name="TB_TipoVerificacao">
+    <Key>
+      <PropertyRef Name="CodTipoVerificacao" />
+    </Key>
+    <Property Name="CodTipoVerificacao" Type="Int32" Nullable="false" />
+    <Property Name="NomeVerificacao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TB_Verificacao" Relationship="Self.FK_TB_Verificacao_TB_TipoVerificacao" FromRole="TB_TipoVerificacao" ToRole="TB_Verificacao" />
+  </EntityType>
+  <EntityType Name="TB_TratamentoAlerta">
+    <Key>
+      <PropertyRef Name="CodTratamento" />
+    </Key>
+    <Property Name="CodTratamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DataTratamento" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Descricao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CodAlerta" Type="Int32" Nullable="false" />
+    <Property Name="CodUsuario" Type="Int32" Nullable="false" />
+    <Property Name="ChaveAlerta" Type="Int32" />
+    <NavigationProperty Name="TB_AlertaEventos" Relationship="Self.FK_TB_TratamentoAlerta_TB_AlertaEventos" FromRole="TB_TratamentoAlerta" ToRole="TB_AlertaEventos" />
+    <NavigationProperty Name="TB_Usuario" Relationship="Self.FK_TB_TratamentoAlerta_TB_Usuario" FromRole="TB_TratamentoAlerta" ToRole="TB_Usuario" />
+  </EntityType>
+  <EntityType Name="TB_Usuario">
+    <Key>
+      <PropertyRef Name="CodUsuario" />
+    </Key>
+    <Property Name="CodUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="CPF" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Senha" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Ativo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="CEP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Bairro" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Rua" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Numero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Complemento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CodCidade" Type="Int32" />
+    <Property Name="Telefone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Celular" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CodPerfil" Type="Int32" Nullable="false" />
+    <Property Name="NomeUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SenhaTemporaria" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CodCliente" Type="Int32" />
+    <Property Name="CodFusoHorario" Type="Int32" Nullable="false" />
+    <Property Name="DataValidade" Type="DateTime" Precision="3" />
+    <Property Name="ValorAtualizacaoAutomatica" Type="Int32" />
+    <NavigationProperty Name="TB_Acesso" Relationship="Self.FK_TB_Acesso_TB_Usuario" FromRole="TB_Usuario" ToRole="TB_Acesso" />
+    <NavigationProperty Name="TB_Cidade" Relationship="Self.FK_TB_Usuario_TB_Cidade" FromRole="TB_Usuario" ToRole="TB_Cidade" />
+    <NavigationProperty Name="TB_Cliente" Relationship="Self.FK_TB_Usuario_TB_Cliente" FromRole="TB_Usuario" ToRole="TB_Cliente" />
+    <NavigationProperty Name="TB_FusoHorario" Relationship="Self.FK_TB_Usuario_TB_FusoHorario" FromRole="TB_Usuario" ToRole="TB_FusoHorario" />
+    <NavigationProperty Name="TB_LogSistema" Relationship="Self.FK_TB_LogSistema_TB_Usuario" FromRole="TB_Usuario" ToRole="TB_LogSistema" />
+    <NavigationProperty Name="TB_Perfil" Relationship="Self.FK_TB_Usuario_TB_Perfil" FromRole="TB_Usuario" ToRole="TB_Perfil" />
+    <NavigationProperty Name="TB_TratamentoAlerta" Relationship="Self.FK_TB_TratamentoAlerta_TB_Usuario" FromRole="TB_Usuario" ToRole="TB_TratamentoAlerta" />
+    <NavigationProperty Name="TBS_Requisicao" Relationship="Self.FK_TBS_Requisicao_TB_Usuario" FromRole="TB_Usuario" ToRole="TBS_Requisicao" />
+  </EntityType>
+  <EntityType Name="TB_Veiculo">
+    <Key>
+      <PropertyRef Name="CodVeiculo" />
+    </Key>
+    <Property Name="CodVeiculo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodTipoVeiculo" Type="Int32" Nullable="false" />
+    <Property Name="Placa" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Marca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Ano" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Cor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Chassi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Observacoes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ProcedimentoPanico" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Renavam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DataVencimentoContrato" Type="DateTime" Precision="3" />
+    <Property Name="DataInativacao" Type="DateTime" Precision="3" />
+    <Property Name="CodigoFipe" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DataCompra" Type="DateTime" Precision="3" />
+    <Property Name="Contato" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="TelefoneContato" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LimiteVelocidade" Type="Int32" />
+    <Property Name="Panico" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="MedidasPanico" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="CalculoHodomentro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CalculoHorimetro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TipoConsumo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ConsumoCombustivel" Type="Int32" />
+    <Property Name="CodFusoHorario" Type="Int32" Nullable="false" />
+    <Property Name="ValorCompra" Type="Decimal" Precision="16" Scale="2" />
+    <Property Name="Modelo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TB_AlertaEventos" Relationship="Self.FK_TB_AlertaEventos_TB_Veiculo" FromRole="TB_Veiculo" ToRole="TB_AlertaEventos" />
+    <NavigationProperty Name="TB_CercasVeiculos" Relationship="Self.FK_TB_CercasVeiculos_TB_Veiculo" FromRole="TB_Veiculo" ToRole="TB_CercasVeiculos" />
+    <NavigationProperty Name="TB_FusoHorario" Relationship="Self.FK_TB_Veiculo_TB_FusoHorario" FromRole="TB_Veiculo" ToRole="TB_FusoHorario" />
+    <NavigationProperty Name="TB_Jornada" Relationship="Self.FK_TB_Jornada_TB_Veiculo" FromRole="TB_Veiculo" ToRole="TB_Jornada" />
+    <NavigationProperty Name="TB_Manutencao" Relationship="Self.FK_TB_Manutencao_TB_Manutencao" FromRole="TB_Veiculo" ToRole="TB_Manutencao" />
+    <NavigationProperty Name="TB_Mensagens" Relationship="Self.FK_TB_Mensagens_TB_Veiculo" FromRole="TB_Veiculo" ToRole="TB_Mensagens" />
+    <NavigationProperty Name="TB_NotificaoVeiculo" Relationship="Self.FK_TB_NotificaoVeiculo_TB_Veiculo" FromRole="TB_Veiculo" ToRole="TB_NotificaoVeiculo" />
+    <NavigationProperty Name="TB_Ocorrencia" Relationship="Self.FK_TB_Ocorrencia_TB_Veiculo" FromRole="TB_Veiculo" ToRole="TB_Ocorrencia" />
+    <NavigationProperty Name="TB_OrdemServico" Relationship="Self.FK_TB_OrdemServico_TB_Veiculo" FromRole="TB_Veiculo" ToRole="TB_OrdemServico" />
+    <NavigationProperty Name="TB_PessoaProcedimento" Relationship="Self.FK_TB_PessoasEmergencia_TB_Veiculo" FromRole="TB_Veiculo" ToRole="TB_PessoaProcedimento" />
+    <NavigationProperty Name="TB_RotasVeiculos" Relationship="Self.FK_TB_RotasVeiculos_TB_Veiculo" FromRole="TB_Veiculo" ToRole="TB_RotasVeiculos" />
+    <NavigationProperty Name="TB_TipoVeiculo" Relationship="Self.FK_TB_Veiculo_TB_TipoVeiculo" FromRole="TB_Veiculo" ToRole="TB_TipoVeiculo" />
+    <NavigationProperty Name="TB_VeiculosClientes" Relationship="Self.FK_HistoricoVeiculoCliente_TB_Veiculo" FromRole="TB_Veiculo" ToRole="TB_VeiculosClientes" />
+    <NavigationProperty Name="TB_VeiculosEquipamentos" Relationship="Self.FK_TB_VeiculosEquipamentos_TB_Veiculo" FromRole="TB_Veiculo" ToRole="TB_VeiculosEquipamentos" />
+    <NavigationProperty Name="TB_EventoVerificacao" Relationship="Self.TB_VeiculoEvento" FromRole="TB_Veiculo" ToRole="TB_EventoVerificacao" />
+  </EntityType>
+  <EntityType Name="TB_VeiculosClientes">
+    <Key>
+      <PropertyRef Name="CodHistorico" />
+    </Key>
+    <Property Name="CodHistorico" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodCliente" Type="Int32" Nullable="false" />
+    <Property Name="CodVeiculo" Type="Int32" Nullable="false" />
+    <Property Name="DataCadastro" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CodGerenciadorRiscos" Type="Int32" />
+    <Property Name="TipoCliente" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TipoGerenciador" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="ValidadeGerenciador" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="CodVeicAnterior" Type="Int32" />
+    <NavigationProperty Name="TB_Cliente" Relationship="Self.FK_HistoricoVeiculoCliente_TB_Cliente" FromRole="TB_VeiculosClientes" ToRole="TB_Cliente" />
+    <NavigationProperty Name="TB_Veiculo" Relationship="Self.FK_HistoricoVeiculoCliente_TB_Veiculo" FromRole="TB_VeiculosClientes" ToRole="TB_Veiculo" />
+  </EntityType>
+  <EntityType Name="TB_VeiculosEquipamentos">
+    <Key>
+      <PropertyRef Name="CodVeiculosEquipamentos" />
+    </Key>
+    <Property Name="CodVeiculosEquipamentos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodVeiculo" Type="Int32" Nullable="false" />
+    <Property Name="CodEquipamento" Type="Int32" Nullable="false" />
+    <Property Name="DataInstalacao" Type="DateTime" Precision="3" />
+    <Property Name="Teste" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Ativo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TB_EntradasEquipamento" Relationship="Self.FK_TB_EntradasEquipamento_TB_VeiculosEquipamentos" FromRole="TB_VeiculosEquipamentos" ToRole="TB_EntradasEquipamento" />
+    <NavigationProperty Name="TB_Equipamento" Relationship="Self.FK_TB_VeiculosEquipamentos_TB_Equipamento" FromRole="TB_VeiculosEquipamentos" ToRole="TB_Equipamento" />
+    <NavigationProperty Name="TB_SaidasEquipamento" Relationship="Self.FK_TB_SaidasEquipamento_TB_VeiculosEquipamentos" FromRole="TB_VeiculosEquipamentos" ToRole="TB_SaidasEquipamento" />
+    <NavigationProperty Name="TB_Veiculo" Relationship="Self.FK_TB_VeiculosEquipamentos_TB_Veiculo" FromRole="TB_VeiculosEquipamentos" ToRole="TB_Veiculo" />
+  </EntityType>
+  <EntityType Name="TB_Verificacao">
+    <Key>
+      <PropertyRef Name="CodVerificacao" />
+    </Key>
+    <Property Name="CodVerificacao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodTipoVerificacao" Type="Int32" Nullable="false" />
+    <Property Name="ValorTempoVelocidade" Type="Int32" />
+    <Property Name="Ativo" Type="Boolean" />
+    <NavigationProperty Name="TB_EventoVerificacao" Relationship="Self.FK_TB_EventoVerificacao_TB_Verificacao" FromRole="TB_Verificacao" ToRole="TB_EventoVerificacao" />
+    <NavigationProperty Name="TB_EventoVerificacao1" Relationship="Self.FK_TB_EventoVerificacao_TB_Verificacao1" FromRole="TB_Verificacao" ToRole="TB_EventoVerificacao" />
+    <NavigationProperty Name="TB_EventoVerificacao2" Relationship="Self.FK_TB_EventoVerificacao_TB_Verificacao2" FromRole="TB_Verificacao" ToRole="TB_EventoVerificacao" />
+    <NavigationProperty Name="TB_TipoVerificacao" Relationship="Self.FK_TB_Verificacao_TB_TipoVerificacao" FromRole="TB_Verificacao" ToRole="TB_TipoVerificacao" />
+  </EntityType>
+  <EntityType Name="TBS_Evento">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Equipamento" Type="Int32" Nullable="false" />
+    <Property Name="DataEvento" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DataComunicacao" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Latitude" Type="Decimal" Precision="8" Scale="6" Nullable="false" />
+    <Property Name="Longitude" Type="Decimal" Precision="8" Scale="6" Nullable="false" />
+    <Property Name="Direcao" Type="Int16" Nullable="false" />
+    <Property Name="Velocidade" Type="Int16" Nullable="false" />
+    <Property Name="SinalGPS" Type="Int16" Nullable="false" />
+    <Property Name="TipoEvento" Type="Int32" Nullable="false" />
+    <Property Name="Bateria" Type="Int16" Nullable="false" />
+    <Property Name="Temperatura" Type="Int16" Nullable="false" />
+    <Property Name="Hodometro" Type="Int32" Nullable="false" />
+    <Property Name="StatusEntradas" Type="Int32" />
+    <Property Name="StatusSaida" Type="Int32" />
+    <Property Name="StatusIgnicao" Type="Boolean" />
+    <Property Name="StatusBotaoPanico" Type="Boolean" />
+    <Property Name="StatusBotaoAntiFurto" Type="Boolean" />
+    <Property Name="StatusSecaoAntenaGPS" Type="Boolean" />
+    <Property Name="StatusEntradaAuxiliar" Type="Boolean" />
+    <Property Name="StatusEntradaAuxiliar2" Type="Boolean" />
+    <Property Name="StatusEntradaAuxiliar4" Type="Boolean" />
+    <Property Name="StatusFimVidaUtilBateriaBkp" Type="Boolean" />
+    <Property Name="StatusFalhaBateriaBkp" Type="Boolean" />
+    <Property Name="StatusBateriaBkpBaixa" Type="Boolean" />
+    <Property Name="StatusVoltagemBateria" Type="Boolean" />
+    <Property Name="StatusBloqueio" Type="Boolean" />
+    <Property Name="StatusSirene" Type="Boolean" />
+    <Property Name="StatusSaidaAuxiliar" Type="Boolean" />
+    <Property Name="StatusSaidaAuxiliar2" Type="Boolean" />
+    <Property Name="StatusSaidaAuxiliar3" Type="Boolean" />
+    <Property Name="StatusSaidaAuxiliar4" Type="Boolean" />
+    <NavigationProperty Name="TB_EnderecosEventos" Relationship="Self.FK_TB_EnderecosEventos_TBS_Evento" FromRole="TBS_Evento" ToRole="TB_EnderecosEventos" />
+    <NavigationProperty Name="TB_Equipamento" Relationship="Self.FK_EventoEquipamento" FromRole="TBS_Evento" ToRole="TB_Equipamento" />
+    <NavigationProperty Name="TBS_TipoEvento" Relationship="Self.FK_EventoTipoEvenvo" FromRole="TBS_Evento" ToRole="TBS_TipoEvento" />
+  </EntityType>
+  <EntityType Name="TBS_Requisicao">
+    <Key>
+      <PropertyRef Name="CodRequisicao" />
+    </Key>
+    <Property Name="CodRequisicao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodEquipamento" Type="Int32" Nullable="false" />
+    <Property Name="CodSaida" Type="Int32" />
+    <Property Name="CodAtivacao" Type="Int32" />
+    <Property Name="CodInvertida" Type="Int32" />
+    <Property Name="CodStatusRequisicao" Type="Int32" Nullable="false" />
+    <Property Name="CodTipoRequisicao" Type="Int32" />
+    <Property Name="CodEntrada" Type="Int32" />
+    <Property Name="OpcoesEntrada" Type="Int32" />
+    <Property Name="TempoDeteccao" Type="Int32" />
+    <Property Name="NivelAtivacaoLogica" Type="Int32" />
+    <Property Name="AssociacaoDeSaidas" Type="Int32" />
+    <Property Name="DataRequisicao" Type="DateTime" Precision="3" />
+    <Property Name="CodUsuario" Type="Int32" />
+    <NavigationProperty Name="TB_Equipamento" Relationship="Self.FK_TBS_Requisicao_TB_Equipamento" FromRole="TBS_Requisicao" ToRole="TB_Equipamento" />
+    <NavigationProperty Name="TB_Usuario" Relationship="Self.FK_TBS_Requisicao_TB_Usuario" FromRole="TBS_Requisicao" ToRole="TB_Usuario" />
+    <NavigationProperty Name="TBS_StatusRequisicao" Relationship="Self.FK_TBS_Requisicao_TBS_StatusRequisicao" FromRole="TBS_Requisicao" ToRole="TBS_StatusRequisicao" />
+    <NavigationProperty Name="TBS_TipoRequisicao" Relationship="Self.FK_TBS_Requisicao_TBS_TipoRequisicao" FromRole="TBS_Requisicao" ToRole="TBS_TipoRequisicao" />
+    <NavigationProperty Name="TBS_RequisicaoApn" Relationship="Self.FK_TBS_RequisicaoApn_TBS_Requisicao" FromRole="TBS_Requisicao" ToRole="TBS_RequisicaoApn" />
+    <NavigationProperty Name="TBS_RequisicaoHodometro" Relationship="Self.FK_TBS_RequisicaoHodometro_TBS_Requisicao" FromRole="TBS_Requisicao" ToRole="TBS_RequisicaoHodometro" />
+    <NavigationProperty Name="TBS_RequisicaoServer" Relationship="Self.FK_TBS_RequisicaoServer_TBS_Requisicao" FromRole="TBS_Requisicao" ToRole="TBS_RequisicaoServer" />
+    <NavigationProperty Name="TBS_RequisicaoSleepConfig" Relationship="Self.FK_TBS_RequisicaoSleepConfig_TBS_Requisicao" FromRole="TBS_Requisicao" ToRole="TBS_RequisicaoSleepConfig" />
+    <NavigationProperty Name="TBS_RequisicaoTempoTransmissao" Relationship="Self.FK_TBS_RequisicaoTempoTransmissao_TBS_Requisicao" FromRole="TBS_Requisicao" ToRole="TBS_RequisicaoTempoTransmissao" />
+  </EntityType>
+  <EntityType Name="TBS_RequisicaoApn">
+    <Key>
+      <PropertyRef Name="CodRequisicaoApn" />
+    </Key>
+    <Property Name="CodRequisicaoApn" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodRequisicao" Type="Int32" Nullable="false" />
+    <Property Name="Apn" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Senha" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TBS_Requisicao" Relationship="Self.FK_TBS_RequisicaoApn_TBS_Requisicao" FromRole="TBS_RequisicaoApn" ToRole="TBS_Requisicao" />
+  </EntityType>
+  <EntityType Name="TBS_RequisicaoHodometro">
+    <Key>
+      <PropertyRef Name="CodRequisicaoHodometro" />
+    </Key>
+    <Property Name="CodRequisicaoHodometro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodRequisicao" Type="Int32" Nullable="false" />
+    <Property Name="ValorInicial" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TBS_Requisicao" Relationship="Self.FK_TBS_RequisicaoHodometro_TBS_Requisicao" FromRole="TBS_RequisicaoHodometro" ToRole="TBS_Requisicao" />
+  </EntityType>
+  <EntityType Name="TBS_RequisicaoServer">
+    <Key>
+      <PropertyRef Name="CodRequisicaoServer" />
+    </Key>
+    <Property Name="CodRequisicaoServer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodRequisicao" Type="Int32" Nullable="false" />
+    <Property Name="IP1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Porta1" Type="Int32" Nullable="false" />
+    <Property Name="IP2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Porta2" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TBS_Requisicao" Relationship="Self.FK_TBS_RequisicaoServer_TBS_Requisicao" FromRole="TBS_RequisicaoServer" ToRole="TBS_Requisicao" />
+  </EntityType>
+  <EntityType Name="TBS_RequisicaoSleepConfig">
+    <Key>
+      <PropertyRef Name="CodRequisicaoSleepConfig" />
+    </Key>
+    <Property Name="CodRequisicaoSleepConfig" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SleepConfiguration" Type="Int32" Nullable="false" />
+    <Property Name="MaxSpeed" Type="Int32" Nullable="false" />
+    <Property Name="CodRequisicao" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TBS_Requisicao" Relationship="Self.FK_TBS_RequisicaoSleepConfig_TBS_Requisicao" FromRole="TBS_RequisicaoSleepConfig" ToRole="TBS_Requisicao" />
+  </EntityType>
+  <EntityType Name="TBS_RequisicaoTempoTransmissao">
+    <Key>
+      <PropertyRef Name="CodRequisicaoTempoTransmissao" />
+    </Key>
+    <Property Name="CodRequisicaoTempoTransmissao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodRequisicao" Type="Int32" Nullable="false" />
+    <Property Name="SleepTime" Type="Int32" Nullable="false" />
+    <Property Name="TrackingTime" Type="Int32" Nullable="false" />
+    <Property Name="KeepAliveTime" Type="Int32" Nullable="false" />
+    <Property Name="AntiTheftTime" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TBS_Requisicao" Relationship="Self.FK_TBS_RequisicaoTempoTransmissao_TBS_Requisicao" FromRole="TBS_RequisicaoTempoTransmissao" ToRole="TBS_Requisicao" />
+  </EntityType>
+  <EntityType Name="TBS_StatusRequisicao">
+    <Key>
+      <PropertyRef Name="CodStatusRequisicao" />
+    </Key>
+    <Property Name="CodStatusRequisicao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TBS_Requisicao" Relationship="Self.FK_TBS_Requisicao_TBS_StatusRequisicao" FromRole="TBS_StatusRequisicao" ToRole="TBS_Requisicao" />
+  </EntityType>
+  <EntityType Name="TBS_TipoEvento">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Cod" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="TBS_Evento" Relationship="Self.FK_EventoTipoEvenvo" FromRole="TBS_TipoEvento" ToRole="TBS_Evento" />
+  </EntityType>
+  <EntityType Name="TBS_TipoRequisicao">
+    <Key>
+      <PropertyRef Name="CodTipoRequisicao" />
+    </Key>
+    <Property Name="CodTipoRequisicao" Type="Int32" Nullable="false" />
+    <Property Name="NomeTipoRequisicao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TBS_Requisicao" Relationship="Self.FK_TBS_Requisicao_TBS_TipoRequisicao" FromRole="TBS_TipoRequisicao" ToRole="TBS_Requisicao" />
+  </EntityType>
+  <EntityType Name="TB_JornadaMaxima">
+    <Key>
+      <PropertyRef Name="CodJornadaMaxima" />
+    </Key>
+    <Property Name="CodJornadaMaxima" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DirecaoContinua" Type="Time" Precision="7" />
+    <Property Name="TempoParada" Type="Time" Precision="7" />
+    <Property Name="IntervaloRepouso" Type="Time" Precision="7" />
+    <Property Name="HorasSemanais" Type="Time" Precision="7" />
+  </EntityType>
+  <EntityType Name="TBS_ImeiSimCard">
+    <Key>
+      <PropertyRef Name="CodEquipamento" />
+      <PropertyRef Name="Imei" />
+      <PropertyRef Name="SimCard" />
+      <PropertyRef Name="DataEnvio" />
+    </Key>
+    <Property Name="CodEquipamento" Type="Int32" Nullable="false" />
+    <Property Name="Imei" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SimCard" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DataEnvio" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="TB_Equipamento" Relationship="Self.FK_TBS_ImeiSimCard_TB_Equipamento" FromRole="TBS_ImeiSimCard" ToRole="TB_Equipamento" />
+  </EntityType>
+  <Association Name="FK_TB_Acesso_TB_Usuario">
+    <End Role="TB_Usuario" Type="Self.TB_Usuario" Multiplicity="1" />
+    <End Role="TB_Acesso" Type="Self.TB_Acesso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Usuario">
+        <PropertyRef Name="CodUsuario" />
+      </Principal>
+      <Dependent Role="TB_Acesso">
+        <PropertyRef Name="CodUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_AlertaEventos_TB_EventoVerificacao">
+    <End Role="TB_EventoVerificacao" Type="Self.TB_EventoVerificacao" Multiplicity="0..1" />
+    <End Role="TB_AlertaEventos" Type="Self.TB_AlertaEventos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_EventoVerificacao">
+        <PropertyRef Name="CodEventoVerificacao" />
+      </Principal>
+      <Dependent Role="TB_AlertaEventos">
+        <PropertyRef Name="CodEventoVerificacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_AlertaEventos_TB_Veiculo">
+    <End Role="TB_Veiculo" Type="Self.TB_Veiculo" Multiplicity="0..1" />
+    <End Role="TB_AlertaEventos" Type="Self.TB_AlertaEventos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Veiculo">
+        <PropertyRef Name="CodVeiculo" />
+      </Principal>
+      <Dependent Role="TB_AlertaEventos">
+        <PropertyRef Name="CodVeiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_TratamentoAlerta_TB_AlertaEventos">
+    <End Role="TB_AlertaEventos" Type="Self.TB_AlertaEventos" Multiplicity="1" />
+    <End Role="TB_TratamentoAlerta" Type="Self.TB_TratamentoAlerta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_AlertaEventos">
+        <PropertyRef Name="CodAlerta" />
+      </Principal>
+      <Dependent Role="TB_TratamentoAlerta">
+        <PropertyRef Name="CodAlerta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_ReferenciaBancaria_TB_Banco">
+    <End Role="TB_Banco" Type="Self.TB_Banco" Multiplicity="0..1" />
+    <End Role="TB_ReferenciaBancaria" Type="Self.TB_ReferenciaBancaria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Banco">
+        <PropertyRef Name="CodBanco" />
+      </Principal>
+      <Dependent Role="TB_ReferenciaBancaria">
+        <PropertyRef Name="CodBanco" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Cerca_TB_Cliente">
+    <End Role="TB_Cliente" Type="Self.TB_Cliente" Multiplicity="1" />
+    <End Role="TB_Cerca" Type="Self.TB_Cerca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Cliente">
+        <PropertyRef Name="CodCliente" />
+      </Principal>
+      <Dependent Role="TB_Cerca">
+        <PropertyRef Name="CodCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_CercasVeiculos_TB_Cerca">
+    <End Role="TB_Cerca" Type="Self.TB_Cerca" Multiplicity="1" />
+    <End Role="TB_CercasVeiculos" Type="Self.TB_CercasVeiculos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Cerca">
+        <PropertyRef Name="CodCerca" />
+      </Principal>
+      <Dependent Role="TB_CercasVeiculos">
+        <PropertyRef Name="CodCerca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_PontosCerca_TB_Cerca">
+    <End Role="TB_Cerca" Type="Self.TB_Cerca" Multiplicity="1" />
+    <End Role="TB_PontosCerca" Type="Self.TB_PontosCerca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Cerca">
+        <PropertyRef Name="CodCerca" />
+      </Principal>
+      <Dependent Role="TB_PontosCerca">
+        <PropertyRef Name="CodCerca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_CercasVeiculos_TB_Veiculo">
+    <End Role="TB_Veiculo" Type="Self.TB_Veiculo" Multiplicity="1" />
+    <End Role="TB_CercasVeiculos" Type="Self.TB_CercasVeiculos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Veiculo">
+        <PropertyRef Name="CodVeiculo" />
+      </Principal>
+      <Dependent Role="TB_CercasVeiculos">
+        <PropertyRef Name="CodVeiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_ChipEquipamento_TB_Equipamento">
+    <End Role="TB_Equipamento" Type="Self.TB_Equipamento" Multiplicity="1" />
+    <End Role="TB_ChipEquipamento" Type="Self.TB_ChipEquipamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Equipamento">
+        <PropertyRef Name="CodEquipamento" />
+      </Principal>
+      <Dependent Role="TB_ChipEquipamento">
+        <PropertyRef Name="CodEquipamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Cidade_TB_Estado">
+    <End Role="TB_Estado" Type="Self.TB_Estado" Multiplicity="0..1" />
+    <End Role="TB_Cidade" Type="Self.TB_Cidade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Estado">
+        <PropertyRef Name="CodEstado" />
+      </Principal>
+      <Dependent Role="TB_Cidade">
+        <PropertyRef Name="CodEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Cliente_TB_Cidade">
+    <End Role="TB_Cidade" Type="Self.TB_Cidade" Multiplicity="1" />
+    <End Role="TB_Cliente" Type="Self.TB_Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Cidade">
+        <PropertyRef Name="CodCidade" />
+      </Principal>
+      <Dependent Role="TB_Cliente">
+        <PropertyRef Name="CodCidade" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Cliente_TB_CidadeCobranca">
+    <End Role="TB_Cidade" Type="Self.TB_Cidade" Multiplicity="0..1" />
+    <End Role="TB_Cliente" Type="Self.TB_Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Cidade">
+        <PropertyRef Name="CodCidade" />
+      </Principal>
+      <Dependent Role="TB_Cliente">
+        <PropertyRef Name="CodCidadeCobranca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Cliente_TB_CidadeCobranca1">
+    <End Role="TB_Cidade" Type="Self.TB_Cidade" Multiplicity="0..1" />
+    <End Role="TB_Cliente" Type="Self.TB_Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Cidade">
+        <PropertyRef Name="CodCidade" />
+      </Principal>
+      <Dependent Role="TB_Cliente">
+        <PropertyRef Name="CodCidadeCobranca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_EnderecoPrefCampanha_TB_Cidade">
+    <End Role="TB_Cidade" Type="Self.TB_Cidade" Multiplicity="0..1" />
+    <End Role="TB_EnderecoPrefCampanha" Type="Self.TB_EnderecoPrefCampanha" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Cidade">
+        <PropertyRef Name="CodCidade" />
+      </Principal>
+      <Dependent Role="TB_EnderecoPrefCampanha">
+        <PropertyRef Name="CodCidade" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Motorista_TB_Cidade">
+    <End Role="TB_Cidade" Type="Self.TB_Cidade" Multiplicity="1" />
+    <End Role="TB_Motorista" Type="Self.TB_Motorista" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Cidade">
+        <PropertyRef Name="CodCidade" />
+      </Principal>
+      <Dependent Role="TB_Motorista">
+        <PropertyRef Name="CodCidade" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Ocorrencia_TB_Cidade">
+    <End Role="TB_Cidade" Type="Self.TB_Cidade" Multiplicity="0..1" />
+    <End Role="TB_Ocorrencia" Type="Self.TB_Ocorrencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Cidade">
+        <PropertyRef Name="CodCidade" />
+      </Principal>
+      <Dependent Role="TB_Ocorrencia">
+        <PropertyRef Name="CodCidadeDestino" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Ocorrencia_TB_Cidade1">
+    <End Role="TB_Cidade" Type="Self.TB_Cidade" Multiplicity="0..1" />
+    <End Role="TB_Ocorrencia" Type="Self.TB_Ocorrencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Cidade">
+        <PropertyRef Name="CodCidade" />
+      </Principal>
+      <Dependent Role="TB_Ocorrencia">
+        <PropertyRef Name="CodCidadeOcorrencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Ocorrencia_TB_Cidade2">
+    <End Role="TB_Cidade" Type="Self.TB_Cidade" Multiplicity="0..1" />
+    <End Role="TB_Ocorrencia" Type="Self.TB_Ocorrencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Cidade">
+        <PropertyRef Name="CodCidade" />
+      </Principal>
+      <Dependent Role="TB_Ocorrencia">
+        <PropertyRef Name="CodCidadeOrigem" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Representante_TB_Cidade">
+    <End Role="TB_Cidade" Type="Self.TB_Cidade" Multiplicity="0..1" />
+    <End Role="TB_Representante" Type="Self.TB_Representante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Cidade">
+        <PropertyRef Name="CodCidade" />
+      </Principal>
+      <Dependent Role="TB_Representante">
+        <PropertyRef Name="CodCidade" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Usuario_TB_Cidade">
+    <End Role="TB_Cidade" Type="Self.TB_Cidade" Multiplicity="0..1" />
+    <End Role="TB_Usuario" Type="Self.TB_Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Cidade">
+        <PropertyRef Name="CodCidade" />
+      </Principal>
+      <Dependent Role="TB_Usuario">
+        <PropertyRef Name="CodCidade" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HistoricoVeiculoCliente_TB_Cliente">
+    <End Role="TB_Cliente" Type="Self.TB_Cliente" Multiplicity="1" />
+    <End Role="TB_VeiculosClientes" Type="Self.TB_VeiculosClientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Cliente">
+        <PropertyRef Name="CodCliente" />
+      </Principal>
+      <Dependent Role="TB_VeiculosClientes">
+        <PropertyRef Name="CodCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Cliente_TB_Usuario">
+    <End Role="TB_Cliente" Type="Self.TB_Cliente" Multiplicity="1" />
+    <End Role="TB_Cliente1" Type="Self.TB_Cliente" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Cliente">
+        <PropertyRef Name="CodCliente" />
+      </Principal>
+      <Dependent Role="TB_Cliente1">
+        <PropertyRef Name="CodCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Complemento_TB_Cliente">
+    <End Role="TB_Cliente" Type="Self.TB_Cliente" Multiplicity="1" />
+    <End Role="TB_Complemento" Type="Self.TB_Complemento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Cliente">
+        <PropertyRef Name="CodCliente" />
+      </Principal>
+      <Dependent Role="TB_Complemento">
+        <PropertyRef Name="CodCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Contrato_TB_Cliente">
+    <End Role="TB_Cliente" Type="Self.TB_Cliente" Multiplicity="1" />
+    <End Role="TB_Contrato" Type="Self.TB_Contrato" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Cliente">
+        <PropertyRef Name="CodCliente" />
+      </Principal>
+      <Dependent Role="TB_Contrato">
+        <PropertyRef Name="CodCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_EnderecoPrefCampanha_TB_Cliente">
+    <End Role="TB_Cliente" Type="Self.TB_Cliente" Multiplicity="1" />
+    <End Role="TB_EnderecoPrefCampanha" Type="Self.TB_EnderecoPrefCampanha" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Cliente">
+        <PropertyRef Name="CodCliente" />
+      </Principal>
+      <Dependent Role="TB_EnderecoPrefCampanha">
+        <PropertyRef Name="CodClienteEnd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Motorista_TB_Cliente">
+    <End Role="TB_Cliente" Type="Self.TB_Cliente" Multiplicity="0..1" />
+    <End Role="TB_Motorista" Type="Self.TB_Motorista" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Cliente">
+        <PropertyRef Name="CodCliente" />
+      </Principal>
+      <Dependent Role="TB_Motorista">
+        <PropertyRef Name="CodCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Ocorrencia_TB_Cliente">
+    <End Role="TB_Cliente" Type="Self.TB_Cliente" Multiplicity="1" />
+    <End Role="TB_Ocorrencia" Type="Self.TB_Ocorrencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Cliente">
+        <PropertyRef Name="CodCliente" />
+      </Principal>
+      <Dependent Role="TB_Ocorrencia">
+        <PropertyRef Name="CodCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_OrdemServico_TB_Cliente">
+    <End Role="TB_Cliente" Type="Self.TB_Cliente" Multiplicity="1" />
+    <End Role="TB_OrdemServico" Type="Self.TB_OrdemServico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Cliente">
+        <PropertyRef Name="CodCliente" />
+      </Principal>
+      <Dependent Role="TB_OrdemServico">
+        <PropertyRef Name="CodCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Pontos_TB_Cliente1">
+    <End Role="TB_Cliente" Type="Self.TB_Cliente" Multiplicity="0..1" />
+    <End Role="TB_Pontos" Type="Self.TB_Pontos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Cliente">
+        <PropertyRef Name="CodCliente" />
+      </Principal>
+      <Dependent Role="TB_Pontos">
+        <PropertyRef Name="CodCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_ReferenciaBancaria_TB_Cliente">
+    <End Role="TB_Cliente" Type="Self.TB_Cliente" Multiplicity="1" />
+    <End Role="TB_ReferenciaBancaria" Type="Self.TB_ReferenciaBancaria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Cliente">
+        <PropertyRef Name="CodCliente" />
+      </Principal>
+      <Dependent Role="TB_ReferenciaBancaria">
+        <PropertyRef Name="CodCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_RegraJornada_TB_Cliente">
+    <End Role="TB_Cliente" Type="Self.TB_Cliente" Multiplicity="0..1" />
+    <End Role="TB_RegraJornada" Type="Self.TB_RegraJornada" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Cliente">
+        <PropertyRef Name="CodCliente" />
+      </Principal>
+      <Dependent Role="TB_RegraJornada">
+        <PropertyRef Name="CodCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Representante_TB_Cliente">
+    <End Role="TB_Cliente" Type="Self.TB_Cliente" Multiplicity="1" />
+    <End Role="TB_Representante" Type="Self.TB_Representante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Cliente">
+        <PropertyRef Name="CodCliente" />
+      </Principal>
+      <Dependent Role="TB_Representante">
+        <PropertyRef Name="CodCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Rota_TB_Cliente">
+    <End Role="TB_Cliente" Type="Self.TB_Cliente" Multiplicity="0..1" />
+    <End Role="TB_Rota" Type="Self.TB_Rota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Cliente">
+        <PropertyRef Name="CodCliente" />
+      </Principal>
+      <Dependent Role="TB_Rota">
+        <PropertyRef Name="CodCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Usuario_TB_Cliente">
+    <End Role="TB_Cliente" Type="Self.TB_Cliente" Multiplicity="0..1" />
+    <End Role="TB_Usuario" Type="Self.TB_Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Cliente">
+        <PropertyRef Name="CodCliente" />
+      </Principal>
+      <Dependent Role="TB_Usuario">
+        <PropertyRef Name="CodCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_EmailNotificacao_TB_NotificaoVeiculo">
+    <End Role="TB_NotificaoVeiculo" Type="Self.TB_NotificaoVeiculo" Multiplicity="1" />
+    <End Role="TB_EmailNotificacao" Type="Self.TB_EmailNotificacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_NotificaoVeiculo">
+        <PropertyRef Name="CodNotificacaoVeiculo" />
+      </Principal>
+      <Dependent Role="TB_EmailNotificacao">
+        <PropertyRef Name="CodNotificacaoVeiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_EnderecosEventos_TB_GoogleCache">
+    <End Role="TB_GoogleCache" Type="Self.TB_GoogleCache" Multiplicity="1" />
+    <End Role="TB_EnderecosEventos" Type="Self.TB_EnderecosEventos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_GoogleCache">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="TB_EnderecosEventos">
+        <PropertyRef Name="IdGoogleCache" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_EnderecosEventos_TBS_Evento">
+    <End Role="TBS_Evento" Type="Self.TBS_Evento" Multiplicity="1" />
+    <End Role="TB_EnderecosEventos" Type="Self.TB_EnderecosEventos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBS_Evento">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TB_EnderecosEventos">
+        <PropertyRef Name="IdEvento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_EntradasEquipamento_TB_VeiculosEquipamentos">
+    <End Role="TB_VeiculosEquipamentos" Type="Self.TB_VeiculosEquipamentos" Multiplicity="1" />
+    <End Role="TB_EntradasEquipamento" Type="Self.TB_EntradasEquipamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_VeiculosEquipamentos">
+        <PropertyRef Name="CodVeiculosEquipamentos" />
+      </Principal>
+      <Dependent Role="TB_EntradasEquipamento">
+        <PropertyRef Name="CodVeiculoEquipamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventoEquipamento">
+    <End Role="TB_Equipamento" Type="Self.TB_Equipamento" Multiplicity="1" />
+    <End Role="TBS_Evento" Type="Self.TBS_Evento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Equipamento">
+        <PropertyRef Name="CodEquipamento" />
+      </Principal>
+      <Dependent Role="TBS_Evento">
+        <PropertyRef Name="Equipamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Equipamento_TB_ModeloEquipamento">
+    <End Role="TB_ModeloEquipamento" Type="Self.TB_ModeloEquipamento" Multiplicity="1" />
+    <End Role="TB_Equipamento" Type="Self.TB_Equipamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_ModeloEquipamento">
+        <PropertyRef Name="CodModeloEquip" />
+      </Principal>
+      <Dependent Role="TB_Equipamento">
+        <PropertyRef Name="CodModelo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Equipamento_TB_Operadora">
+    <End Role="TB_Operadora" Type="Self.TB_Operadora" Multiplicity="1" />
+    <End Role="TB_Equipamento" Type="Self.TB_Equipamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Operadora">
+        <PropertyRef Name="CodOperadora" />
+      </Principal>
+      <Dependent Role="TB_Equipamento">
+        <PropertyRef Name="CodOperadora" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_VeiculosEquipamentos_TB_Equipamento">
+    <End Role="TB_Equipamento" Type="Self.TB_Equipamento" Multiplicity="1" />
+    <End Role="TB_VeiculosEquipamentos" Type="Self.TB_VeiculosEquipamentos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Equipamento">
+        <PropertyRef Name="CodEquipamento" />
+      </Principal>
+      <Dependent Role="TB_VeiculosEquipamentos">
+        <PropertyRef Name="CodEquipamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBS_ImeiSimCard_TB_Equipamento">
+    <End Role="TB_Equipamento" Type="Self.TB_Equipamento" Multiplicity="1" />
+    <End Role="TBS_ImeiSimCard" Type="Self.TBS_ImeiSimCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Equipamento">
+        <PropertyRef Name="CodEquipamento" />
+      </Principal>
+      <Dependent Role="TBS_ImeiSimCard">
+        <PropertyRef Name="CodEquipamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBS_Requisicao_TB_Equipamento">
+    <End Role="TB_Equipamento" Type="Self.TB_Equipamento" Multiplicity="1" />
+    <End Role="TBS_Requisicao" Type="Self.TBS_Requisicao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Equipamento">
+        <PropertyRef Name="CodEquipamento" />
+      </Principal>
+      <Dependent Role="TBS_Requisicao">
+        <PropertyRef Name="CodEquipamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_EventoVerificacao_TB_HorarioOcorrencia">
+    <End Role="TB_HorarioOcorrencia" Type="Self.TB_HorarioOcorrencia" Multiplicity="1" />
+    <End Role="TB_EventoVerificacao" Type="Self.TB_EventoVerificacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_HorarioOcorrencia">
+        <PropertyRef Name="CodHorarioOcorrencia" />
+      </Principal>
+      <Dependent Role="TB_EventoVerificacao">
+        <PropertyRef Name="CodHorarioOcorrencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_EventoVerificacao_TB_Verificacao">
+    <End Role="TB_Verificacao" Type="Self.TB_Verificacao" Multiplicity="0..1" />
+    <End Role="TB_EventoVerificacao" Type="Self.TB_EventoVerificacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Verificacao">
+        <PropertyRef Name="CodVerificacao" />
+      </Principal>
+      <Dependent Role="TB_EventoVerificacao">
+        <PropertyRef Name="CodVerificacao1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_EventoVerificacao_TB_Verificacao1">
+    <End Role="TB_Verificacao" Type="Self.TB_Verificacao" Multiplicity="0..1" />
+    <End Role="TB_EventoVerificacao" Type="Self.TB_EventoVerificacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Verificacao">
+        <PropertyRef Name="CodVerificacao" />
+      </Principal>
+      <Dependent Role="TB_EventoVerificacao">
+        <PropertyRef Name="CodVerificacao2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_EventoVerificacao_TB_Verificacao2">
+    <End Role="TB_Verificacao" Type="Self.TB_Verificacao" Multiplicity="0..1" />
+    <End Role="TB_EventoVerificacao" Type="Self.TB_EventoVerificacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Verificacao">
+        <PropertyRef Name="CodVerificacao" />
+      </Principal>
+      <Dependent Role="TB_EventoVerificacao">
+        <PropertyRef Name="CodVerificacao3" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Usuario_TB_FusoHorario">
+    <End Role="TB_FusoHorario" Type="Self.TB_FusoHorario" Multiplicity="1" />
+    <End Role="TB_Usuario" Type="Self.TB_Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_FusoHorario">
+        <PropertyRef Name="CodFusoHorario" />
+      </Principal>
+      <Dependent Role="TB_Usuario">
+        <PropertyRef Name="CodFusoHorario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Veiculo_TB_FusoHorario">
+    <End Role="TB_FusoHorario" Type="Self.TB_FusoHorario" Multiplicity="1" />
+    <End Role="TB_Veiculo" Type="Self.TB_Veiculo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_FusoHorario">
+        <PropertyRef Name="CodFusoHorario" />
+      </Principal>
+      <Dependent Role="TB_Veiculo">
+        <PropertyRef Name="CodFusoHorario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Pontos_TB_ImagemPontos">
+    <End Role="TB_ImagemPontos" Type="Self.TB_ImagemPontos" Multiplicity="1" />
+    <End Role="TB_Pontos" Type="Self.TB_Pontos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_ImagemPontos">
+        <PropertyRef Name="CodIcone" />
+      </Principal>
+      <Dependent Role="TB_Pontos">
+        <PropertyRef Name="CodIcone" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_IntervaloJornada_TB_RegraJornada">
+    <End Role="TB_RegraJornada" Type="Self.TB_RegraJornada" Multiplicity="0..1" />
+    <End Role="TB_IntervaloJornada" Type="Self.TB_IntervaloJornada" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_RegraJornada">
+        <PropertyRef Name="CodRegraJornada" />
+      </Principal>
+      <Dependent Role="TB_IntervaloJornada">
+        <PropertyRef Name="CodRegraJornada" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Jornada_TB_Motorista">
+    <End Role="TB_Motorista" Type="Self.TB_Motorista" Multiplicity="1" />
+    <End Role="TB_Jornada" Type="Self.TB_Jornada" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Motorista">
+        <PropertyRef Name="CodMotorista" />
+      </Principal>
+      <Dependent Role="TB_Jornada">
+        <PropertyRef Name="CodMotorista" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Jornada_TB_RegraJornada">
+    <End Role="TB_RegraJornada" Type="Self.TB_RegraJornada" Multiplicity="0..1" />
+    <End Role="TB_Jornada" Type="Self.TB_Jornada" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_RegraJornada">
+        <PropertyRef Name="CodRegraJornada" />
+      </Principal>
+      <Dependent Role="TB_Jornada">
+        <PropertyRef Name="CodRegraJornada" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Jornada_TB_Veiculo">
+    <End Role="TB_Veiculo" Type="Self.TB_Veiculo" Multiplicity="1" />
+    <End Role="TB_Jornada" Type="Self.TB_Jornada" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Veiculo">
+        <PropertyRef Name="CodVeiculo" />
+      </Principal>
+      <Dependent Role="TB_Jornada">
+        <PropertyRef Name="CodVeiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_LogSistema_TB_Pagina">
+    <End Role="TB_Pagina" Type="Self.TB_Pagina" Multiplicity="1" />
+    <End Role="TB_LogSistema" Type="Self.TB_LogSistema" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Pagina">
+        <PropertyRef Name="CodPagina" />
+      </Principal>
+      <Dependent Role="TB_LogSistema">
+        <PropertyRef Name="CodPagina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_LogSistema_TB_Usuario">
+    <End Role="TB_Usuario" Type="Self.TB_Usuario" Multiplicity="1" />
+    <End Role="TB_LogSistema" Type="Self.TB_LogSistema" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Usuario">
+        <PropertyRef Name="CodUsuario" />
+      </Principal>
+      <Dependent Role="TB_LogSistema">
+        <PropertyRef Name="CodUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Manutencao_TB_Manutencao">
+    <End Role="TB_Veiculo" Type="Self.TB_Veiculo" Multiplicity="1" />
+    <End Role="TB_Manutencao" Type="Self.TB_Manutencao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Veiculo">
+        <PropertyRef Name="CodVeiculo" />
+      </Principal>
+      <Dependent Role="TB_Manutencao">
+        <PropertyRef Name="CodVeiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Manutencao_TB_Servico">
+    <End Role="TB_Servico" Type="Self.TB_Servico" Multiplicity="1" />
+    <End Role="TB_Manutencao" Type="Self.TB_Manutencao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Servico">
+        <PropertyRef Name="CodServico" />
+      </Principal>
+      <Dependent Role="TB_Manutencao">
+        <PropertyRef Name="CodServico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_ModeloVeiculo_TB_Marca">
+    <End Role="TB_Marca" Type="Self.TB_Marca" Multiplicity="1" />
+    <End Role="TB_ModeloVeiculo" Type="Self.TB_ModeloVeiculo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Marca">
+        <PropertyRef Name="CodMarca" />
+      </Principal>
+      <Dependent Role="TB_ModeloVeiculo">
+        <PropertyRef Name="CodMarca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Mensagens_TB_Motorista">
+    <End Role="TB_Motorista" Type="Self.TB_Motorista" Multiplicity="0..1" />
+    <End Role="TB_Mensagens" Type="Self.TB_Mensagens" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Motorista">
+        <PropertyRef Name="CodMotorista" />
+      </Principal>
+      <Dependent Role="TB_Mensagens">
+        <PropertyRef Name="CodMotorista" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Mensagens_TB_Veiculo">
+    <End Role="TB_Veiculo" Type="Self.TB_Veiculo" Multiplicity="0..1" />
+    <End Role="TB_Mensagens" Type="Self.TB_Mensagens" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Veiculo">
+        <PropertyRef Name="CodVeiculo" />
+      </Principal>
+      <Dependent Role="TB_Mensagens">
+        <PropertyRef Name="CodVeiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_NotificaoVeiculo_TB_Veiculo">
+    <End Role="TB_Veiculo" Type="Self.TB_Veiculo" Multiplicity="1" />
+    <End Role="TB_NotificaoVeiculo" Type="Self.TB_NotificaoVeiculo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Veiculo">
+        <PropertyRef Name="CodVeiculo" />
+      </Principal>
+      <Dependent Role="TB_NotificaoVeiculo">
+        <PropertyRef Name="CodVeiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_SmsNotificacao_TB_NotificaoVeiculo">
+    <End Role="TB_NotificaoVeiculo" Type="Self.TB_NotificaoVeiculo" Multiplicity="1" />
+    <End Role="TB_SmsNotificacao" Type="Self.TB_SmsNotificacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_NotificaoVeiculo">
+        <PropertyRef Name="CodNotificacaoVeiculo" />
+      </Principal>
+      <Dependent Role="TB_SmsNotificacao">
+        <PropertyRef Name="CodNotificacaoVeiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Ocorrencia_TB_TipoOcorrencia">
+    <End Role="TB_TipoOcorrencia" Type="Self.TB_TipoOcorrencia" Multiplicity="0..1" />
+    <End Role="TB_Ocorrencia" Type="Self.TB_Ocorrencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_TipoOcorrencia">
+        <PropertyRef Name="CodTipoOcorrencia" />
+      </Principal>
+      <Dependent Role="TB_Ocorrencia">
+        <PropertyRef Name="CodTipoOcorrencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Ocorrencia_TB_Veiculo">
+    <End Role="TB_Veiculo" Type="Self.TB_Veiculo" Multiplicity="1" />
+    <End Role="TB_Ocorrencia" Type="Self.TB_Ocorrencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Veiculo">
+        <PropertyRef Name="CodVeiculo" />
+      </Principal>
+      <Dependent Role="TB_Ocorrencia">
+        <PropertyRef Name="CodVeiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_OrdemServico_TB_RevisaoFuncionamento">
+    <End Role="TB_RevisaoFuncionamento" Type="Self.TB_RevisaoFuncionamento" Multiplicity="1" />
+    <End Role="TB_OrdemServico" Type="Self.TB_OrdemServico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_RevisaoFuncionamento">
+        <PropertyRef Name="CodRevisaoFuncionamento" />
+      </Principal>
+      <Dependent Role="TB_OrdemServico">
+        <PropertyRef Name="CodRevisaoFuncionamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_OrdemServico_TB_Veiculo">
+    <End Role="TB_Veiculo" Type="Self.TB_Veiculo" Multiplicity="1" />
+    <End Role="TB_OrdemServico" Type="Self.TB_OrdemServico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Veiculo">
+        <PropertyRef Name="CodVeiculo" />
+      </Principal>
+      <Dependent Role="TB_OrdemServico">
+        <PropertyRef Name="CodVeiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Permissao_TB_Pagina">
+    <End Role="TB_Pagina" Type="Self.TB_Pagina" Multiplicity="1" />
+    <End Role="TB_Permissao" Type="Self.TB_Permissao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Pagina">
+        <PropertyRef Name="CodPagina" />
+      </Principal>
+      <Dependent Role="TB_Permissao">
+        <PropertyRef Name="CodPagina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Perfil_TB_TipoPerfil">
+    <End Role="TB_TipoPerfil" Type="Self.TB_TipoPerfil" Multiplicity="0..1" />
+    <End Role="TB_Perfil" Type="Self.TB_Perfil" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_TipoPerfil">
+        <PropertyRef Name="CodTipo" />
+      </Principal>
+      <Dependent Role="TB_Perfil">
+        <PropertyRef Name="CodTipoPerfil" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_PerfilRestricao_TB_Perfil">
+    <End Role="TB_Perfil" Type="Self.TB_Perfil" Multiplicity="1" />
+    <End Role="TB_PerfilRestricao" Type="Self.TB_PerfilRestricao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Perfil">
+        <PropertyRef Name="CodPerfil" />
+      </Principal>
+      <Dependent Role="TB_PerfilRestricao">
+        <PropertyRef Name="codPerfil" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Permissao_TB_Perfil">
+    <End Role="TB_Perfil" Type="Self.TB_Perfil" Multiplicity="1" />
+    <End Role="TB_Permissao" Type="Self.TB_Permissao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Perfil">
+        <PropertyRef Name="CodPerfil" />
+      </Principal>
+      <Dependent Role="TB_Permissao">
+        <PropertyRef Name="CodPerfil" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Usuario_TB_Perfil">
+    <End Role="TB_Perfil" Type="Self.TB_Perfil" Multiplicity="1" />
+    <End Role="TB_Usuario" Type="Self.TB_Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Perfil">
+        <PropertyRef Name="CodPerfil" />
+      </Principal>
+      <Dependent Role="TB_Usuario">
+        <PropertyRef Name="CodPerfil" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_PessoasEmergencia_TB_Veiculo">
+    <End Role="TB_Veiculo" Type="Self.TB_Veiculo" Multiplicity="1" />
+    <End Role="TB_PessoaProcedimento" Type="Self.TB_PessoaProcedimento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Veiculo">
+        <PropertyRef Name="CodVeiculo" />
+      </Principal>
+      <Dependent Role="TB_PessoaProcedimento">
+        <PropertyRef Name="CodVeiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_PontosRota_TB_Pontos">
+    <End Role="TB_Pontos" Type="Self.TB_Pontos" Multiplicity="1" />
+    <End Role="TB_PontosRota" Type="Self.TB_PontosRota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Pontos">
+        <PropertyRef Name="CodPonto" />
+      </Principal>
+      <Dependent Role="TB_PontosRota">
+        <PropertyRef Name="CodPonto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_PontosRota_TB_Rota">
+    <End Role="TB_Rota" Type="Self.TB_Rota" Multiplicity="1" />
+    <End Role="TB_PontosRota" Type="Self.TB_PontosRota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Rota">
+        <PropertyRef Name="CodRota" />
+      </Principal>
+      <Dependent Role="TB_PontosRota">
+        <PropertyRef Name="CodRota" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_RotasVeiculos_TB_Rota">
+    <End Role="TB_Rota" Type="Self.TB_Rota" Multiplicity="1" />
+    <End Role="TB_RotasVeiculos" Type="Self.TB_RotasVeiculos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Rota">
+        <PropertyRef Name="CodRota" />
+      </Principal>
+      <Dependent Role="TB_RotasVeiculos">
+        <PropertyRef Name="CodRota" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_RotasVeiculos_TB_Veiculo">
+    <End Role="TB_Veiculo" Type="Self.TB_Veiculo" Multiplicity="1" />
+    <End Role="TB_RotasVeiculos" Type="Self.TB_RotasVeiculos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Veiculo">
+        <PropertyRef Name="CodVeiculo" />
+      </Principal>
+      <Dependent Role="TB_RotasVeiculos">
+        <PropertyRef Name="CodVeiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_SaidasEquipamento_TB_VeiculosEquipamentos">
+    <End Role="TB_VeiculosEquipamentos" Type="Self.TB_VeiculosEquipamentos" Multiplicity="1" />
+    <End Role="TB_SaidasEquipamento" Type="Self.TB_SaidasEquipamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_VeiculosEquipamentos">
+        <PropertyRef Name="CodVeiculosEquipamentos" />
+      </Principal>
+      <Dependent Role="TB_SaidasEquipamento">
+        <PropertyRef Name="CodVeiculoEquipamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_TipoOcorrencia_TB_TipoOcorrencia">
+    <End Role="TB_TipoOcorrencia" Type="Self.TB_TipoOcorrencia" Multiplicity="1" />
+    <End Role="TB_TipoOcorrencia1" Type="Self.TB_TipoOcorrencia" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="TB_TipoOcorrencia">
+        <PropertyRef Name="CodTipoOcorrencia" />
+      </Principal>
+      <Dependent Role="TB_TipoOcorrencia1">
+        <PropertyRef Name="CodTipoOcorrencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Veiculo_TB_TipoVeiculo">
+    <End Role="TB_TipoVeiculo" Type="Self.TB_TipoVeiculo" Multiplicity="1" />
+    <End Role="TB_Veiculo" Type="Self.TB_Veiculo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_TipoVeiculo">
+        <PropertyRef Name="CodTipoVeiculo" />
+      </Principal>
+      <Dependent Role="TB_Veiculo">
+        <PropertyRef Name="CodTipoVeiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Verificacao_TB_TipoVerificacao">
+    <End Role="TB_TipoVerificacao" Type="Self.TB_TipoVerificacao" Multiplicity="1" />
+    <End Role="TB_Verificacao" Type="Self.TB_Verificacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_TipoVerificacao">
+        <PropertyRef Name="CodTipoVerificacao" />
+      </Principal>
+      <Dependent Role="TB_Verificacao">
+        <PropertyRef Name="CodTipoVerificacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_TratamentoAlerta_TB_Usuario">
+    <End Role="TB_Usuario" Type="Self.TB_Usuario" Multiplicity="1" />
+    <End Role="TB_TratamentoAlerta" Type="Self.TB_TratamentoAlerta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Usuario">
+        <PropertyRef Name="CodUsuario" />
+      </Principal>
+      <Dependent Role="TB_TratamentoAlerta">
+        <PropertyRef Name="CodUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBS_Requisicao_TB_Usuario">
+    <End Role="TB_Usuario" Type="Self.TB_Usuario" Multiplicity="0..1" />
+    <End Role="TBS_Requisicao" Type="Self.TBS_Requisicao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Usuario">
+        <PropertyRef Name="CodUsuario" />
+      </Principal>
+      <Dependent Role="TBS_Requisicao">
+        <PropertyRef Name="CodUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HistoricoVeiculoCliente_TB_Veiculo">
+    <End Role="TB_Veiculo" Type="Self.TB_Veiculo" Multiplicity="1" />
+    <End Role="TB_VeiculosClientes" Type="Self.TB_VeiculosClientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Veiculo">
+        <PropertyRef Name="CodVeiculo" />
+      </Principal>
+      <Dependent Role="TB_VeiculosClientes">
+        <PropertyRef Name="CodVeiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_VeiculosEquipamentos_TB_Veiculo">
+    <End Role="TB_Veiculo" Type="Self.TB_Veiculo" Multiplicity="1" />
+    <End Role="TB_VeiculosEquipamentos" Type="Self.TB_VeiculosEquipamentos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Veiculo">
+        <PropertyRef Name="CodVeiculo" />
+      </Principal>
+      <Dependent Role="TB_VeiculosEquipamentos">
+        <PropertyRef Name="CodVeiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventoTipoEvenvo">
+    <End Role="TBS_TipoEvento" Type="Self.TBS_TipoEvento" Multiplicity="1" />
+    <End Role="TBS_Evento" Type="Self.TBS_Evento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBS_TipoEvento">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TBS_Evento">
+        <PropertyRef Name="TipoEvento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBS_Requisicao_TBS_StatusRequisicao">
+    <End Role="TBS_StatusRequisicao" Type="Self.TBS_StatusRequisicao" Multiplicity="1" />
+    <End Role="TBS_Requisicao" Type="Self.TBS_Requisicao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBS_StatusRequisicao">
+        <PropertyRef Name="CodStatusRequisicao" />
+      </Principal>
+      <Dependent Role="TBS_Requisicao">
+        <PropertyRef Name="CodStatusRequisicao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBS_Requisicao_TBS_TipoRequisicao">
+    <End Role="TBS_TipoRequisicao" Type="Self.TBS_TipoRequisicao" Multiplicity="0..1" />
+    <End Role="TBS_Requisicao" Type="Self.TBS_Requisicao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBS_TipoRequisicao">
+        <PropertyRef Name="CodTipoRequisicao" />
+      </Principal>
+      <Dependent Role="TBS_Requisicao">
+        <PropertyRef Name="CodTipoRequisicao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBS_RequisicaoApn_TBS_Requisicao">
+    <End Role="TBS_Requisicao" Type="Self.TBS_Requisicao" Multiplicity="1" />
+    <End Role="TBS_RequisicaoApn" Type="Self.TBS_RequisicaoApn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBS_Requisicao">
+        <PropertyRef Name="CodRequisicao" />
+      </Principal>
+      <Dependent Role="TBS_RequisicaoApn">
+        <PropertyRef Name="CodRequisicao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBS_RequisicaoHodometro_TBS_Requisicao">
+    <End Role="TBS_Requisicao" Type="Self.TBS_Requisicao" Multiplicity="1" />
+    <End Role="TBS_RequisicaoHodometro" Type="Self.TBS_RequisicaoHodometro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBS_Requisicao">
+        <PropertyRef Name="CodRequisicao" />
+      </Principal>
+      <Dependent Role="TBS_RequisicaoHodometro">
+        <PropertyRef Name="CodRequisicao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBS_RequisicaoServer_TBS_Requisicao">
+    <End Role="TBS_Requisicao" Type="Self.TBS_Requisicao" Multiplicity="1" />
+    <End Role="TBS_RequisicaoServer" Type="Self.TBS_RequisicaoServer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBS_Requisicao">
+        <PropertyRef Name="CodRequisicao" />
+      </Principal>
+      <Dependent Role="TBS_RequisicaoServer">
+        <PropertyRef Name="CodRequisicao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBS_RequisicaoSleepConfig_TBS_Requisicao">
+    <End Role="TBS_Requisicao" Type="Self.TBS_Requisicao" Multiplicity="1" />
+    <End Role="TBS_RequisicaoSleepConfig" Type="Self.TBS_RequisicaoSleepConfig" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBS_Requisicao">
+        <PropertyRef Name="CodRequisicao" />
+      </Principal>
+      <Dependent Role="TBS_RequisicaoSleepConfig">
+        <PropertyRef Name="CodRequisicao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBS_RequisicaoTempoTransmissao_TBS_Requisicao">
+    <End Role="TBS_Requisicao" Type="Self.TBS_Requisicao" Multiplicity="1" />
+    <End Role="TBS_RequisicaoTempoTransmissao" Type="Self.TBS_RequisicaoTempoTransmissao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBS_Requisicao">
+        <PropertyRef Name="CodRequisicao" />
+      </Principal>
+      <Dependent Role="TBS_RequisicaoTempoTransmissao">
+        <PropertyRef Name="CodRequisicao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TB_VeiculoEvento">
+    <End Role="TB_EventoVerificacao" Type="Self.TB_EventoVerificacao" Multiplicity="*" />
+    <End Role="TB_Veiculo" Type="Self.TB_Veiculo" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="DbEcxTrackEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TB_Acesso" EntityType="Self.TB_Acesso" />
+    <EntitySet Name="TB_AlertaEventos" EntityType="Self.TB_AlertaEventos" />
+    <EntitySet Name="TB_Banco" EntityType="Self.TB_Banco" />
+    <EntitySet Name="TB_Cerca" EntityType="Self.TB_Cerca" />
+    <EntitySet Name="TB_CercasVeiculos" EntityType="Self.TB_CercasVeiculos" />
+    <EntitySet Name="TB_ChipEquipamento" EntityType="Self.TB_ChipEquipamento" />
+    <EntitySet Name="TB_Cidade" EntityType="Self.TB_Cidade" />
+    <EntitySet Name="TB_Cliente" EntityType="Self.TB_Cliente" />
+    <EntitySet Name="TB_ComandosAlertas" EntityType="Self.TB_ComandosAlertas" />
+    <EntitySet Name="TB_Complemento" EntityType="Self.TB_Complemento" />
+    <EntitySet Name="TB_Contrato" EntityType="Self.TB_Contrato" />
+    <EntitySet Name="TB_EmailNotificacao" EntityType="Self.TB_EmailNotificacao" />
+    <EntitySet Name="TB_EnderecoPrefCampanha" EntityType="Self.TB_EnderecoPrefCampanha" />
+    <EntitySet Name="TB_EnderecosEventos" EntityType="Self.TB_EnderecosEventos" />
+    <EntitySet Name="TB_EntradasEquipamento" EntityType="Self.TB_EntradasEquipamento" />
+    <EntitySet Name="TB_Equipamento" EntityType="Self.TB_Equipamento" />
+    <EntitySet Name="TB_Estado" EntityType="Self.TB_Estado" />
+    <EntitySet Name="TB_EventoVerificacao" EntityType="Self.TB_EventoVerificacao" />
+    <EntitySet Name="TB_Financeiro" EntityType="Self.TB_Financeiro" />
+    <EntitySet Name="TB_FusoHorario" EntityType="Self.TB_FusoHorario" />
+    <EntitySet Name="TB_GoogleCache" EntityType="Self.TB_GoogleCache" />
+    <EntitySet Name="TB_HorarioOcorrencia" EntityType="Self.TB_HorarioOcorrencia" />
+    <EntitySet Name="TB_ImagemPontos" EntityType="Self.TB_ImagemPontos" />
+    <EntitySet Name="TB_IntervaloJornada" EntityType="Self.TB_IntervaloJornada" />
+    <EntitySet Name="TB_Jornada" EntityType="Self.TB_Jornada" />
+    <EntitySet Name="TB_LogSistema" EntityType="Self.TB_LogSistema" />
+    <EntitySet Name="TB_Manutencao" EntityType="Self.TB_Manutencao" />
+    <EntitySet Name="TB_Marca" EntityType="Self.TB_Marca" />
+    <EntitySet Name="TB_Mensagens" EntityType="Self.TB_Mensagens" />
+    <EntitySet Name="TB_ModeloEquipamento" EntityType="Self.TB_ModeloEquipamento" />
+    <EntitySet Name="TB_ModeloVeiculo" EntityType="Self.TB_ModeloVeiculo" />
+    <EntitySet Name="TB_Motorista" EntityType="Self.TB_Motorista" />
+    <EntitySet Name="TB_NotificaoVeiculo" EntityType="Self.TB_NotificaoVeiculo" />
+    <EntitySet Name="TB_Ocorrencia" EntityType="Self.TB_Ocorrencia" />
+    <EntitySet Name="TB_Operadora" EntityType="Self.TB_Operadora" />
+    <EntitySet Name="TB_OrdemServico" EntityType="Self.TB_OrdemServico" />
+    <EntitySet Name="TB_Pagina" EntityType="Self.TB_Pagina" />
+    <EntitySet Name="TB_Perfil" EntityType="Self.TB_Perfil" />
+    <EntitySet Name="TB_PerfilRestricao" EntityType="Self.TB_PerfilRestricao" />
+    <EntitySet Name="TB_Permissao" EntityType="Self.TB_Permissao" />
+    <EntitySet Name="TB_PessoaProcedimento" EntityType="Self.TB_PessoaProcedimento" />
+    <EntitySet Name="TB_Pontos" EntityType="Self.TB_Pontos" />
+    <EntitySet Name="TB_PontosCerca" EntityType="Self.TB_PontosCerca" />
+    <EntitySet Name="TB_PontosRota" EntityType="Self.TB_PontosRota" />
+    <EntitySet Name="TB_ReferenciaBancaria" EntityType="Self.TB_ReferenciaBancaria" />
+    <EntitySet Name="TB_RegraJornada" EntityType="Self.TB_RegraJornada" />
+    <EntitySet Name="TB_Representante" EntityType="Self.TB_Representante" />
+    <EntitySet Name="TB_RevisaoFuncionamento" EntityType="Self.TB_RevisaoFuncionamento" />
+    <EntitySet Name="TB_Rota" EntityType="Self.TB_Rota" />
+    <EntitySet Name="TB_RotasVeiculos" EntityType="Self.TB_RotasVeiculos" />
+    <EntitySet Name="TB_SaidasEquipamento" EntityType="Self.TB_SaidasEquipamento" />
+    <EntitySet Name="TB_Servico" EntityType="Self.TB_Servico" />
+    <EntitySet Name="TB_SmsNotificacao" EntityType="Self.TB_SmsNotificacao" />
+    <EntitySet Name="TB_TipoOcorrencia" EntityType="Self.TB_TipoOcorrencia" />
+    <EntitySet Name="TB_TipoPerfil" EntityType="Self.TB_TipoPerfil" />
+    <EntitySet Name="TB_TipoVeiculo" EntityType="Self.TB_TipoVeiculo" />
+    <EntitySet Name="TB_TipoVerificacao" EntityType="Self.TB_TipoVerificacao" />
+    <EntitySet Name="TB_TratamentoAlerta" EntityType="Self.TB_TratamentoAlerta" />
+    <EntitySet Name="TB_Usuario" EntityType="Self.TB_Usuario" />
+    <EntitySet Name="TB_Veiculo" EntityType="Self.TB_Veiculo" />
+    <EntitySet Name="TB_VeiculosClientes" EntityType="Self.TB_VeiculosClientes" />
+    <EntitySet Name="TB_VeiculosEquipamentos" EntityType="Self.TB_VeiculosEquipamentos" />
+    <EntitySet Name="TB_Verificacao" EntityType="Self.TB_Verificacao" />
+    <EntitySet Name="TBS_Evento" EntityType="Self.TBS_Evento" />
+    <EntitySet Name="TBS_Requisicao" EntityType="Self.TBS_Requisicao" />
+    <EntitySet Name="TBS_RequisicaoApn" EntityType="Self.TBS_RequisicaoApn" />
+    <EntitySet Name="TBS_RequisicaoHodometro" EntityType="Self.TBS_RequisicaoHodometro" />
+    <EntitySet Name="TBS_RequisicaoServer" EntityType="Self.TBS_RequisicaoServer" />
+    <EntitySet Name="TBS_RequisicaoSleepConfig" EntityType="Self.TBS_RequisicaoSleepConfig" />
+    <EntitySet Name="TBS_RequisicaoTempoTransmissao" EntityType="Self.TBS_RequisicaoTempoTransmissao" />
+    <EntitySet Name="TBS_StatusRequisicao" EntityType="Self.TBS_StatusRequisicao" />
+    <EntitySet Name="TBS_TipoEvento" EntityType="Self.TBS_TipoEvento" />
+    <EntitySet Name="TBS_TipoRequisicao" EntityType="Self.TBS_TipoRequisicao" />
+    <EntitySet Name="TB_JornadaMaxima" EntityType="Self.TB_JornadaMaxima" />
+    <EntitySet Name="TBS_ImeiSimCard" EntityType="Self.TBS_ImeiSimCard" />
+    <AssociationSet Name="FK_TB_Acesso_TB_Usuario" Association="Self.FK_TB_Acesso_TB_Usuario">
+      <End Role="TB_Usuario" EntitySet="TB_Usuario" />
+      <End Role="TB_Acesso" EntitySet="TB_Acesso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_AlertaEventos_TB_EventoVerificacao" Association="Self.FK_TB_AlertaEventos_TB_EventoVerificacao">
+      <End Role="TB_EventoVerificacao" EntitySet="TB_EventoVerificacao" />
+      <End Role="TB_AlertaEventos" EntitySet="TB_AlertaEventos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_AlertaEventos_TB_Veiculo" Association="Self.FK_TB_AlertaEventos_TB_Veiculo">
+      <End Role="TB_Veiculo" EntitySet="TB_Veiculo" />
+      <End Role="TB_AlertaEventos" EntitySet="TB_AlertaEventos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_TratamentoAlerta_TB_AlertaEventos" Association="Self.FK_TB_TratamentoAlerta_TB_AlertaEventos">
+      <End Role="TB_AlertaEventos" EntitySet="TB_AlertaEventos" />
+      <End Role="TB_TratamentoAlerta" EntitySet="TB_TratamentoAlerta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_ReferenciaBancaria_TB_Banco" Association="Self.FK_TB_ReferenciaBancaria_TB_Banco">
+      <End Role="TB_Banco" EntitySet="TB_Banco" />
+      <End Role="TB_ReferenciaBancaria" EntitySet="TB_ReferenciaBancaria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Cerca_TB_Cliente" Association="Self.FK_TB_Cerca_TB_Cliente">
+      <End Role="TB_Cliente" EntitySet="TB_Cliente" />
+      <End Role="TB_Cerca" EntitySet="TB_Cerca" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_CercasVeiculos_TB_Cerca" Association="Self.FK_TB_CercasVeiculos_TB_Cerca">
+      <End Role="TB_Cerca" EntitySet="TB_Cerca" />
+      <End Role="TB_CercasVeiculos" EntitySet="TB_CercasVeiculos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_PontosCerca_TB_Cerca" Association="Self.FK_TB_PontosCerca_TB_Cerca">
+      <End Role="TB_Cerca" EntitySet="TB_Cerca" />
+      <End Role="TB_PontosCerca" EntitySet="TB_PontosCerca" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_CercasVeiculos_TB_Veiculo" Association="Self.FK_TB_CercasVeiculos_TB_Veiculo">
+      <End Role="TB_Veiculo" EntitySet="TB_Veiculo" />
+      <End Role="TB_CercasVeiculos" EntitySet="TB_CercasVeiculos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_ChipEquipamento_TB_Equipamento" Association="Self.FK_TB_ChipEquipamento_TB_Equipamento">
+      <End Role="TB_Equipamento" EntitySet="TB_Equipamento" />
+      <End Role="TB_ChipEquipamento" EntitySet="TB_ChipEquipamento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Cidade_TB_Estado" Association="Self.FK_TB_Cidade_TB_Estado">
+      <End Role="TB_Estado" EntitySet="TB_Estado" />
+      <End Role="TB_Cidade" EntitySet="TB_Cidade" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Cliente_TB_Cidade" Association="Self.FK_TB_Cliente_TB_Cidade">
+      <End Role="TB_Cidade" EntitySet="TB_Cidade" />
+      <End Role="TB_Cliente" EntitySet="TB_Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Cliente_TB_CidadeCobranca" Association="Self.FK_TB_Cliente_TB_CidadeCobranca">
+      <End Role="TB_Cidade" EntitySet="TB_Cidade" />
+      <End Role="TB_Cliente" EntitySet="TB_Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Cliente_TB_CidadeCobranca1" Association="Self.FK_TB_Cliente_TB_CidadeCobranca1">
+      <End Role="TB_Cidade" EntitySet="TB_Cidade" />
+      <End Role="TB_Cliente" EntitySet="TB_Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_EnderecoPrefCampanha_TB_Cidade" Association="Self.FK_TB_EnderecoPrefCampanha_TB_Cidade">
+      <End Role="TB_Cidade" EntitySet="TB_Cidade" />
+      <End Role="TB_EnderecoPrefCampanha" EntitySet="TB_EnderecoPrefCampanha" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Motorista_TB_Cidade" Association="Self.FK_TB_Motorista_TB_Cidade">
+      <End Role="TB_Cidade" EntitySet="TB_Cidade" />
+      <End Role="TB_Motorista" EntitySet="TB_Motorista" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Ocorrencia_TB_Cidade" Association="Self.FK_TB_Ocorrencia_TB_Cidade">
+      <End Role="TB_Cidade" EntitySet="TB_Cidade" />
+      <End Role="TB_Ocorrencia" EntitySet="TB_Ocorrencia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Ocorrencia_TB_Cidade1" Association="Self.FK_TB_Ocorrencia_TB_Cidade1">
+      <End Role="TB_Cidade" EntitySet="TB_Cidade" />
+      <End Role="TB_Ocorrencia" EntitySet="TB_Ocorrencia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Ocorrencia_TB_Cidade2" Association="Self.FK_TB_Ocorrencia_TB_Cidade2">
+      <End Role="TB_Cidade" EntitySet="TB_Cidade" />
+      <End Role="TB_Ocorrencia" EntitySet="TB_Ocorrencia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Representante_TB_Cidade" Association="Self.FK_TB_Representante_TB_Cidade">
+      <End Role="TB_Cidade" EntitySet="TB_Cidade" />
+      <End Role="TB_Representante" EntitySet="TB_Representante" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Usuario_TB_Cidade" Association="Self.FK_TB_Usuario_TB_Cidade">
+      <End Role="TB_Cidade" EntitySet="TB_Cidade" />
+      <End Role="TB_Usuario" EntitySet="TB_Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HistoricoVeiculoCliente_TB_Cliente" Association="Self.FK_HistoricoVeiculoCliente_TB_Cliente">
+      <End Role="TB_Cliente" EntitySet="TB_Cliente" />
+      <End Role="TB_VeiculosClientes" EntitySet="TB_VeiculosClientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Cliente_TB_Usuario" Association="Self.FK_TB_Cliente_TB_Usuario">
+      <End Role="TB_Cliente" EntitySet="TB_Cliente" />
+      <End Role="TB_Cliente1" EntitySet="TB_Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Complemento_TB_Cliente" Association="Self.FK_TB_Complemento_TB_Cliente">
+      <End Role="TB_Cliente" EntitySet="TB_Cliente" />
+      <End Role="TB_Complemento" EntitySet="TB_Complemento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Contrato_TB_Cliente" Association="Self.FK_TB_Contrato_TB_Cliente">
+      <End Role="TB_Cliente" EntitySet="TB_Cliente" />
+      <End Role="TB_Contrato" EntitySet="TB_Contrato" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_EnderecoPrefCampanha_TB_Cliente" Association="Self.FK_TB_EnderecoPrefCampanha_TB_Cliente">
+      <End Role="TB_Cliente" EntitySet="TB_Cliente" />
+      <End Role="TB_EnderecoPrefCampanha" EntitySet="TB_EnderecoPrefCampanha" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Motorista_TB_Cliente" Association="Self.FK_TB_Motorista_TB_Cliente">
+      <End Role="TB_Cliente" EntitySet="TB_Cliente" />
+      <End Role="TB_Motorista" EntitySet="TB_Motorista" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Ocorrencia_TB_Cliente" Association="Self.FK_TB_Ocorrencia_TB_Cliente">
+      <End Role="TB_Cliente" EntitySet="TB_Cliente" />
+      <End Role="TB_Ocorrencia" EntitySet="TB_Ocorrencia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_OrdemServico_TB_Cliente" Association="Self.FK_TB_OrdemServico_TB_Cliente">
+      <End Role="TB_Cliente" EntitySet="TB_Cliente" />
+      <End Role="TB_OrdemServico" EntitySet="TB_OrdemServico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Pontos_TB_Cliente1" Association="Self.FK_TB_Pontos_TB_Cliente1">
+      <End Role="TB_Cliente" EntitySet="TB_Cliente" />
+      <End Role="TB_Pontos" EntitySet="TB_Pontos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_ReferenciaBancaria_TB_Cliente" Association="Self.FK_TB_ReferenciaBancaria_TB_Cliente">
+      <End Role="TB_Cliente" EntitySet="TB_Cliente" />
+      <End Role="TB_ReferenciaBancaria" EntitySet="TB_ReferenciaBancaria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_RegraJornada_TB_Cliente" Association="Self.FK_TB_RegraJornada_TB_Cliente">
+      <End Role="TB_Cliente" EntitySet="TB_Cliente" />
+      <End Role="TB_RegraJornada" EntitySet="TB_RegraJornada" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Representante_TB_Cliente" Association="Self.FK_TB_Representante_TB_Cliente">
+      <End Role="TB_Cliente" EntitySet="TB_Cliente" />
+      <End Role="TB_Representante" EntitySet="TB_Representante" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Rota_TB_Cliente" Association="Self.FK_TB_Rota_TB_Cliente">
+      <End Role="TB_Cliente" EntitySet="TB_Cliente" />
+      <End Role="TB_Rota" EntitySet="TB_Rota" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Usuario_TB_Cliente" Association="Self.FK_TB_Usuario_TB_Cliente">
+      <End Role="TB_Cliente" EntitySet="TB_Cliente" />
+      <End Role="TB_Usuario" EntitySet="TB_Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_EmailNotificacao_TB_NotificaoVeiculo" Association="Self.FK_TB_EmailNotificacao_TB_NotificaoVeiculo">
+      <End Role="TB_NotificaoVeiculo" EntitySet="TB_NotificaoVeiculo" />
+      <End Role="TB_EmailNotificacao" EntitySet="TB_EmailNotificacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_EnderecosEventos_TB_GoogleCache" Association="Self.FK_TB_EnderecosEventos_TB_GoogleCache">
+      <End Role="TB_GoogleCache" EntitySet="TB_GoogleCache" />
+      <End Role="TB_EnderecosEventos" EntitySet="TB_EnderecosEventos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_EnderecosEventos_TBS_Evento" Association="Self.FK_TB_EnderecosEventos_TBS_Evento">
+      <End Role="TBS_Evento" EntitySet="TBS_Evento" />
+      <End Role="TB_EnderecosEventos" EntitySet="TB_EnderecosEventos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_EntradasEquipamento_TB_VeiculosEquipamentos" Association="Self.FK_TB_EntradasEquipamento_TB_VeiculosEquipamentos">
+      <End Role="TB_VeiculosEquipamentos" EntitySet="TB_VeiculosEquipamentos" />
+      <End Role="TB_EntradasEquipamento" EntitySet="TB_EntradasEquipamento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventoEquipamento" Association="Self.FK_EventoEquipamento">
+      <End Role="TB_Equipamento" EntitySet="TB_Equipamento" />
+      <End Role="TBS_Evento" EntitySet="TBS_Evento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Equipamento_TB_ModeloEquipamento" Association="Self.FK_TB_Equipamento_TB_ModeloEquipamento">
+      <End Role="TB_ModeloEquipamento" EntitySet="TB_ModeloEquipamento" />
+      <End Role="TB_Equipamento" EntitySet="TB_Equipamento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Equipamento_TB_Operadora" Association="Self.FK_TB_Equipamento_TB_Operadora">
+      <End Role="TB_Operadora" EntitySet="TB_Operadora" />
+      <End Role="TB_Equipamento" EntitySet="TB_Equipamento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_VeiculosEquipamentos_TB_Equipamento" Association="Self.FK_TB_VeiculosEquipamentos_TB_Equipamento">
+      <End Role="TB_Equipamento" EntitySet="TB_Equipamento" />
+      <End Role="TB_VeiculosEquipamentos" EntitySet="TB_VeiculosEquipamentos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBS_ImeiSimCard_TB_Equipamento" Association="Self.FK_TBS_ImeiSimCard_TB_Equipamento">
+      <End Role="TB_Equipamento" EntitySet="TB_Equipamento" />
+      <End Role="TBS_ImeiSimCard" EntitySet="TBS_ImeiSimCard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBS_Requisicao_TB_Equipamento" Association="Self.FK_TBS_Requisicao_TB_Equipamento">
+      <End Role="TB_Equipamento" EntitySet="TB_Equipamento" />
+      <End Role="TBS_Requisicao" EntitySet="TBS_Requisicao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_EventoVerificacao_TB_HorarioOcorrencia" Association="Self.FK_TB_EventoVerificacao_TB_HorarioOcorrencia">
+      <End Role="TB_HorarioOcorrencia" EntitySet="TB_HorarioOcorrencia" />
+      <End Role="TB_EventoVerificacao" EntitySet="TB_EventoVerificacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_EventoVerificacao_TB_Verificacao" Association="Self.FK_TB_EventoVerificacao_TB_Verificacao">
+      <End Role="TB_Verificacao" EntitySet="TB_Verificacao" />
+      <End Role="TB_EventoVerificacao" EntitySet="TB_EventoVerificacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_EventoVerificacao_TB_Verificacao1" Association="Self.FK_TB_EventoVerificacao_TB_Verificacao1">
+      <End Role="TB_Verificacao" EntitySet="TB_Verificacao" />
+      <End Role="TB_EventoVerificacao" EntitySet="TB_EventoVerificacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_EventoVerificacao_TB_Verificacao2" Association="Self.FK_TB_EventoVerificacao_TB_Verificacao2">
+      <End Role="TB_Verificacao" EntitySet="TB_Verificacao" />
+      <End Role="TB_EventoVerificacao" EntitySet="TB_EventoVerificacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Usuario_TB_FusoHorario" Association="Self.FK_TB_Usuario_TB_FusoHorario">
+      <End Role="TB_FusoHorario" EntitySet="TB_FusoHorario" />
+      <End Role="TB_Usuario" EntitySet="TB_Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Veiculo_TB_FusoHorario" Association="Self.FK_TB_Veiculo_TB_FusoHorario">
+      <End Role="TB_FusoHorario" EntitySet="TB_FusoHorario" />
+      <End Role="TB_Veiculo" EntitySet="TB_Veiculo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Pontos_TB_ImagemPontos" Association="Self.FK_TB_Pontos_TB_ImagemPontos">
+      <End Role="TB_ImagemPontos" EntitySet="TB_ImagemPontos" />
+      <End Role="TB_Pontos" EntitySet="TB_Pontos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_IntervaloJornada_TB_RegraJornada" Association="Self.FK_TB_IntervaloJornada_TB_RegraJornada">
+      <End Role="TB_RegraJornada" EntitySet="TB_RegraJornada" />
+      <End Role="TB_IntervaloJornada" EntitySet="TB_IntervaloJornada" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Jornada_TB_Motorista" Association="Self.FK_TB_Jornada_TB_Motorista">
+      <End Role="TB_Motorista" EntitySet="TB_Motorista" />
+      <End Role="TB_Jornada" EntitySet="TB_Jornada" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Jornada_TB_RegraJornada" Association="Self.FK_TB_Jornada_TB_RegraJornada">
+      <End Role="TB_RegraJornada" EntitySet="TB_RegraJornada" />
+      <End Role="TB_Jornada" EntitySet="TB_Jornada" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Jornada_TB_Veiculo" Association="Self.FK_TB_Jornada_TB_Veiculo">
+      <End Role="TB_Veiculo" EntitySet="TB_Veiculo" />
+      <End Role="TB_Jornada" EntitySet="TB_Jornada" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_LogSistema_TB_Pagina" Association="Self.FK_TB_LogSistema_TB_Pagina">
+      <End Role="TB_Pagina" EntitySet="TB_Pagina" />
+      <End Role="TB_LogSistema" EntitySet="TB_LogSistema" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_LogSistema_TB_Usuario" Association="Self.FK_TB_LogSistema_TB_Usuario">
+      <End Role="TB_Usuario" EntitySet="TB_Usuario" />
+      <End Role="TB_LogSistema" EntitySet="TB_LogSistema" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Manutencao_TB_Manutencao" Association="Self.FK_TB_Manutencao_TB_Manutencao">
+      <End Role="TB_Veiculo" EntitySet="TB_Veiculo" />
+      <End Role="TB_Manutencao" EntitySet="TB_Manutencao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Manutencao_TB_Servico" Association="Self.FK_TB_Manutencao_TB_Servico">
+      <End Role="TB_Servico" EntitySet="TB_Servico" />
+      <End Role="TB_Manutencao" EntitySet="TB_Manutencao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_ModeloVeiculo_TB_Marca" Association="Self.FK_TB_ModeloVeiculo_TB_Marca">
+      <End Role="TB_Marca" EntitySet="TB_Marca" />
+      <End Role="TB_ModeloVeiculo" EntitySet="TB_ModeloVeiculo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Mensagens_TB_Motorista" Association="Self.FK_TB_Mensagens_TB_Motorista">
+      <End Role="TB_Motorista" EntitySet="TB_Motorista" />
+      <End Role="TB_Mensagens" EntitySet="TB_Mensagens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Mensagens_TB_Veiculo" Association="Self.FK_TB_Mensagens_TB_Veiculo">
+      <End Role="TB_Veiculo" EntitySet="TB_Veiculo" />
+      <End Role="TB_Mensagens" EntitySet="TB_Mensagens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_NotificaoVeiculo_TB_Veiculo" Association="Self.FK_TB_NotificaoVeiculo_TB_Veiculo">
+      <End Role="TB_Veiculo" EntitySet="TB_Veiculo" />
+      <End Role="TB_NotificaoVeiculo" EntitySet="TB_NotificaoVeiculo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_SmsNotificacao_TB_NotificaoVeiculo" Association="Self.FK_TB_SmsNotificacao_TB_NotificaoVeiculo">
+      <End Role="TB_NotificaoVeiculo" EntitySet="TB_NotificaoVeiculo" />
+      <End Role="TB_SmsNotificacao" EntitySet="TB_SmsNotificacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Ocorrencia_TB_TipoOcorrencia" Association="Self.FK_TB_Ocorrencia_TB_TipoOcorrencia">
+      <End Role="TB_TipoOcorrencia" EntitySet="TB_TipoOcorrencia" />
+      <End Role="TB_Ocorrencia" EntitySet="TB_Ocorrencia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Ocorrencia_TB_Veiculo" Association="Self.FK_TB_Ocorrencia_TB_Veiculo">
+      <End Role="TB_Veiculo" EntitySet="TB_Veiculo" />
+      <End Role="TB_Ocorrencia" EntitySet="TB_Ocorrencia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_OrdemServico_TB_RevisaoFuncionamento" Association="Self.FK_TB_OrdemServico_TB_RevisaoFuncionamento">
+      <End Role="TB_RevisaoFuncionamento" EntitySet="TB_RevisaoFuncionamento" />
+      <End Role="TB_OrdemServico" EntitySet="TB_OrdemServico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_OrdemServico_TB_Veiculo" Association="Self.FK_TB_OrdemServico_TB_Veiculo">
+      <End Role="TB_Veiculo" EntitySet="TB_Veiculo" />
+      <End Role="TB_OrdemServico" EntitySet="TB_OrdemServico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Permissao_TB_Pagina" Association="Self.FK_TB_Permissao_TB_Pagina">
+      <End Role="TB_Pagina" EntitySet="TB_Pagina" />
+      <End Role="TB_Permissao" EntitySet="TB_Permissao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Perfil_TB_TipoPerfil" Association="Self.FK_TB_Perfil_TB_TipoPerfil">
+      <End Role="TB_TipoPerfil" EntitySet="TB_TipoPerfil" />
+      <End Role="TB_Perfil" EntitySet="TB_Perfil" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_PerfilRestricao_TB_Perfil" Association="Self.FK_TB_PerfilRestricao_TB_Perfil">
+      <End Role="TB_Perfil" EntitySet="TB_Perfil" />
+      <End Role="TB_PerfilRestricao" EntitySet="TB_PerfilRestricao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Permissao_TB_Perfil" Association="Self.FK_TB_Permissao_TB_Perfil">
+      <End Role="TB_Perfil" EntitySet="TB_Perfil" />
+      <End Role="TB_Permissao" EntitySet="TB_Permissao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Usuario_TB_Perfil" Association="Self.FK_TB_Usuario_TB_Perfil">
+      <End Role="TB_Perfil" EntitySet="TB_Perfil" />
+      <End Role="TB_Usuario" EntitySet="TB_Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_PessoasEmergencia_TB_Veiculo" Association="Self.FK_TB_PessoasEmergencia_TB_Veiculo">
+      <End Role="TB_Veiculo" EntitySet="TB_Veiculo" />
+      <End Role="TB_PessoaProcedimento" EntitySet="TB_PessoaProcedimento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_PontosRota_TB_Pontos" Association="Self.FK_TB_PontosRota_TB_Pontos">
+      <End Role="TB_Pontos" EntitySet="TB_Pontos" />
+      <End Role="TB_PontosRota" EntitySet="TB_PontosRota" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_PontosRota_TB_Rota" Association="Self.FK_TB_PontosRota_TB_Rota">
+      <End Role="TB_Rota" EntitySet="TB_Rota" />
+      <End Role="TB_PontosRota" EntitySet="TB_PontosRota" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_RotasVeiculos_TB_Rota" Association="Self.FK_TB_RotasVeiculos_TB_Rota">
+      <End Role="TB_Rota" EntitySet="TB_Rota" />
+      <End Role="TB_RotasVeiculos" EntitySet="TB_RotasVeiculos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_RotasVeiculos_TB_Veiculo" Association="Self.FK_TB_RotasVeiculos_TB_Veiculo">
+      <End Role="TB_Veiculo" EntitySet="TB_Veiculo" />
+      <End Role="TB_RotasVeiculos" EntitySet="TB_RotasVeiculos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_SaidasEquipamento_TB_VeiculosEquipamentos" Association="Self.FK_TB_SaidasEquipamento_TB_VeiculosEquipamentos">
+      <End Role="TB_VeiculosEquipamentos" EntitySet="TB_VeiculosEquipamentos" />
+      <End Role="TB_SaidasEquipamento" EntitySet="TB_SaidasEquipamento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_TipoOcorrencia_TB_TipoOcorrencia" Association="Self.FK_TB_TipoOcorrencia_TB_TipoOcorrencia">
+      <End Role="TB_TipoOcorrencia" EntitySet="TB_TipoOcorrencia" />
+      <End Role="TB_TipoOcorrencia1" EntitySet="TB_TipoOcorrencia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Veiculo_TB_TipoVeiculo" Association="Self.FK_TB_Veiculo_TB_TipoVeiculo">
+      <End Role="TB_TipoVeiculo" EntitySet="TB_TipoVeiculo" />
+      <End Role="TB_Veiculo" EntitySet="TB_Veiculo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Verificacao_TB_TipoVerificacao" Association="Self.FK_TB_Verificacao_TB_TipoVerificacao">
+      <End Role="TB_TipoVerificacao" EntitySet="TB_TipoVerificacao" />
+      <End Role="TB_Verificacao" EntitySet="TB_Verificacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_TratamentoAlerta_TB_Usuario" Association="Self.FK_TB_TratamentoAlerta_TB_Usuario">
+      <End Role="TB_Usuario" EntitySet="TB_Usuario" />
+      <End Role="TB_TratamentoAlerta" EntitySet="TB_TratamentoAlerta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBS_Requisicao_TB_Usuario" Association="Self.FK_TBS_Requisicao_TB_Usuario">
+      <End Role="TB_Usuario" EntitySet="TB_Usuario" />
+      <End Role="TBS_Requisicao" EntitySet="TBS_Requisicao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HistoricoVeiculoCliente_TB_Veiculo" Association="Self.FK_HistoricoVeiculoCliente_TB_Veiculo">
+      <End Role="TB_Veiculo" EntitySet="TB_Veiculo" />
+      <End Role="TB_VeiculosClientes" EntitySet="TB_VeiculosClientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_VeiculosEquipamentos_TB_Veiculo" Association="Self.FK_TB_VeiculosEquipamentos_TB_Veiculo">
+      <End Role="TB_Veiculo" EntitySet="TB_Veiculo" />
+      <End Role="TB_VeiculosEquipamentos" EntitySet="TB_VeiculosEquipamentos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventoTipoEvenvo" Association="Self.FK_EventoTipoEvenvo">
+      <End Role="TBS_TipoEvento" EntitySet="TBS_TipoEvento" />
+      <End Role="TBS_Evento" EntitySet="TBS_Evento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBS_Requisicao_TBS_StatusRequisicao" Association="Self.FK_TBS_Requisicao_TBS_StatusRequisicao">
+      <End Role="TBS_StatusRequisicao" EntitySet="TBS_StatusRequisicao" />
+      <End Role="TBS_Requisicao" EntitySet="TBS_Requisicao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBS_Requisicao_TBS_TipoRequisicao" Association="Self.FK_TBS_Requisicao_TBS_TipoRequisicao">
+      <End Role="TBS_TipoRequisicao" EntitySet="TBS_TipoRequisicao" />
+      <End Role="TBS_Requisicao" EntitySet="TBS_Requisicao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBS_RequisicaoApn_TBS_Requisicao" Association="Self.FK_TBS_RequisicaoApn_TBS_Requisicao">
+      <End Role="TBS_Requisicao" EntitySet="TBS_Requisicao" />
+      <End Role="TBS_RequisicaoApn" EntitySet="TBS_RequisicaoApn" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBS_RequisicaoHodometro_TBS_Requisicao" Association="Self.FK_TBS_RequisicaoHodometro_TBS_Requisicao">
+      <End Role="TBS_Requisicao" EntitySet="TBS_Requisicao" />
+      <End Role="TBS_RequisicaoHodometro" EntitySet="TBS_RequisicaoHodometro" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBS_RequisicaoServer_TBS_Requisicao" Association="Self.FK_TBS_RequisicaoServer_TBS_Requisicao">
+      <End Role="TBS_Requisicao" EntitySet="TBS_Requisicao" />
+      <End Role="TBS_RequisicaoServer" EntitySet="TBS_RequisicaoServer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBS_RequisicaoSleepConfig_TBS_Requisicao" Association="Self.FK_TBS_RequisicaoSleepConfig_TBS_Requisicao">
+      <End Role="TBS_Requisicao" EntitySet="TBS_Requisicao" />
+      <End Role="TBS_RequisicaoSleepConfig" EntitySet="TBS_RequisicaoSleepConfig" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBS_RequisicaoTempoTransmissao_TBS_Requisicao" Association="Self.FK_TBS_RequisicaoTempoTransmissao_TBS_Requisicao">
+      <End Role="TBS_Requisicao" EntitySet="TBS_Requisicao" />
+      <End Role="TBS_RequisicaoTempoTransmissao" EntitySet="TBS_RequisicaoTempoTransmissao" />
+    </AssociationSet>
+    <AssociationSet Name="TB_VeiculoEvento" Association="Self.TB_VeiculoEvento">
+      <End Role="TB_EventoVerificacao" EntitySet="TB_EventoVerificacao" />
+      <End Role="TB_Veiculo" EntitySet="TB_Veiculo" />
+    </AssociationSet>
+    <FunctionImport Name="Proc_DeslocParada">
+      <Parameter Name="DataInicial" Mode="In" Type="DateTime" />
+      <Parameter Name="DataFinal" Mode="In" Type="DateTime" />
+      <Parameter Name="CodVeiculo" Mode="In" Type="Int32" />
+      <Parameter Name="IntervaloHoras" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_Pontos">
+      <Parameter Name="DataIni" Mode="In" Type="DateTime" />
+      <Parameter Name="Raio" Mode="In" Type="Double" />
+      <Parameter Name="DataFim" Mode="In" Type="DateTime" />
+      <Parameter Name="CodVeiculo" Mode="In" Type="Int32" />
+      <Parameter Name="Longitude" Mode="In" Type="String" />
+      <Parameter Name="Latitude" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_Rastrear_CloseRequisition">
+      <Parameter Name="CodRequisicao" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_Rastrear_GetRequisition" ReturnType="Collection(DbEcxTrackModel.Proc_Rastrear_GetRequisition_Result)">
+      <Parameter Name="NumeroSerie" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_Rastrear_GetRequisitionApn" ReturnType="Collection(DbEcxTrackModel.Proc_Rastrear_GetRequisitionApn_Result)">
+      <Parameter Name="CodRequisicao" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_Rastrear_GetRequisitionOdometer" ReturnType="Collection(DbEcxTrackModel.Proc_Rastrear_GetRequisitionOdometer_Result)">
+      <Parameter Name="CodRequisicao" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_Rastrear_GetRequisitionServer" ReturnType="Collection(DbEcxTrackModel.Proc_Rastrear_GetRequisitionServer_Result)">
+      <Parameter Name="CodRequisicao" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_Rastrear_GetRequisitionSleepTime" ReturnType="Collection(DbEcxTrackModel.Proc_Rastrear_GetRequisitionSleepTime_Result)">
+      <Parameter Name="CodRequisicao" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_Rastrear_GetRequisitionTransmissionTime" ReturnType="Collection(DbEcxTrackModel.Proc_Rastrear_GetRequisitionTransmissionTime_Result)">
+      <Parameter Name="CodRequisicao" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_Rastrear_SaveImei">
+      <Parameter Name="NumeroSerie" Mode="In" Type="String" />
+      <Parameter Name="CodModeloBin" Mode="In" Type="Int32" />
+      <Parameter Name="DataEnvio" Mode="In" Type="DateTime" />
+      <Parameter Name="Imei" Mode="In" Type="String" />
+      <Parameter Name="SimCard" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_Rastrear_SaveTracking">
+      <Parameter Name="NumeroSerie" Mode="In" Type="String" />
+      <Parameter Name="CodModeloBin" Mode="In" Type="Int32" />
+      <Parameter Name="DataEvento" Mode="In" Type="DateTime" />
+      <Parameter Name="DataComunicacao" Mode="In" Type="DateTime" />
+      <Parameter Name="Latitude" Mode="In" Type="Decimal" />
+      <Parameter Name="Longitude" Mode="In" Type="Decimal" />
+      <Parameter Name="Direcao" Mode="In" Type="Int16" />
+      <Parameter Name="Velocidade" Mode="In" Type="Int16" />
+      <Parameter Name="SinalGPS" Mode="In" Type="Int16" />
+      <Parameter Name="CodTipoEvento" Mode="In" Type="Int16" />
+      <Parameter Name="Bateria" Mode="In" Type="Int16" />
+      <Parameter Name="Temperatura" Mode="In" Type="Int16" />
+      <Parameter Name="Hodometro" Mode="In" Type="Int32" />
+      <Parameter Name="StatusEntradas" Mode="In" Type="Int32" />
+      <Parameter Name="StatusSaida" Mode="In" Type="Int32" />
+      <Parameter Name="StatusIgnicao" Mode="In" Type="Boolean" />
+      <Parameter Name="StatusBotaoPanico" Mode="In" Type="Boolean" />
+      <Parameter Name="StatusEntradaAuxiliar" Mode="In" Type="Boolean" />
+      <Parameter Name="StatusBotaoAntiFurto" Mode="In" Type="Boolean" />
+      <Parameter Name="StatusSecaoAntenaGPS" Mode="In" Type="Boolean" />
+      <Parameter Name="StatusVoltagemBateria" Mode="In" Type="Boolean" />
+      <Parameter Name="StatusEntradaAuxiliar2" Mode="In" Type="Boolean" />
+      <Parameter Name="StatusEntradaAuxiliar4" Mode="In" Type="Boolean" />
+      <Parameter Name="StatusBateriaBkpBaixa" Mode="In" Type="Boolean" />
+      <Parameter Name="StatusFalhaBateriaBkp" Mode="In" Type="Boolean" />
+      <Parameter Name="StatusFimVidaUtilBateriaBkp" Mode="In" Type="Boolean" />
+      <Parameter Name="StatusBloqueio" Mode="In" Type="Boolean" />
+      <Parameter Name="StatusSirene" Mode="In" Type="Boolean" />
+      <Parameter Name="StatusSaidaAuxiliar" Mode="In" Type="Boolean" />
+      <Parameter Name="StatusSaidaAuxiliar2" Mode="In" Type="Boolean" />
+      <Parameter Name="StatusSaidaAuxiliar3" Mode="In" Type="Boolean" />
+      <Parameter Name="StatusSaidaAuxiliar4" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_RelatorioVelocidade" ReturnType="Collection(DbEcxTrackModel.Proc_RelatorioVelocidade_Result)">
+      <Parameter Name="DataIni" Mode="In" Type="DateTime" />
+      <Parameter Name="Velocidade" Mode="In" Type="Int32" />
+      <Parameter Name="DataFim" Mode="In" Type="DateTime" />
+      <Parameter Name="CodVeiculoMotorista" Mode="In" Type="Int32" />
+      <Parameter Name="TipoRelatorio" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_RelEntrada">
+      <Parameter Name="DataInicial" Mode="In" Type="DateTime" />
+      <Parameter Name="DataFinal" Mode="In" Type="DateTime" />
+      <Parameter Name="CodVeiculo" Mode="In" Type="Int32" />
+      <Parameter Name="IntervaloHoras" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_RelEntrada_old">
+      <Parameter Name="DataInicial" Mode="In" Type="DateTime" />
+      <Parameter Name="DataFinal" Mode="In" Type="DateTime" />
+      <Parameter Name="CodVeiculo" Mode="In" Type="Int32" />
+      <Parameter Name="IntervaloHoras" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_VerificarRotas">
+      <Parameter Name="DataVinculacao" Mode="In" Type="DateTime" />
+      <Parameter Name="Raio" Mode="In" Type="Double" />
+      <Parameter Name="Longitude" Mode="In" Type="Decimal" />
+      <Parameter Name="Latitude" Mode="In" Type="Decimal" />
+      <Parameter Name="CodVeiculo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Utility_EstimateClusteredIndexSize">
+      <Parameter Name="Num_Rows" Mode="In" Type="Double" />
+      <Parameter Name="ClusteredIndexIsUnique" Mode="In" Type="Boolean" />
+      <Parameter Name="Fill_Factor" Mode="In" Type="Double" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="Proc_Rastrear_GetRequisition_Result">
+    <Property Type="Int32" Name="CodRequisicao" Nullable="false" />
+    <Property Type="Int32" Name="CodEquipamento" Nullable="false" />
+    <Property Type="Int32" Name="CodSaida" Nullable="true" />
+    <Property Type="Int32" Name="CodAtivacao" Nullable="true" />
+    <Property Type="Int32" Name="CodInvertida" Nullable="true" />
+    <Property Type="Int32" Name="CodStatusRequisicao" Nullable="false" />
+    <Property Type="Int32" Name="CodTipoRequisicao" Nullable="true" />
+    <Property Type="Int32" Name="CodEntrada" Nullable="true" />
+    <Property Type="Int32" Name="OpcoesEntrada" Nullable="true" />
+    <Property Type="Int32" Name="TempoDeteccao" Nullable="true" />
+    <Property Type="Int32" Name="NivelAtivacaoLogica" Nullable="true" />
+    <Property Type="Int32" Name="AssociacaoDeSaidas" Nullable="true" />
+    <Property Type="DateTime" Name="DataRequisicao" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="CodUsuario" Nullable="true" />
+    <Property Type="Int32" Name="CodEquipamento1" Nullable="false" />
+    <Property Type="String" Name="NumeroEquipamento" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NumeroSerie" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Apn" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="NumeroChip" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="NumeroTelefone" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="CodModelo" Nullable="false" />
+    <Property Type="Int32" Name="CodOperadora" Nullable="false" />
+    <Property Type="String" Name="Ativo" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="NumeroSerie2" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Proc_Rastrear_GetRequisitionApn_Result">
+    <Property Type="Int32" Name="CodRequisicaoApn" Nullable="false" />
+    <Property Type="Int32" Name="CodRequisicao" Nullable="false" />
+    <Property Type="String" Name="Apn" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="Usuario" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Senha" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Proc_Rastrear_GetRequisitionOdometer_Result">
+    <Property Type="Int32" Name="CodRequisicaoHodometro" Nullable="false" />
+    <Property Type="Int32" Name="CodRequisicao" Nullable="false" />
+    <Property Type="Int32" Name="ValorInicial" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Proc_Rastrear_GetRequisitionServer_Result">
+    <Property Type="Int32" Name="CodRequisicaoServer" Nullable="false" />
+    <Property Type="Int32" Name="CodRequisicao" Nullable="false" />
+    <Property Type="String" Name="IP1" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="Porta1" Nullable="false" />
+    <Property Type="String" Name="IP2" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="Porta2" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Proc_Rastrear_GetRequisitionSleepTime_Result">
+    <Property Type="Int32" Name="CodRequisicaoSleepConfig" Nullable="false" />
+    <Property Type="Int32" Name="SleepConfiguration" Nullable="false" />
+    <Property Type="Int32" Name="MaxSpeed" Nullable="false" />
+    <Property Type="Int32" Name="CodRequisicao" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Proc_Rastrear_GetRequisitionTransmissionTime_Result">
+    <Property Type="Int32" Name="CodRequisicaoTempoTransmissao" Nullable="false" />
+    <Property Type="Int32" Name="CodRequisicao" Nullable="false" />
+    <Property Type="Int32" Name="SleepTime" Nullable="false" />
+    <Property Type="Int32" Name="TrackingTime" Nullable="false" />
+    <Property Type="Int32" Name="KeepAliveTime" Nullable="false" />
+    <Property Type="Int32" Name="AntiTheftTime" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Proc_RelatorioVelocidade_Result">
+    <Property Type="Int64" Name="CodEvento" Nullable="false" />
+    <Property Type="String" Name="VeiculoMotorista" Nullable="false" MaxLength="10" />
+    <Property Type="DateTime" Name="DataEvento" Nullable="false" Precision="23" />
+    <Property Type="Decimal" Name="Latitude" Nullable="false" Precision="8" Scale="6" />
+    <Property Type="Decimal" Name="Longitude" Nullable="false" Precision="8" Scale="6" />
+    <Property Type="Int16" Name="Velocidade" Nullable="false" />
+    <Property Type="Boolean" Name="StatusIgnicao" Nullable="true" />
+    <Property Type="Int32" Name="CodVeiculo" Nullable="false" />
+    <Property Type="String" Name="Endereco" Nullable="true" />
+  </ComplexType>
+</Schema>

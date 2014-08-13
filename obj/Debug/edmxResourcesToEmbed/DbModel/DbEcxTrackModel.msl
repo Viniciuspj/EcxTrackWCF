@@ -1,0 +1,1204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DbEcxTrackModelStoreContainer" CdmEntityContainer="DbEcxTrackEntities">
+    <EntitySetMapping Name="TB_Acesso">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_Acesso">
+        <MappingFragment StoreEntitySet="TB_Acesso">
+          <ScalarProperty Name="CodAcesso" ColumnName="CodAcesso" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="EnderecoIP" ColumnName="EnderecoIP" />
+          <ScalarProperty Name="TipoAcesso" ColumnName="TipoAcesso" />
+          <ScalarProperty Name="CodUsuario" ColumnName="CodUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_AlertaEventos">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_AlertaEventos">
+        <MappingFragment StoreEntitySet="TB_AlertaEventos">
+          <ScalarProperty Name="CodAlerta" ColumnName="CodAlerta" />
+          <ScalarProperty Name="CodEvento" ColumnName="CodEvento" />
+          <ScalarProperty Name="CodCerca" ColumnName="CodCerca" />
+          <ScalarProperty Name="CodVeiculo" ColumnName="CodVeiculo" />
+          <ScalarProperty Name="CodRota" ColumnName="CodRota" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DataInicio" ColumnName="DataInicio" />
+          <ScalarProperty Name="DataFim" ColumnName="DataFim" />
+          <ScalarProperty Name="TipoEvento" ColumnName="TipoEvento" />
+          <ScalarProperty Name="ChaveAlerta" ColumnName="ChaveAlerta" />
+          <ScalarProperty Name="Personalizado" ColumnName="Personalizado" />
+          <ScalarProperty Name="CodEventoVerificacao" ColumnName="CodEventoVerificacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Banco">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_Banco">
+        <MappingFragment StoreEntitySet="TB_Banco">
+          <ScalarProperty Name="CodBanco" ColumnName="CodBanco" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="CodigoPadrao" ColumnName="CodigoPadrao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Cerca">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_Cerca">
+        <MappingFragment StoreEntitySet="TB_Cerca">
+          <ScalarProperty Name="CodCerca" ColumnName="CodCerca" />
+          <ScalarProperty Name="NomeCerca" ColumnName="NomeCerca" />
+          <ScalarProperty Name="CodCliente" ColumnName="CodCliente" />
+          <ScalarProperty Name="Raio" ColumnName="Raio" />
+          <ScalarProperty Name="TipoCerca" ColumnName="TipoCerca" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_CercasVeiculos">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_CercasVeiculos">
+        <MappingFragment StoreEntitySet="TB_CercasVeiculos">
+          <ScalarProperty Name="CodVinculacao" ColumnName="CodVinculacao" />
+          <ScalarProperty Name="CodCerca" ColumnName="CodCerca" />
+          <ScalarProperty Name="CodVeiculo" ColumnName="CodVeiculo" />
+          <ScalarProperty Name="AlertaSonoro" ColumnName="AlertaSonoro" />
+          <ScalarProperty Name="AlertarQuando" ColumnName="AlertarQuando" />
+          <ScalarProperty Name="GerarAlerta" ColumnName="GerarAlerta" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_ChipEquipamento">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_ChipEquipamento">
+        <MappingFragment StoreEntitySet="TB_ChipEquipamento">
+          <ScalarProperty Name="CodChipEquipamento" ColumnName="CodChipEquipamento" />
+          <ScalarProperty Name="CodEquipamento" ColumnName="CodEquipamento" />
+          <ScalarProperty Name="NumeroChip" ColumnName="NumeroChip" />
+          <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Cidade">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_Cidade">
+        <MappingFragment StoreEntitySet="TB_Cidade">
+          <ScalarProperty Name="CodCidade" ColumnName="CodCidade" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="CodEstado" ColumnName="CodEstado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Cliente">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_Cliente">
+        <MappingFragment StoreEntitySet="TB_Cliente">
+          <ScalarProperty Name="CodCliente" ColumnName="CodCliente" />
+          <ScalarProperty Name="NomeCliente" ColumnName="NomeCliente" />
+          <ScalarProperty Name="RazaoSocial" ColumnName="RazaoSocial" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="CNPJ_CPF" ColumnName="CNPJ_CPF" />
+          <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+          <ScalarProperty Name="Complemento" ColumnName="Complemento" />
+          <ScalarProperty Name="CodCidade" ColumnName="CodCidade" />
+          <ScalarProperty Name="CEP" ColumnName="CEP" />
+          <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Email2" ColumnName="Email2" />
+          <ScalarProperty Name="Observacoes" ColumnName="Observacoes" />
+          <ScalarProperty Name="DataCadastro" ColumnName="DataCadastro" />
+          <ScalarProperty Name="CodUsuario" ColumnName="CodUsuario" />
+          <ScalarProperty Name="CodUsuarioVendas1" ColumnName="CodUsuarioVendas1" />
+          <ScalarProperty Name="CodUsuarioVendas2" ColumnName="CodUsuarioVendas2" />
+          <ScalarProperty Name="EnderecoCobranca" ColumnName="EnderecoCobranca" />
+          <ScalarProperty Name="NumeroCobranca" ColumnName="NumeroCobranca" />
+          <ScalarProperty Name="BairroCobranca" ColumnName="BairroCobranca" />
+          <ScalarProperty Name="ComplementoCobranca" ColumnName="ComplementoCobranca" />
+          <ScalarProperty Name="CEPCobranca" ColumnName="CEPCobranca" />
+          <ScalarProperty Name="CodCidadeCobranca" ColumnName="CodCidadeCobranca" />
+          <ScalarProperty Name="TelefoneCobranca" ColumnName="TelefoneCobranca" />
+          <ScalarProperty Name="DataModificacao" ColumnName="DataModificacao" />
+          <ScalarProperty Name="InscricaoMunicipal" ColumnName="InscricaoMunicipal" />
+          <ScalarProperty Name="InscricaoEstadual" ColumnName="InscricaoEstadual" />
+          <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+          <ScalarProperty Name="GerenciadorRiscos" ColumnName="GerenciadorRiscos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_ComandosAlertas">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_ComandosAlertas">
+        <MappingFragment StoreEntitySet="TB_ComandosAlertas">
+          <ScalarProperty Name="CodComandosAlertas" ColumnName="CodComandosAlertas" />
+          <ScalarProperty Name="CodChaveAlerta" ColumnName="CodChaveAlerta" />
+          <ScalarProperty Name="DescricaoComando" ColumnName="DescricaoComando" />
+          <ScalarProperty Name="DataEnvio" ColumnName="DataEnvio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Complemento">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_Complemento">
+        <MappingFragment StoreEntitySet="TB_Complemento">
+          <ScalarProperty Name="CodComplemento" ColumnName="CodComplemento" />
+          <ScalarProperty Name="LimiteMesesRelatorios" ColumnName="LimiteMesesRelatorios" />
+          <ScalarProperty Name="AvisoVenctoBoleto" ColumnName="AvisoVenctoBoleto" />
+          <ScalarProperty Name="PaginaInicial" ColumnName="PaginaInicial" />
+          <ScalarProperty Name="CodCliente" ColumnName="CodCliente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Contrato">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_Contrato">
+        <MappingFragment StoreEntitySet="TB_Contrato">
+          <ScalarProperty Name="CodContrato" ColumnName="CodContrato" />
+          <ScalarProperty Name="CodCliente" ColumnName="CodCliente" />
+          <ScalarProperty Name="MensalidadePorVeiculo" ColumnName="MensalidadePorVeiculo" />
+          <ScalarProperty Name="ValorContratoVeiculo" ColumnName="ValorContratoVeiculo" />
+          <ScalarProperty Name="TaxaInstalacao" ColumnName="TaxaInstalacao" />
+          <ScalarProperty Name="ExcedentePorMegabyte" ColumnName="ExcedentePorMegabyte" />
+          <ScalarProperty Name="TaxaRenovacaoContratual" ColumnName="TaxaRenovacaoContratual" />
+          <ScalarProperty Name="TaxaVisitaImprodutiva" ColumnName="TaxaVisitaImprodutiva" />
+          <ScalarProperty Name="TaxaRemocaoReinstalacao" ColumnName="TaxaRemocaoReinstalacao" />
+          <ScalarProperty Name="TaxaInformacaoLocalizacaoVeiculo" ColumnName="TaxaInformacaoLocalizacaoVeiculo" />
+          <ScalarProperty Name="TaxaFalsoPanico" ColumnName="TaxaFalsoPanico" />
+          <ScalarProperty Name="ContemplacaoInstalacao" ColumnName="ContemplacaoInstalacao" />
+          <ScalarProperty Name="PrazoDeValidade" ColumnName="PrazoDeValidade" />
+          <ScalarProperty Name="DataPagamento" ColumnName="DataPagamento" />
+          <ScalarProperty Name="DataCorte" ColumnName="DataCorte" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_EmailNotificacao">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_EmailNotificacao">
+        <MappingFragment StoreEntitySet="TB_EmailNotificacao">
+          <ScalarProperty Name="CodEmailNotificacao" ColumnName="CodEmailNotificacao" />
+          <ScalarProperty Name="CodNotificacaoVeiculo" ColumnName="CodNotificacaoVeiculo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_EnderecoPrefCampanha">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_EnderecoPrefCampanha">
+        <MappingFragment StoreEntitySet="TB_EnderecoPrefCampanha">
+          <ScalarProperty Name="CodCliente" ColumnName="CodCliente" />
+          <ScalarProperty Name="RazaoSocial" ColumnName="RazaoSocial" />
+          <ScalarProperty Name="ContaContabil" ColumnName="ContaContabil" />
+          <ScalarProperty Name="CEP" ColumnName="CEP" />
+          <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="Complemento" ColumnName="Complemento" />
+          <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+          <ScalarProperty Name="CodCidade" ColumnName="CodCidade" />
+          <ScalarProperty Name="EmailCampanha" ColumnName="EmailCampanha" />
+          <ScalarProperty Name="EmailNotificacao" ColumnName="EmailNotificacao" />
+          <ScalarProperty Name="Contato" ColumnName="Contato" />
+          <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+          <ScalarProperty Name="CodClienteEnd" ColumnName="CodClienteEnd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_EnderecosEventos">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_EnderecosEventos">
+        <MappingFragment StoreEntitySet="TB_EnderecosEventos">
+          <ScalarProperty Name="CodEnderecoEvento" ColumnName="CodEnderecoEvento" />
+          <ScalarProperty Name="IdEvento" ColumnName="IdEvento" />
+          <ScalarProperty Name="IdGoogleCache" ColumnName="IdGoogleCache" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_EntradasEquipamento">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_EntradasEquipamento">
+        <MappingFragment StoreEntitySet="TB_EntradasEquipamento">
+          <ScalarProperty Name="CodEntradasEquipamento" ColumnName="CodEntradasEquipamento" />
+          <ScalarProperty Name="CodVeiculoEquipamento" ColumnName="CodVeiculoEquipamento" />
+          <ScalarProperty Name="Entrada" ColumnName="Entrada" />
+          <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Equipamento">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_Equipamento">
+        <MappingFragment StoreEntitySet="TB_Equipamento">
+          <ScalarProperty Name="CodEquipamento" ColumnName="CodEquipamento" />
+          <ScalarProperty Name="NumeroEquipamento" ColumnName="NumeroEquipamento" />
+          <ScalarProperty Name="NumeroSerie" ColumnName="NumeroSerie" />
+          <ScalarProperty Name="Apn" ColumnName="Apn" />
+          <ScalarProperty Name="NumeroChip" ColumnName="NumeroChip" />
+          <ScalarProperty Name="NumeroTelefone" ColumnName="NumeroTelefone" />
+          <ScalarProperty Name="CodModelo" ColumnName="CodModelo" />
+          <ScalarProperty Name="CodOperadora" ColumnName="CodOperadora" />
+          <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+          <ScalarProperty Name="NumeroSerie2" ColumnName="NumeroSerie2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Estado">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_Estado">
+        <MappingFragment StoreEntitySet="TB_Estado">
+          <ScalarProperty Name="CodEstado" ColumnName="CodEstado" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="UF" ColumnName="UF" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_EventoVerificacao">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_EventoVerificacao">
+        <MappingFragment StoreEntitySet="TB_EventoVerificacao">
+          <ScalarProperty Name="CodEventoVerificacao" ColumnName="CodEventoVerificacao" />
+          <ScalarProperty Name="CodVerificacao1" ColumnName="CodVerificacao1" />
+          <ScalarProperty Name="CodVerificacao2" ColumnName="CodVerificacao2" />
+          <ScalarProperty Name="CodVerificacao3" ColumnName="CodVerificacao3" />
+          <ScalarProperty Name="CodHorarioOcorrencia" ColumnName="CodHorarioOcorrencia" />
+          <ScalarProperty Name="AlertaSonoro" ColumnName="AlertaSonoro" />
+          <ScalarProperty Name="NomeEvento" ColumnName="NomeEvento" />
+          <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+          <ScalarProperty Name="CodComando" ColumnName="CodComando" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Financeiro">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_Financeiro">
+        <MappingFragment StoreEntitySet="TB_Financeiro">
+          <ScalarProperty Name="CodCliente" ColumnName="CodCliente" />
+          <ScalarProperty Name="RetencaoISS" ColumnName="RetencaoISS" />
+          <ScalarProperty Name="DataInicioRetencao" ColumnName="DataInicioRetencao" />
+          <ScalarProperty Name="QtdeEquipamento" ColumnName="QtdeEquipamento" />
+          <ScalarProperty Name="ValorAluguel" ColumnName="ValorAluguel" />
+          <ScalarProperty Name="DiaFaturamento" ColumnName="DiaFaturamento" />
+          <ScalarProperty Name="DiaVencimento" ColumnName="DiaVencimento" />
+          <ScalarProperty Name="PrazoProtesto" ColumnName="PrazoProtesto" />
+          <ScalarProperty Name="DataUltimoFaturamento" ColumnName="DataUltimoFaturamento" />
+          <ScalarProperty Name="JurosMora" ColumnName="JurosMora" />
+          <ScalarProperty Name="Multa" ColumnName="Multa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_FusoHorario">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_FusoHorario">
+        <MappingFragment StoreEntitySet="TB_FusoHorario">
+          <ScalarProperty Name="CodFusoHorario" ColumnName="CodFusoHorario" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_GoogleCache">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_GoogleCache">
+        <MappingFragment StoreEntitySet="TB_GoogleCache">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Posicao" ColumnName="Posicao" />
+          <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+          <ScalarProperty Name="DataInsert" ColumnName="DataInsert" />
+          <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="CEP" ColumnName="CEP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_HorarioOcorrencia">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_HorarioOcorrencia">
+        <MappingFragment StoreEntitySet="TB_HorarioOcorrencia">
+          <ScalarProperty Name="CodHorarioOcorrencia" ColumnName="CodHorarioOcorrencia" />
+          <ScalarProperty Name="Domingo" ColumnName="Domingo" />
+          <ScalarProperty Name="Segunda" ColumnName="Segunda" />
+          <ScalarProperty Name="Terca" ColumnName="Terca" />
+          <ScalarProperty Name="Quarta" ColumnName="Quarta" />
+          <ScalarProperty Name="Quinta" ColumnName="Quinta" />
+          <ScalarProperty Name="Sexta" ColumnName="Sexta" />
+          <ScalarProperty Name="Sabado" ColumnName="Sabado" />
+          <ScalarProperty Name="Diariamente" ColumnName="Diariamente" />
+          <ScalarProperty Name="HorarioInicial" ColumnName="HorarioInicial" />
+          <ScalarProperty Name="HorarioFinal" ColumnName="HorarioFinal" />
+          <ScalarProperty Name="TempoCorrido" ColumnName="TempoCorrido" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_ImagemPontos">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_ImagemPontos">
+        <MappingFragment StoreEntitySet="TB_ImagemPontos">
+          <ScalarProperty Name="CodIcone" ColumnName="CodIcone" />
+          <ScalarProperty Name="NomeImagem" ColumnName="NomeImagem" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_IntervaloJornada">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_IntervaloJornada">
+        <MappingFragment StoreEntitySet="TB_IntervaloJornada">
+          <ScalarProperty Name="CodIntervaloJornada" ColumnName="CodIntervaloJornada" />
+          <ScalarProperty Name="IntraJornada" ColumnName="IntraJornada" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="TempoIntervalo" ColumnName="TempoIntervalo" />
+          <ScalarProperty Name="CodRegraJornada" ColumnName="CodRegraJornada" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Jornada">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_Jornada">
+        <MappingFragment StoreEntitySet="TB_Jornada">
+          <ScalarProperty Name="CodJornada" ColumnName="CodJornada" />
+          <ScalarProperty Name="CodVeiculo" ColumnName="CodVeiculo" />
+          <ScalarProperty Name="CodMotorista" ColumnName="CodMotorista" />
+          <ScalarProperty Name="DataAbertura" ColumnName="DataAbertura" />
+          <ScalarProperty Name="DataFechamento" ColumnName="DataFechamento" />
+          <ScalarProperty Name="UltimaComunicacao" ColumnName="UltimaComunicacao" />
+          <ScalarProperty Name="CodRegraJornada" ColumnName="CodRegraJornada" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_LogSistema">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_LogSistema">
+        <MappingFragment StoreEntitySet="TB_LogSistema">
+          <ScalarProperty Name="CodLog" ColumnName="CodLog" />
+          <ScalarProperty Name="CodUsuario" ColumnName="CodUsuario" />
+          <ScalarProperty Name="DataHora" ColumnName="DataHora" />
+          <ScalarProperty Name="CodRegistroAlterado" ColumnName="CodRegistroAlterado" />
+          <ScalarProperty Name="CodPagina" ColumnName="CodPagina" />
+          <ScalarProperty Name="Acao" ColumnName="Acao" />
+          <ScalarProperty Name="RegistroModificado" ColumnName="RegistroModificado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Manutencao">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_Manutencao">
+        <MappingFragment StoreEntitySet="TB_Manutencao">
+          <ScalarProperty Name="CodManutencao" ColumnName="CodManutencao" />
+          <ScalarProperty Name="CodServico" ColumnName="CodServico" />
+          <ScalarProperty Name="CodVeiculo" ColumnName="CodVeiculo" />
+          <ScalarProperty Name="DataUltimaRevisao" ColumnName="DataUltimaRevisao" />
+          <ScalarProperty Name="HodometroUltimaRevisao" ColumnName="HodometroUltimaRevisao" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="TipoManutencao" ColumnName="TipoManutencao" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DataProximaRevisao" ColumnName="DataProximaRevisao" />
+          <ScalarProperty Name="HodometroProximaRevisao" ColumnName="HodometroProximaRevisao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Marca">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_Marca">
+        <MappingFragment StoreEntitySet="TB_Marca">
+          <ScalarProperty Name="CodMarca" ColumnName="CodMarca" />
+          <ScalarProperty Name="NomeMarca" ColumnName="NomeMarca" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Mensagens">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_Mensagens">
+        <MappingFragment StoreEntitySet="TB_Mensagens">
+          <ScalarProperty Name="CodMensagem" ColumnName="CodMensagem" />
+          <ScalarProperty Name="TipoMensagem" ColumnName="TipoMensagem" />
+          <ScalarProperty Name="DataEnvio" ColumnName="DataEnvio" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="CodVeiculo" ColumnName="CodVeiculo" />
+          <ScalarProperty Name="CodEvento" ColumnName="CodEvento" />
+          <ScalarProperty Name="QuantidadeEnviada" ColumnName="QuantidadeEnviada" />
+          <ScalarProperty Name="CodManutencao" ColumnName="CodManutencao" />
+          <ScalarProperty Name="TipoEventoMensagem" ColumnName="TipoEventoMensagem" />
+          <ScalarProperty Name="CodCliente" ColumnName="CodCliente" />
+          <ScalarProperty Name="CodMotorista" ColumnName="CodMotorista" />
+          <ScalarProperty Name="DataVenctoCNH" ColumnName="DataVenctoCNH" />
+          <ScalarProperty Name="HodometroManutencao" ColumnName="HodometroManutencao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_ModeloEquipamento">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_ModeloEquipamento">
+        <MappingFragment StoreEntitySet="TB_ModeloEquipamento">
+          <ScalarProperty Name="CodModeloEquip" ColumnName="CodModeloEquip" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="CodModeloBin" ColumnName="CodModeloBin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_ModeloVeiculo">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_ModeloVeiculo">
+        <MappingFragment StoreEntitySet="TB_ModeloVeiculo">
+          <ScalarProperty Name="CodModeloVeic" ColumnName="CodModeloVeic" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="CodModeloFipe" ColumnName="CodModeloFipe" />
+          <ScalarProperty Name="CodMarca" ColumnName="CodMarca" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Motorista">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_Motorista">
+        <MappingFragment StoreEntitySet="TB_Motorista">
+          <ScalarProperty Name="CodMotorista" ColumnName="CodMotorista" />
+          <ScalarProperty Name="PossuiDispositivo" ColumnName="PossuiDispositivo" />
+          <ScalarProperty Name="Dispositivo" ColumnName="Dispositivo" />
+          <ScalarProperty Name="TempoLimite" ColumnName="TempoLimite" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="CPF" ColumnName="CPF" />
+          <ScalarProperty Name="CNH" ColumnName="CNH" />
+          <ScalarProperty Name="VencimentoCNH" ColumnName="VencimentoCNH" />
+          <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+          <ScalarProperty Name="RG" ColumnName="RG" />
+          <ScalarProperty Name="CategoriaCNH" ColumnName="CategoriaCNH" />
+          <ScalarProperty Name="PisPasep" ColumnName="PisPasep" />
+          <ScalarProperty Name="DataNascimento" ColumnName="DataNascimento" />
+          <ScalarProperty Name="NomePai" ColumnName="NomePai" />
+          <ScalarProperty Name="NomeMae" ColumnName="NomeMae" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="TelefoneRefPessoal" ColumnName="TelefoneRefPessoal" />
+          <ScalarProperty Name="TelefoneRefComercial" ColumnName="TelefoneRefComercial" />
+          <ScalarProperty Name="TipoSanguineo" ColumnName="TipoSanguineo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+          <ScalarProperty Name="Complemento" ColumnName="Complemento" />
+          <ScalarProperty Name="CEP" ColumnName="CEP" />
+          <ScalarProperty Name="CodCidade" ColumnName="CodCidade" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CodCliente" ColumnName="CodCliente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_NotificaoVeiculo">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_NotificaoVeiculo">
+        <MappingFragment StoreEntitySet="TB_NotificaoVeiculo">
+          <ScalarProperty Name="CodNotificacaoVeiculo" ColumnName="CodNotificacaoVeiculo" />
+          <ScalarProperty Name="CodVeiculo" ColumnName="CodVeiculo" />
+          <ScalarProperty Name="MensagemSistema" ColumnName="MensagemSistema" />
+          <ScalarProperty Name="AlertaSMS" ColumnName="AlertaSMS" />
+          <ScalarProperty Name="AlertaEmail" ColumnName="AlertaEmail" />
+          <ScalarProperty Name="Notificacao" ColumnName="Notificacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Ocorrencia">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_Ocorrencia">
+        <MappingFragment StoreEntitySet="TB_Ocorrencia">
+          <ScalarProperty Name="CodOcorrencia" ColumnName="CodOcorrencia" />
+          <ScalarProperty Name="CodCliente" ColumnName="CodCliente" />
+          <ScalarProperty Name="CodVeiculo" ColumnName="CodVeiculo" />
+          <ScalarProperty Name="Motorista" ColumnName="Motorista" />
+          <ScalarProperty Name="Placa2" ColumnName="Placa2" />
+          <ScalarProperty Name="Placa3" ColumnName="Placa3" />
+          <ScalarProperty Name="Placa4" ColumnName="Placa4" />
+          <ScalarProperty Name="CodCidadeOrigem" ColumnName="CodCidadeOrigem" />
+          <ScalarProperty Name="CodCidadeDestino" ColumnName="CodCidadeDestino" />
+          <ScalarProperty Name="CodCidadeOcorrencia" ColumnName="CodCidadeOcorrencia" />
+          <ScalarProperty Name="Carga" ColumnName="Carga" />
+          <ScalarProperty Name="Ocorrencia" ColumnName="Ocorrencia" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="Horario" ColumnName="Horario" />
+          <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+          <ScalarProperty Name="Atendente" ColumnName="Atendente" />
+          <ScalarProperty Name="DescricaoFato" ColumnName="DescricaoFato" />
+          <ScalarProperty Name="ProvidenciasTomadas" ColumnName="ProvidenciasTomadas" />
+          <ScalarProperty Name="CodTipoOcorrencia" ColumnName="CodTipoOcorrencia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Operadora">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_Operadora">
+        <MappingFragment StoreEntitySet="TB_Operadora">
+          <ScalarProperty Name="CodOperadora" ColumnName="CodOperadora" />
+          <ScalarProperty Name="nomeOperadora" ColumnName="nomeOperadora" />
+          <ScalarProperty Name="Apn" ColumnName="Apn" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Senha" ColumnName="Senha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_OrdemServico">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_OrdemServico">
+        <MappingFragment StoreEntitySet="TB_OrdemServico">
+          <ScalarProperty Name="CodOrdemServico" ColumnName="CodOrdemServico" />
+          <ScalarProperty Name="Operacao" ColumnName="Operacao" />
+          <ScalarProperty Name="CodCliente" ColumnName="CodCliente" />
+          <ScalarProperty Name="CodVeiculo" ColumnName="CodVeiculo" />
+          <ScalarProperty Name="CodRevisaoFuncionamento" ColumnName="CodRevisaoFuncionamento" />
+          <ScalarProperty Name="VeiculoKM" ColumnName="VeiculoKM" />
+          <ScalarProperty Name="RastreadorInstalado" ColumnName="RastreadorInstalado" />
+          <ScalarProperty Name="BloqueadorInstalado" ColumnName="BloqueadorInstalado" />
+          <ScalarProperty Name="PanicoInstalado" ColumnName="PanicoInstalado" />
+          <ScalarProperty Name="OutroInstalado" ColumnName="OutroInstalado" />
+          <ScalarProperty Name="Combustivel" ColumnName="Combustivel" />
+          <ScalarProperty Name="Pneus" ColumnName="Pneus" />
+          <ScalarProperty Name="BateriaSemCarga" ColumnName="BateriaSemCarga" />
+          <ScalarProperty Name="BateriaMarchaLenta" ColumnName="BateriaMarchaLenta" />
+          <ScalarProperty Name="BateriaSobCarga" ColumnName="BateriaSobCarga" />
+          <ScalarProperty Name="SituacaoBateria" ColumnName="SituacaoBateria" />
+          <ScalarProperty Name="Solicitacoes" ColumnName="Solicitacoes" />
+          <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
+          <ScalarProperty Name="HoraFim" ColumnName="HoraFim" />
+          <ScalarProperty Name="DataOperacao" ColumnName="DataOperacao" />
+          <ScalarProperty Name="CPFInstalador" ColumnName="CPFInstalador" />
+          <ScalarProperty Name="CPFProprietario" ColumnName="CPFProprietario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Pagina">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_Pagina">
+        <MappingFragment StoreEntitySet="TB_Pagina">
+          <ScalarProperty Name="CodPagina" ColumnName="CodPagina" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Perfil">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_Perfil">
+        <MappingFragment StoreEntitySet="TB_Perfil">
+          <ScalarProperty Name="CodPerfil" ColumnName="CodPerfil" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Personalizado" ColumnName="Personalizado" />
+          <ScalarProperty Name="CodTipoPerfil" ColumnName="CodTipoPerfil" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_PerfilRestricao">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_PerfilRestricao">
+        <MappingFragment StoreEntitySet="TB_PerfilRestricao">
+          <ScalarProperty Name="CodPerfilRestricao" ColumnName="CodPerfilRestricao" />
+          <ScalarProperty Name="codPerfil" ColumnName="codPerfil" />
+          <ScalarProperty Name="Permissao" ColumnName="Permissao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Permissao">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_Permissao">
+        <MappingFragment StoreEntitySet="TB_Permissao">
+          <ScalarProperty Name="CodPermissao" ColumnName="CodPermissao" />
+          <ScalarProperty Name="CodPerfil" ColumnName="CodPerfil" />
+          <ScalarProperty Name="CodPagina" ColumnName="CodPagina" />
+          <ScalarProperty Name="Permissao" ColumnName="Permissao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_PessoaProcedimento">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_PessoaProcedimento">
+        <MappingFragment StoreEntitySet="TB_PessoaProcedimento">
+          <ScalarProperty Name="CodPessoaProcedimento" ColumnName="CodPessoaProcedimento" />
+          <ScalarProperty Name="CodVeiculo" ColumnName="CodVeiculo" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="CPF" ColumnName="CPF" />
+          <ScalarProperty Name="RG" ColumnName="RG" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+          <ScalarProperty Name="Senha" ColumnName="Senha" />
+          <ScalarProperty Name="ContraSenha" ColumnName="ContraSenha" />
+          <ScalarProperty Name="Informacoes" ColumnName="Informacoes" />
+          <ScalarProperty Name="TipoPessoa" ColumnName="TipoPessoa" />
+          <ScalarProperty Name="PosicaoPonto" ColumnName="PosicaoPonto" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Pontos">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_Pontos">
+        <MappingFragment StoreEntitySet="TB_Pontos">
+          <ScalarProperty Name="CodPonto" ColumnName="CodPonto" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="NomePonto" ColumnName="NomePonto" />
+          <ScalarProperty Name="CodIcone" ColumnName="CodIcone" />
+          <ScalarProperty Name="CodCliente" ColumnName="CodCliente" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_PontosCerca">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_PontosCerca">
+        <MappingFragment StoreEntitySet="TB_PontosCerca">
+          <ScalarProperty Name="CodPontoCerca" ColumnName="CodPontoCerca" />
+          <ScalarProperty Name="CodCerca" ColumnName="CodCerca" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_PontosRota">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_PontosRota">
+        <MappingFragment StoreEntitySet="TB_PontosRota">
+          <ScalarProperty Name="CodPontosRota" ColumnName="CodPontosRota" />
+          <ScalarProperty Name="CodPonto" ColumnName="CodPonto" />
+          <ScalarProperty Name="PosicaoPonto" ColumnName="PosicaoPonto" />
+          <ScalarProperty Name="CodRota" ColumnName="CodRota" />
+          <ScalarProperty Name="Tolerancia" ColumnName="Tolerancia" />
+          <ScalarProperty Name="ToleranciaTempo" ColumnName="ToleranciaTempo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_ReferenciaBancaria">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_ReferenciaBancaria">
+        <MappingFragment StoreEntitySet="TB_ReferenciaBancaria">
+          <ScalarProperty Name="CodReferencia" ColumnName="CodReferencia" />
+          <ScalarProperty Name="CodCliente" ColumnName="CodCliente" />
+          <ScalarProperty Name="CodBanco" ColumnName="CodBanco" />
+          <ScalarProperty Name="Agencia" ColumnName="Agencia" />
+          <ScalarProperty Name="Conta" ColumnName="Conta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_RegraJornada">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_RegraJornada">
+        <MappingFragment StoreEntitySet="TB_RegraJornada">
+          <ScalarProperty Name="CodRegraJornada" ColumnName="CodRegraJornada" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="PeriodoMaximo" ColumnName="PeriodoMaximo" />
+          <ScalarProperty Name="HoraFicta" ColumnName="HoraFicta" />
+          <ScalarProperty Name="CodCliente" ColumnName="CodCliente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Representante">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_Representante">
+        <MappingFragment StoreEntitySet="TB_Representante">
+          <ScalarProperty Name="CodRepresentante" ColumnName="CodRepresentante" />
+          <ScalarProperty Name="CodCliente" ColumnName="CodCliente" />
+          <ScalarProperty Name="CPF" ColumnName="CPF" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+          <ScalarProperty Name="Ramal" ColumnName="Ramal" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="ParticipacaoSocietaria" ColumnName="ParticipacaoSocietaria" />
+          <ScalarProperty Name="DataNascimento" ColumnName="DataNascimento" />
+          <ScalarProperty Name="TipoDocumentoId" ColumnName="TipoDocumentoId" />
+          <ScalarProperty Name="NumeroDocumentoId" ColumnName="NumeroDocumentoId" />
+          <ScalarProperty Name="OrgaoEmissor" ColumnName="OrgaoEmissor" />
+          <ScalarProperty Name="EstadoCivil" ColumnName="EstadoCivil" />
+          <ScalarProperty Name="Naturalidade" ColumnName="Naturalidade" />
+          <ScalarProperty Name="Nacionalidade" ColumnName="Nacionalidade" />
+          <ScalarProperty Name="CEP" ColumnName="CEP" />
+          <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="Complemento" ColumnName="Complemento" />
+          <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+          <ScalarProperty Name="CodCidade" ColumnName="CodCidade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_RevisaoFuncionamento">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_RevisaoFuncionamento">
+        <MappingFragment StoreEntitySet="TB_RevisaoFuncionamento">
+          <ScalarProperty Name="CodRevisaoFuncionamento" ColumnName="CodRevisaoFuncionamento" />
+          <ScalarProperty Name="PainelDeInstrumentos" ColumnName="PainelDeInstrumentos" />
+          <ScalarProperty Name="Buzina" ColumnName="Buzina" />
+          <ScalarProperty Name="Esquicho" ColumnName="Esquicho" />
+          <ScalarProperty Name="LimpadorParabrisaDiant" ColumnName="LimpadorParabrisaDiant" />
+          <ScalarProperty Name="LimpadorParabrisaTras" ColumnName="LimpadorParabrisaTras" />
+          <ScalarProperty Name="VentilacaoForcada" ColumnName="VentilacaoForcada" />
+          <ScalarProperty Name="ArCondicionado" ColumnName="ArCondicionado" />
+          <ScalarProperty Name="Radio" ColumnName="Radio" />
+          <ScalarProperty Name="AcendedorCigarros" ColumnName="AcendedorCigarros" />
+          <ScalarProperty Name="VidroEletrico" ColumnName="VidroEletrico" />
+          <ScalarProperty Name="VidroPortaDiantDir" ColumnName="VidroPortaDiantDir" />
+          <ScalarProperty Name="VidroPortaDiantEsq" ColumnName="VidroPortaDiantEsq" />
+          <ScalarProperty Name="VidroPortaTrasDir" ColumnName="VidroPortaTrasDir" />
+          <ScalarProperty Name="VidroPortaTrasEsq" ColumnName="VidroPortaTrasEsq" />
+          <ScalarProperty Name="VidroDianteiro" ColumnName="VidroDianteiro" />
+          <ScalarProperty Name="VidroTraseiro" ColumnName="VidroTraseiro" />
+          <ScalarProperty Name="RetrovisorEletrico" ColumnName="RetrovisorEletrico" />
+          <ScalarProperty Name="RetrovisorEsquerdo" ColumnName="RetrovisorEsquerdo" />
+          <ScalarProperty Name="RetrovidorDireito" ColumnName="RetrovidorDireito" />
+          <ScalarProperty Name="RetrovisorInterno" ColumnName="RetrovisorInterno" />
+          <ScalarProperty Name="TravaEletrica" ColumnName="TravaEletrica" />
+          <ScalarProperty Name="LuzTeto" ColumnName="LuzTeto" />
+          <ScalarProperty Name="Cinzeiro" ColumnName="Cinzeiro" />
+          <ScalarProperty Name="Tapetes" ColumnName="Tapetes" />
+          <ScalarProperty Name="CintoSeguranca" ColumnName="CintoSeguranca" />
+          <ScalarProperty Name="ForroPorta" ColumnName="ForroPorta" />
+          <ScalarProperty Name="ForroTeto" ColumnName="ForroTeto" />
+          <ScalarProperty Name="QuebraSol" ColumnName="QuebraSol" />
+          <ScalarProperty Name="BancosDianteiros" ColumnName="BancosDianteiros" />
+          <ScalarProperty Name="BancosTraseiros" ColumnName="BancosTraseiros" />
+          <ScalarProperty Name="Tabelie" ColumnName="Tabelie" />
+          <ScalarProperty Name="Volante" ColumnName="Volante" />
+          <ScalarProperty Name="FarolLE" ColumnName="FarolLE" />
+          <ScalarProperty Name="FarolLD" ColumnName="FarolLD" />
+          <ScalarProperty Name="FarolAuxiliarLD" ColumnName="FarolAuxiliarLD" />
+          <ScalarProperty Name="FarolAuxiliarLE" ColumnName="FarolAuxiliarLE" />
+          <ScalarProperty Name="LanternaTraseiraLD" ColumnName="LanternaTraseiraLD" />
+          <ScalarProperty Name="LanternaTraseiraLE" ColumnName="LanternaTraseiraLE" />
+          <ScalarProperty Name="Seta" ColumnName="Seta" />
+          <ScalarProperty Name="Freio" ColumnName="Freio" />
+          <ScalarProperty Name="Re" ColumnName="Re" />
+          <ScalarProperty Name="Alarme" ColumnName="Alarme" />
+          <ScalarProperty Name="ExtintorIncendio" ColumnName="ExtintorIncendio" />
+          <ScalarProperty Name="Calotas" ColumnName="Calotas" />
+          <ScalarProperty Name="Estepe" ColumnName="Estepe" />
+          <ScalarProperty Name="Macaco" ColumnName="Macaco" />
+          <ScalarProperty Name="Triangulo" ColumnName="Triangulo" />
+          <ScalarProperty Name="ParaChoqueDiant" ColumnName="ParaChoqueDiant" />
+          <ScalarProperty Name="ParaChoqueTras" ColumnName="ParaChoqueTras" />
+          <ScalarProperty Name="Placas" ColumnName="Placas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Rota">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_Rota">
+        <MappingFragment StoreEntitySet="TB_Rota">
+          <ScalarProperty Name="CodRota" ColumnName="CodRota" />
+          <ScalarProperty Name="ToleranciaRaio" ColumnName="ToleranciaRaio" />
+          <ScalarProperty Name="ToleranciaTempo" ColumnName="ToleranciaTempo" />
+          <ScalarProperty Name="NomeRota" ColumnName="NomeRota" />
+          <ScalarProperty Name="CodCliente" ColumnName="CodCliente" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_RotasVeiculos">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_RotasVeiculos">
+        <MappingFragment StoreEntitySet="TB_RotasVeiculos">
+          <ScalarProperty Name="CodRotaVeiculo" ColumnName="CodRotaVeiculo" />
+          <ScalarProperty Name="CodRota" ColumnName="CodRota" />
+          <ScalarProperty Name="CodVeiculo" ColumnName="CodVeiculo" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DataVinculacao" ColumnName="DataVinculacao" />
+          <ScalarProperty Name="DataFinalizacao" ColumnName="DataFinalizacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_SaidasEquipamento">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_SaidasEquipamento">
+        <MappingFragment StoreEntitySet="TB_SaidasEquipamento">
+          <ScalarProperty Name="CodSaidaEquipamento" ColumnName="CodSaidaEquipamento" />
+          <ScalarProperty Name="CodVeiculoEquipamento" ColumnName="CodVeiculoEquipamento" />
+          <ScalarProperty Name="Saida" ColumnName="Saida" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Servico">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_Servico">
+        <MappingFragment StoreEntitySet="TB_Servico">
+          <ScalarProperty Name="CodServico" ColumnName="CodServico" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Hodometro" ColumnName="Hodometro" />
+          <ScalarProperty Name="Meses" ColumnName="Meses" />
+          <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_SmsNotificacao">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_SmsNotificacao">
+        <MappingFragment StoreEntitySet="TB_SmsNotificacao">
+          <ScalarProperty Name="CodSmsNotificacao" ColumnName="CodSmsNotificacao" />
+          <ScalarProperty Name="CodNotificacaoVeiculo" ColumnName="CodNotificacaoVeiculo" />
+          <ScalarProperty Name="SMS" ColumnName="SMS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_TipoOcorrencia">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_TipoOcorrencia">
+        <MappingFragment StoreEntitySet="TB_TipoOcorrencia">
+          <ScalarProperty Name="CodTipoOcorrencia" ColumnName="CodTipoOcorrencia" />
+          <ScalarProperty Name="TipoOcorrencia" ColumnName="TipoOcorrencia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_TipoPerfil">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_TipoPerfil">
+        <MappingFragment StoreEntitySet="TB_TipoPerfil">
+          <ScalarProperty Name="CodTipo" ColumnName="CodTipo" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_TipoVeiculo">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_TipoVeiculo">
+        <MappingFragment StoreEntitySet="TB_TipoVeiculo">
+          <ScalarProperty Name="CodTipoVeiculo" ColumnName="CodTipoVeiculo" />
+          <ScalarProperty Name="NomeTipo" ColumnName="NomeTipo" />
+          <ScalarProperty Name="NomeImagem" ColumnName="NomeImagem" />
+          <ScalarProperty Name="ImagemInativo" ColumnName="ImagemInativo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_TipoVerificacao">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_TipoVerificacao">
+        <MappingFragment StoreEntitySet="TB_TipoVerificacao">
+          <ScalarProperty Name="CodTipoVerificacao" ColumnName="CodTipoVerificacao" />
+          <ScalarProperty Name="NomeVerificacao" ColumnName="NomeVerificacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_TratamentoAlerta">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_TratamentoAlerta">
+        <MappingFragment StoreEntitySet="TB_TratamentoAlerta">
+          <ScalarProperty Name="CodTratamento" ColumnName="CodTratamento" />
+          <ScalarProperty Name="DataTratamento" ColumnName="DataTratamento" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="CodAlerta" ColumnName="CodAlerta" />
+          <ScalarProperty Name="CodUsuario" ColumnName="CodUsuario" />
+          <ScalarProperty Name="ChaveAlerta" ColumnName="ChaveAlerta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Usuario">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_Usuario">
+        <MappingFragment StoreEntitySet="TB_Usuario">
+          <ScalarProperty Name="CodUsuario" ColumnName="CodUsuario" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="CPF" ColumnName="CPF" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Senha" ColumnName="Senha" />
+          <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+          <ScalarProperty Name="CEP" ColumnName="CEP" />
+          <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+          <ScalarProperty Name="Rua" ColumnName="Rua" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="Complemento" ColumnName="Complemento" />
+          <ScalarProperty Name="CodCidade" ColumnName="CodCidade" />
+          <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="CodPerfil" ColumnName="CodPerfil" />
+          <ScalarProperty Name="NomeUsuario" ColumnName="NomeUsuario" />
+          <ScalarProperty Name="SenhaTemporaria" ColumnName="SenhaTemporaria" />
+          <ScalarProperty Name="CodCliente" ColumnName="CodCliente" />
+          <ScalarProperty Name="CodFusoHorario" ColumnName="CodFusoHorario" />
+          <ScalarProperty Name="DataValidade" ColumnName="DataValidade" />
+          <ScalarProperty Name="ValorAtualizacaoAutomatica" ColumnName="ValorAtualizacaoAutomatica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Veiculo">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_Veiculo">
+        <MappingFragment StoreEntitySet="TB_Veiculo">
+          <ScalarProperty Name="CodVeiculo" ColumnName="CodVeiculo" />
+          <ScalarProperty Name="CodTipoVeiculo" ColumnName="CodTipoVeiculo" />
+          <ScalarProperty Name="Placa" ColumnName="Placa" />
+          <ScalarProperty Name="Marca" ColumnName="Marca" />
+          <ScalarProperty Name="Ano" ColumnName="Ano" />
+          <ScalarProperty Name="Cor" ColumnName="Cor" />
+          <ScalarProperty Name="Chassi" ColumnName="Chassi" />
+          <ScalarProperty Name="Observacoes" ColumnName="Observacoes" />
+          <ScalarProperty Name="ProcedimentoPanico" ColumnName="ProcedimentoPanico" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Renavam" ColumnName="Renavam" />
+          <ScalarProperty Name="DataVencimentoContrato" ColumnName="DataVencimentoContrato" />
+          <ScalarProperty Name="DataInativacao" ColumnName="DataInativacao" />
+          <ScalarProperty Name="CodigoFipe" ColumnName="CodigoFipe" />
+          <ScalarProperty Name="DataCompra" ColumnName="DataCompra" />
+          <ScalarProperty Name="Contato" ColumnName="Contato" />
+          <ScalarProperty Name="TelefoneContato" ColumnName="TelefoneContato" />
+          <ScalarProperty Name="LimiteVelocidade" ColumnName="LimiteVelocidade" />
+          <ScalarProperty Name="Panico" ColumnName="Panico" />
+          <ScalarProperty Name="MedidasPanico" ColumnName="MedidasPanico" />
+          <ScalarProperty Name="CalculoHodomentro" ColumnName="CalculoHodomentro" />
+          <ScalarProperty Name="CalculoHorimetro" ColumnName="CalculoHorimetro" />
+          <ScalarProperty Name="TipoConsumo" ColumnName="TipoConsumo" />
+          <ScalarProperty Name="ConsumoCombustivel" ColumnName="ConsumoCombustivel" />
+          <ScalarProperty Name="CodFusoHorario" ColumnName="CodFusoHorario" />
+          <ScalarProperty Name="ValorCompra" ColumnName="ValorCompra" />
+          <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_VeiculosClientes">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_VeiculosClientes">
+        <MappingFragment StoreEntitySet="TB_VeiculosClientes">
+          <ScalarProperty Name="CodHistorico" ColumnName="CodHistorico" />
+          <ScalarProperty Name="CodCliente" ColumnName="CodCliente" />
+          <ScalarProperty Name="CodVeiculo" ColumnName="CodVeiculo" />
+          <ScalarProperty Name="DataCadastro" ColumnName="DataCadastro" />
+          <ScalarProperty Name="CodGerenciadorRiscos" ColumnName="CodGerenciadorRiscos" />
+          <ScalarProperty Name="TipoCliente" ColumnName="TipoCliente" />
+          <ScalarProperty Name="TipoGerenciador" ColumnName="TipoGerenciador" />
+          <ScalarProperty Name="ValidadeGerenciador" ColumnName="ValidadeGerenciador" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CodVeicAnterior" ColumnName="CodVeicAnterior" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_VeiculosEquipamentos">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_VeiculosEquipamentos">
+        <MappingFragment StoreEntitySet="TB_VeiculosEquipamentos">
+          <ScalarProperty Name="CodVeiculosEquipamentos" ColumnName="CodVeiculosEquipamentos" />
+          <ScalarProperty Name="CodVeiculo" ColumnName="CodVeiculo" />
+          <ScalarProperty Name="CodEquipamento" ColumnName="CodEquipamento" />
+          <ScalarProperty Name="DataInstalacao" ColumnName="DataInstalacao" />
+          <ScalarProperty Name="Teste" ColumnName="Teste" />
+          <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Verificacao">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_Verificacao">
+        <MappingFragment StoreEntitySet="TB_Verificacao">
+          <ScalarProperty Name="CodVerificacao" ColumnName="CodVerificacao" />
+          <ScalarProperty Name="CodTipoVerificacao" ColumnName="CodTipoVerificacao" />
+          <ScalarProperty Name="ValorTempoVelocidade" ColumnName="ValorTempoVelocidade" />
+          <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBS_Evento">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TBS_Evento">
+        <MappingFragment StoreEntitySet="TBS_Evento">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Equipamento" ColumnName="Equipamento" />
+          <ScalarProperty Name="DataEvento" ColumnName="DataEvento" />
+          <ScalarProperty Name="DataComunicacao" ColumnName="DataComunicacao" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Direcao" ColumnName="Direcao" />
+          <ScalarProperty Name="Velocidade" ColumnName="Velocidade" />
+          <ScalarProperty Name="SinalGPS" ColumnName="SinalGPS" />
+          <ScalarProperty Name="TipoEvento" ColumnName="TipoEvento" />
+          <ScalarProperty Name="Bateria" ColumnName="Bateria" />
+          <ScalarProperty Name="Temperatura" ColumnName="Temperatura" />
+          <ScalarProperty Name="Hodometro" ColumnName="Hodometro" />
+          <ScalarProperty Name="StatusEntradas" ColumnName="StatusEntradas" />
+          <ScalarProperty Name="StatusSaida" ColumnName="StatusSaida" />
+          <ScalarProperty Name="StatusIgnicao" ColumnName="StatusIgnicao" />
+          <ScalarProperty Name="StatusBotaoPanico" ColumnName="StatusBotaoPanico" />
+          <ScalarProperty Name="StatusBotaoAntiFurto" ColumnName="StatusBotaoAntiFurto" />
+          <ScalarProperty Name="StatusSecaoAntenaGPS" ColumnName="StatusSecaoAntenaGPS" />
+          <ScalarProperty Name="StatusEntradaAuxiliar" ColumnName="StatusEntradaAuxiliar" />
+          <ScalarProperty Name="StatusEntradaAuxiliar2" ColumnName="StatusEntradaAuxiliar2" />
+          <ScalarProperty Name="StatusEntradaAuxiliar4" ColumnName="StatusEntradaAuxiliar4" />
+          <ScalarProperty Name="StatusFimVidaUtilBateriaBkp" ColumnName="StatusFimVidaUtilBateriaBkp" />
+          <ScalarProperty Name="StatusFalhaBateriaBkp" ColumnName="StatusFalhaBateriaBkp" />
+          <ScalarProperty Name="StatusBateriaBkpBaixa" ColumnName="StatusBateriaBkpBaixa" />
+          <ScalarProperty Name="StatusVoltagemBateria" ColumnName="StatusVoltagemBateria" />
+          <ScalarProperty Name="StatusBloqueio" ColumnName="StatusBloqueio" />
+          <ScalarProperty Name="StatusSirene" ColumnName="StatusSirene" />
+          <ScalarProperty Name="StatusSaidaAuxiliar" ColumnName="StatusSaidaAuxiliar" />
+          <ScalarProperty Name="StatusSaidaAuxiliar2" ColumnName="StatusSaidaAuxiliar2" />
+          <ScalarProperty Name="StatusSaidaAuxiliar3" ColumnName="StatusSaidaAuxiliar3" />
+          <ScalarProperty Name="StatusSaidaAuxiliar4" ColumnName="StatusSaidaAuxiliar4" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBS_Requisicao">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TBS_Requisicao">
+        <MappingFragment StoreEntitySet="TBS_Requisicao">
+          <ScalarProperty Name="CodRequisicao" ColumnName="CodRequisicao" />
+          <ScalarProperty Name="CodEquipamento" ColumnName="CodEquipamento" />
+          <ScalarProperty Name="CodSaida" ColumnName="CodSaida" />
+          <ScalarProperty Name="CodAtivacao" ColumnName="CodAtivacao" />
+          <ScalarProperty Name="CodInvertida" ColumnName="CodInvertida" />
+          <ScalarProperty Name="CodStatusRequisicao" ColumnName="CodStatusRequisicao" />
+          <ScalarProperty Name="CodTipoRequisicao" ColumnName="CodTipoRequisicao" />
+          <ScalarProperty Name="CodEntrada" ColumnName="CodEntrada" />
+          <ScalarProperty Name="OpcoesEntrada" ColumnName="OpcoesEntrada" />
+          <ScalarProperty Name="TempoDeteccao" ColumnName="TempoDeteccao" />
+          <ScalarProperty Name="NivelAtivacaoLogica" ColumnName="NivelAtivacaoLogica" />
+          <ScalarProperty Name="AssociacaoDeSaidas" ColumnName="AssociacaoDeSaidas" />
+          <ScalarProperty Name="DataRequisicao" ColumnName="DataRequisicao" />
+          <ScalarProperty Name="CodUsuario" ColumnName="CodUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBS_RequisicaoApn">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TBS_RequisicaoApn">
+        <MappingFragment StoreEntitySet="TBS_RequisicaoApn">
+          <ScalarProperty Name="CodRequisicaoApn" ColumnName="CodRequisicaoApn" />
+          <ScalarProperty Name="CodRequisicao" ColumnName="CodRequisicao" />
+          <ScalarProperty Name="Apn" ColumnName="Apn" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Senha" ColumnName="Senha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBS_RequisicaoHodometro">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TBS_RequisicaoHodometro">
+        <MappingFragment StoreEntitySet="TBS_RequisicaoHodometro">
+          <ScalarProperty Name="CodRequisicaoHodometro" ColumnName="CodRequisicaoHodometro" />
+          <ScalarProperty Name="CodRequisicao" ColumnName="CodRequisicao" />
+          <ScalarProperty Name="ValorInicial" ColumnName="ValorInicial" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBS_RequisicaoServer">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TBS_RequisicaoServer">
+        <MappingFragment StoreEntitySet="TBS_RequisicaoServer">
+          <ScalarProperty Name="CodRequisicaoServer" ColumnName="CodRequisicaoServer" />
+          <ScalarProperty Name="CodRequisicao" ColumnName="CodRequisicao" />
+          <ScalarProperty Name="IP1" ColumnName="IP1" />
+          <ScalarProperty Name="Porta1" ColumnName="Porta1" />
+          <ScalarProperty Name="IP2" ColumnName="IP2" />
+          <ScalarProperty Name="Porta2" ColumnName="Porta2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBS_RequisicaoSleepConfig">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TBS_RequisicaoSleepConfig">
+        <MappingFragment StoreEntitySet="TBS_RequisicaoSleepConfig">
+          <ScalarProperty Name="CodRequisicaoSleepConfig" ColumnName="CodRequisicaoSleepConfig" />
+          <ScalarProperty Name="SleepConfiguration" ColumnName="SleepConfiguration" />
+          <ScalarProperty Name="MaxSpeed" ColumnName="MaxSpeed" />
+          <ScalarProperty Name="CodRequisicao" ColumnName="CodRequisicao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBS_RequisicaoTempoTransmissao">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TBS_RequisicaoTempoTransmissao">
+        <MappingFragment StoreEntitySet="TBS_RequisicaoTempoTransmissao">
+          <ScalarProperty Name="CodRequisicaoTempoTransmissao" ColumnName="CodRequisicaoTempoTransmissao" />
+          <ScalarProperty Name="CodRequisicao" ColumnName="CodRequisicao" />
+          <ScalarProperty Name="SleepTime" ColumnName="SleepTime" />
+          <ScalarProperty Name="TrackingTime" ColumnName="TrackingTime" />
+          <ScalarProperty Name="KeepAliveTime" ColumnName="KeepAliveTime" />
+          <ScalarProperty Name="AntiTheftTime" ColumnName="AntiTheftTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBS_StatusRequisicao">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TBS_StatusRequisicao">
+        <MappingFragment StoreEntitySet="TBS_StatusRequisicao">
+          <ScalarProperty Name="CodStatusRequisicao" ColumnName="CodStatusRequisicao" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBS_TipoEvento">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TBS_TipoEvento">
+        <MappingFragment StoreEntitySet="TBS_TipoEvento">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Cod" ColumnName="Cod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBS_TipoRequisicao">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TBS_TipoRequisicao">
+        <MappingFragment StoreEntitySet="TBS_TipoRequisicao">
+          <ScalarProperty Name="CodTipoRequisicao" ColumnName="CodTipoRequisicao" />
+          <ScalarProperty Name="NomeTipoRequisicao" ColumnName="NomeTipoRequisicao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_JornadaMaxima">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TB_JornadaMaxima">
+        <MappingFragment StoreEntitySet="TB_JornadaMaxima">
+          <ScalarProperty Name="CodJornadaMaxima" ColumnName="CodJornadaMaxima" />
+          <ScalarProperty Name="DirecaoContinua" ColumnName="DirecaoContinua" />
+          <ScalarProperty Name="TempoParada" ColumnName="TempoParada" />
+          <ScalarProperty Name="IntervaloRepouso" ColumnName="IntervaloRepouso" />
+          <ScalarProperty Name="HorasSemanais" ColumnName="HorasSemanais" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBS_ImeiSimCard">
+      <EntityTypeMapping TypeName="DbEcxTrackModel.TBS_ImeiSimCard">
+        <MappingFragment StoreEntitySet="TBS_ImeiSimCard">
+          <ScalarProperty Name="CodEquipamento" ColumnName="CodEquipamento" />
+          <ScalarProperty Name="Imei" ColumnName="Imei" />
+          <ScalarProperty Name="SimCard" ColumnName="SimCard" />
+          <ScalarProperty Name="DataEnvio" ColumnName="DataEnvio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="TB_VeiculoEvento" TypeName="DbEcxTrackModel.TB_VeiculoEvento" StoreEntitySet="TB_VeiculoEvento">
+      <EndProperty Name="TB_EventoVerificacao">
+        <ScalarProperty Name="CodEventoVerificacao" ColumnName="CodEventoVerificacao" />
+      </EndProperty>
+      <EndProperty Name="TB_Veiculo">
+        <ScalarProperty Name="CodVeiculo" ColumnName="CodVeiculo" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="Proc_DeslocParada" FunctionName="DbEcxTrackModel.Store.Proc_DeslocParada" />
+    <FunctionImportMapping FunctionImportName="Proc_Pontos" FunctionName="DbEcxTrackModel.Store.Proc_Pontos" />
+    <FunctionImportMapping FunctionImportName="Proc_Rastrear_CloseRequisition" FunctionName="DbEcxTrackModel.Store.Proc_Rastrear_CloseRequisition" />
+    <FunctionImportMapping FunctionImportName="Proc_Rastrear_GetRequisition" FunctionName="DbEcxTrackModel.Store.Proc_Rastrear_GetRequisition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DbEcxTrackModel.Proc_Rastrear_GetRequisition_Result">
+          <ScalarProperty Name="CodRequisicao" ColumnName="CodRequisicao" />
+          <ScalarProperty Name="CodEquipamento" ColumnName="CodEquipamento" />
+          <ScalarProperty Name="CodSaida" ColumnName="CodSaida" />
+          <ScalarProperty Name="CodAtivacao" ColumnName="CodAtivacao" />
+          <ScalarProperty Name="CodInvertida" ColumnName="CodInvertida" />
+          <ScalarProperty Name="CodStatusRequisicao" ColumnName="CodStatusRequisicao" />
+          <ScalarProperty Name="CodTipoRequisicao" ColumnName="CodTipoRequisicao" />
+          <ScalarProperty Name="CodEntrada" ColumnName="CodEntrada" />
+          <ScalarProperty Name="OpcoesEntrada" ColumnName="OpcoesEntrada" />
+          <ScalarProperty Name="TempoDeteccao" ColumnName="TempoDeteccao" />
+          <ScalarProperty Name="NivelAtivacaoLogica" ColumnName="NivelAtivacaoLogica" />
+          <ScalarProperty Name="AssociacaoDeSaidas" ColumnName="AssociacaoDeSaidas" />
+          <ScalarProperty Name="DataRequisicao" ColumnName="DataRequisicao" />
+          <ScalarProperty Name="CodUsuario" ColumnName="CodUsuario" />
+          <ScalarProperty Name="CodEquipamento1" ColumnName="CodEquipamento1" />
+          <ScalarProperty Name="NumeroEquipamento" ColumnName="NumeroEquipamento" />
+          <ScalarProperty Name="NumeroSerie" ColumnName="NumeroSerie" />
+          <ScalarProperty Name="Apn" ColumnName="Apn" />
+          <ScalarProperty Name="NumeroChip" ColumnName="NumeroChip" />
+          <ScalarProperty Name="NumeroTelefone" ColumnName="NumeroTelefone" />
+          <ScalarProperty Name="CodModelo" ColumnName="CodModelo" />
+          <ScalarProperty Name="CodOperadora" ColumnName="CodOperadora" />
+          <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+          <ScalarProperty Name="NumeroSerie2" ColumnName="NumeroSerie2" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_Rastrear_GetRequisitionApn" FunctionName="DbEcxTrackModel.Store.Proc_Rastrear_GetRequisitionApn">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DbEcxTrackModel.Proc_Rastrear_GetRequisitionApn_Result">
+          <ScalarProperty Name="CodRequisicaoApn" ColumnName="CodRequisicaoApn" />
+          <ScalarProperty Name="CodRequisicao" ColumnName="CodRequisicao" />
+          <ScalarProperty Name="Apn" ColumnName="Apn" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Senha" ColumnName="Senha" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_Rastrear_GetRequisitionOdometer" FunctionName="DbEcxTrackModel.Store.Proc_Rastrear_GetRequisitionOdometer">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DbEcxTrackModel.Proc_Rastrear_GetRequisitionOdometer_Result">
+          <ScalarProperty Name="CodRequisicaoHodometro" ColumnName="CodRequisicaoHodometro" />
+          <ScalarProperty Name="CodRequisicao" ColumnName="CodRequisicao" />
+          <ScalarProperty Name="ValorInicial" ColumnName="ValorInicial" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_Rastrear_GetRequisitionServer" FunctionName="DbEcxTrackModel.Store.Proc_Rastrear_GetRequisitionServer">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DbEcxTrackModel.Proc_Rastrear_GetRequisitionServer_Result">
+          <ScalarProperty Name="CodRequisicaoServer" ColumnName="CodRequisicaoServer" />
+          <ScalarProperty Name="CodRequisicao" ColumnName="CodRequisicao" />
+          <ScalarProperty Name="IP1" ColumnName="IP1" />
+          <ScalarProperty Name="Porta1" ColumnName="Porta1" />
+          <ScalarProperty Name="IP2" ColumnName="IP2" />
+          <ScalarProperty Name="Porta2" ColumnName="Porta2" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_Rastrear_GetRequisitionSleepTime" FunctionName="DbEcxTrackModel.Store.Proc_Rastrear_GetRequisitionSleepTime">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DbEcxTrackModel.Proc_Rastrear_GetRequisitionSleepTime_Result">
+          <ScalarProperty Name="CodRequisicaoSleepConfig" ColumnName="CodRequisicaoSleepConfig" />
+          <ScalarProperty Name="SleepConfiguration" ColumnName="SleepConfiguration" />
+          <ScalarProperty Name="MaxSpeed" ColumnName="MaxSpeed" />
+          <ScalarProperty Name="CodRequisicao" ColumnName="CodRequisicao" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_Rastrear_GetRequisitionTransmissionTime" FunctionName="DbEcxTrackModel.Store.Proc_Rastrear_GetRequisitionTransmissionTime">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DbEcxTrackModel.Proc_Rastrear_GetRequisitionTransmissionTime_Result">
+          <ScalarProperty Name="CodRequisicaoTempoTransmissao" ColumnName="CodRequisicaoTempoTransmissao" />
+          <ScalarProperty Name="CodRequisicao" ColumnName="CodRequisicao" />
+          <ScalarProperty Name="SleepTime" ColumnName="SleepTime" />
+          <ScalarProperty Name="TrackingTime" ColumnName="TrackingTime" />
+          <ScalarProperty Name="KeepAliveTime" ColumnName="KeepAliveTime" />
+          <ScalarProperty Name="AntiTheftTime" ColumnName="AntiTheftTime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_Rastrear_SaveImei" FunctionName="DbEcxTrackModel.Store.Proc_Rastrear_SaveImei" />
+    <FunctionImportMapping FunctionImportName="Proc_Rastrear_SaveTracking" FunctionName="DbEcxTrackModel.Store.Proc_Rastrear_SaveTracking" />
+    <FunctionImportMapping FunctionImportName="Proc_RelatorioVelocidade" FunctionName="DbEcxTrackModel.Store.Proc_RelatorioVelocidade">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DbEcxTrackModel.Proc_RelatorioVelocidade_Result">
+          <ScalarProperty Name="CodEvento" ColumnName="CodEvento" />
+          <ScalarProperty Name="VeiculoMotorista" ColumnName="VeiculoMotorista" />
+          <ScalarProperty Name="DataEvento" ColumnName="DataEvento" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Velocidade" ColumnName="Velocidade" />
+          <ScalarProperty Name="StatusIgnicao" ColumnName="StatusIgnicao" />
+          <ScalarProperty Name="CodVeiculo" ColumnName="CodVeiculo" />
+          <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_RelEntrada" FunctionName="DbEcxTrackModel.Store.Proc_RelEntrada" />
+    <FunctionImportMapping FunctionImportName="Proc_RelEntrada_old" FunctionName="DbEcxTrackModel.Store.Proc_RelEntrada_old" />
+    <FunctionImportMapping FunctionImportName="Proc_VerificarRotas" FunctionName="DbEcxTrackModel.Store.Proc_VerificarRotas" />
+    <FunctionImportMapping FunctionImportName="Utility_EstimateClusteredIndexSize" FunctionName="DbEcxTrackModel.Store.Utility_EstimateClusteredIndexSize" />
+  </EntityContainerMapping>
+</Mapping>
