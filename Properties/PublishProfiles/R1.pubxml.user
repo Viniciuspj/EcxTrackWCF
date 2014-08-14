@@ -6,11 +6,11 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>D:\Publish\WS Mob EcxTrack</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\Publish\WS Mob EcxTrack 14 08 14</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/EcxTrackWCF.dll">
-      <publishTime>08/13/2014 17:52:53</publishTime>
+      <publishTime>08/14/2014 15:37:24</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>08/11/2014 19:27:58</publishTime>
@@ -19,7 +19,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/11/2014 19:27:58</publishTime>
     </File>
     <File Include="DbModel/DbEcxTrackModel.edmx.diagram">
-      <publishTime>08/13/2014 17:41:06</publishTime>
+      <publishTime>08/14/2014 14:20:44</publishTime>
     </File>
     <File Include="EcxTrackAppServices.svc">
       <publishTime>08/11/2014 19:44:02</publishTime>
@@ -28,13 +28,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/11/2014 19:28:01</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>08/13/2014 17:52:54</publishTime>
+      <publishTime>08/14/2014 15:37:24</publishTime>
     </File>
     <File Include="Service1.svc">
       <publishTime>08/11/2014 19:04:14</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/13/2014 17:52:53</publishTime>
+      <publishTime>08/14/2014 15:30:18</publishTime>
     </File>
   </ItemGroup>
 </Project>

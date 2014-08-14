@@ -338,9 +338,11 @@
     <Compile Include="EcxTrackAppServices.svc.cs">
       <DependentUpon>EcxTrackAppServices.svc</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Cliente.cs" />
     <Compile Include="Entities\Ponto.cs" />
     <Compile Include="Entities\Perfil.cs" />
     <Compile Include="Entities\Usuario.cs" />
+    <Compile Include="Entities\Veiculo.cs" />
     <Compile Include="IEcxTrackAppServices.cs" />
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>

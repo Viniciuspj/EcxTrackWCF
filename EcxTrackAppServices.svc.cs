@@ -13,28 +13,39 @@ namespace EcxTrackWCF
     // NOTE: In order to launch WCF Test Client for testing this service, please select EcxTrackAppServices.svc or EcxTrackAppServices.svc.cs at the Solution Explorer and start debugging.
     public class EcxTrackAppServices : IEcxTrackAppServices
     {
+        /// <summary>
+        /// Login App
+        /// </summary>
+        /// <param name="NomeUsuario">strNomeUsuario</param>
+        /// <param name="Senha">strSenha</param>
+        /// <returns>objUsuario</returns>
         public Usuario Login(string NomeUsuario, string Senha)
         {
             try
             {
                 using (DbEcxTrackEntities entidades = new DbEcxTrackEntities())
                 {
-                    TB_Usuario Usuario_Encontrado = entidades.TB_Usuario
-                                                    .Include("TB_Perfil.TB_TipoPerfil")
+                    TB_Usuario Usuario_Encontrado = entidades.TB_Usuario.Include("TB_Perfil.TB_TipoPerfil")
                                                     .Where(u => u.Senha == Senha &&
                                                     (u.NomeUsuario == NomeUsuario || u.Email == NomeUsuario)).FirstOrDefault();
 
                     if (Usuario_Encontrado != null)
                     {
-                        Usuario Usuario = new Usuario();
+                        Usuario Usuario = new Usuario
+                        {
+                            CodUsuario = Usuario_Encontrado.CodUsuario,
+                            Nome = Usuario_Encontrado.Nome,
+                            CPF = Usuario_Encontrado.CPF,
+                            Email = Usuario_Encontrado.Email,
+                            Senha = Usuario_Encontrado.Senha,
+                            DataValidade = Usuario_Encontrado.DataValidade,
+                            Perfil = new Perfil(Usuario_Encontrado.TB_Perfil)
+                        };
 
-                        Usuario.CodUsuario = Usuario_Encontrado.CodUsuario;
-                        Usuario.Nome = Usuario_Encontrado.Nome;
-                        Usuario.CPF = Usuario_Encontrado.CPF;
-                        Usuario.Email = Usuario_Encontrado.Email;
-                        Usuario.Senha = Usuario_Encontrado.Senha;
-                        Usuario.DataValidade = Usuario_Encontrado.DataValidade;
-                        Usuario.Perfil = new Perfil(Usuario_Encontrado.TB_Perfil);
+                        if (Usuario_Encontrado.CodCliente.HasValue)
+                            Usuario.Cliente = Cliente.ObterCliente(Usuario_Encontrado.CodCliente.Value);
+                        else
+                            Usuario.Cliente = new Cliente { CodCliente = 0 };
 
                         if (VerificarValidadeUsuario(Usuario_Encontrado))
                         {
@@ -60,13 +71,13 @@ namespace EcxTrackWCF
                     }
                     else
                     {
-                        return null;
+                        return new Usuario { Status = "Zica" };
                     }
                 }
             }
             catch (Exception ex)
             {
-                return null;
+                return new Usuario { Status = "Zica" };
             }
         }
 
@@ -77,7 +88,6 @@ namespace EcxTrackWCF
             else
                 return true;
         }
-
 
         public Ponto UltimaLocalizacaoVeiculo(int CodVeiculo)
         {
@@ -90,7 +100,7 @@ namespace EcxTrackWCF
                     var ultimaLocalizacao = (from cv in entidades.TB_VeiculosEquipamentos
                                              join ev in entidades.TBS_Evento on cv.CodEquipamento equals ev.Equipamento
                                              where cv.CodVeiculo == CodVeiculo && cv.Ativo == "A" && ev.Latitude != 0 && ev.Longitude != 0
-                                             select new 
+                                             select new
                                              {
                                                  DataEvento = ev.DataEvento,
                                                  CodVeiculo = cv.CodVeiculo,
@@ -125,6 +135,39 @@ namespace EcxTrackWCF
             catch
             {
                 return null;
+            }
+        }
+
+        public List<Veiculo> VeiculosPorCliente(int CodCliente, bool buscaClienteAdicional)
+        {
+            List<Veiculo> lstVeiculo = new List<Veiculo>();
+
+            try
+            {
+                using (DbEcxTrackEntities db = new DbEcxTrackEntities())
+                {
+                    List<Veiculo> lstVeiculo2 = (from vc in db.TB_VeiculosClientes 
+                                                 join v in db.TB_Veiculo on vc.CodVeiculo equals v.CodVeiculo into _v from v in _v.DefaultIfEmpty()
+                                                 join t in db.TB_TipoVeiculo on v.CodTipoVeiculo equals t.CodTipoVeiculo into _t from t in _t.DefaultIfEmpty()
+                                                 where vc.CodCliente == CodCliente && vc.Status == "A" && (vc.TipoCliente == "T" || (buscaClienteAdicional && vc.TipoCliente == "A")) && v.Status == "A"
+                                                   select new Veiculo
+                                                   {
+                                                      CodCliente = vc.CodCliente,
+                                                      CodVeiculo = vc.CodVeiculo,
+                                                      CodTipoVeiculo = t.CodTipoVeiculo,
+                                                      Placa = v.Placa,
+                                                      ContatoNome = v.Contato,
+                                                      ContatoTelefone = v.TelefoneContato,
+                                                      NomeTipoVeiculo = t.NomeTipo
+                                                   }).ToList();
+
+                    return lstVeiculo2;
+                                       
+                }
+            }
+            catch
+            {
+                return lstVeiculo;
             }
         }
     }

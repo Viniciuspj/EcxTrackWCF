@@ -17,6 +17,7 @@ namespace EcxTrackWCF.Entities
         DateTime? _DataValidade;
         string _Status;
         Perfil _Perfil;
+        Cliente _Cliente;
         //public Cliente Cliente
 
         [DataMember]
@@ -66,6 +67,13 @@ namespace EcxTrackWCF.Entities
         {
             get { return _Perfil; }
             set { _Perfil = value; }
+        }
+
+        [DataMember]
+        public Cliente Cliente
+        {
+            get { return _Cliente; }
+            set { _Cliente = value; }
         }
     }
 }

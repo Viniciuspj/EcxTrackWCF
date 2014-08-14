@@ -10,9 +10,16 @@ namespace EcxTrackWCF.Entities
     [DataContract]
     public class Perfil
     {
+        [DataMember]
         public int CodPerfil { get; set; }
+
+        [DataMember]
         public string Nome { get; set; }
+
+        [DataMember]
         public Nullable<int> Personalizado { get; set; }
+
+        [DataMember]
         public Nullable<int> TipoPerfil { get; set; }
 
         public Perfil(TB_Perfil TB_Perfil)

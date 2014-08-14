@@ -18,6 +18,9 @@ namespace EcxTrackWCF
 
         [OperationContract]
         Ponto UltimaLocalizacaoVeiculo(int CodVeiculo);
+
+        [OperationContract]
+        List<Veiculo> VeiculosPorCliente(int CodCliente, bool buscaClienteAdicional);
     }
 
 
